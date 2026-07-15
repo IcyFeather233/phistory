@@ -1,0 +1,56 @@
+agent_left,agent_right,category_cosine,tool_jaccard,shared_tools,union_tools,shared_tool_names_sample
+openclaw,kimi,0.9825,0.0,0,54,
+antigravity,omp,0.9524,0.0222,1,45,generate_image
+mimo,opencode,0.9169,0.5294,9,17,bash; edit; glob; grep; read; skill; task; webfetch; write
+claude-code,opencode,0.8968,0.0,0,58,
+codex,kimi-code,0.8949,0.0,0,48,
+pi,omp,0.8923,0.2,4,20,bash; edit; read; write
+claude-code,mimo,0.8697,0.0,0,64,
+kimi-code,pi,0.8686,0.0,0,28,
+kimi-code,omp,0.8569,0.0,0,44,
+claude-code,codex,0.8568,0.0,0,72,
+codex,opencode,0.8564,0.0,0,34,
+codex,pi,0.8434,0.0,0,28,
+antigravity,kimi-code,0.8409,0.0,0,50,
+codex,omp,0.8398,0.0233,1,43,web_search
+codex,antigravity,0.8157,0.0,0,50,
+antigravity,pi,0.8025,0.0,0,30,
+claude-code,kimi-code,0.7933,0.3091,17,55,Agent; AskUserQuestion; Bash; CronCreate; CronDelete; CronList; Edit; EnterPlanMode; ExitPlanMode; Glob; Grep; Read
+openclaw,opencode,0.7823,0.0667,3,45,edit; read; write
+kimi-code,opencode,0.7748,0.0,0,34,
+opencode,omp,0.7644,0.3043,7,23,bash; edit; glob; grep; read; task; write
+antigravity,opencode,0.7611,0.0,0,36,
+kimi-code,hermes,0.757,0.0,0,55,
+mimo,openclaw,0.7475,0.08,4,50,cron; edit; read; write
+kimi,opencode,0.7379,0.0,0,26,
+claude-code,omp,0.7352,0.0,0,68,
+codex,mimo,0.7295,0.0,0,40,
+codex,openclaw,0.7243,0.1071,6,56,apply_patch; create_goal; exec; get_goal; update_goal; web_search
+opencode,pi,0.7229,0.4,4,10,bash; edit; read; write
+claude-code,pi,0.7146,0.0,0,52,
+codex,kimi,0.7104,0.0,0,40,
+kimi-code,kimi,0.6968,0.3333,10,30,Agent; AskUserQuestion; EnterPlanMode; ExitPlanMode; FetchURL; Glob; Grep; TaskList; TaskOutput; TaskStop
+mimo,kimi,0.6966,0.0,0,32,
+kimi-code,mimo,0.6885,0.0,0,40,
+claude-code,antigravity,0.6692,0.0,0,74,
+kimi-code,openclaw,0.6677,0.0,0,62,
+antigravity,openclaw,0.6643,0.0,0,64,
+antigravity,mimo,0.6586,0.0,0,42,
+claude-code,openclaw,0.6469,0.0,0,86,
+antigravity,kimi,0.6434,0.0,0,42,
+hermes,kimi,0.6317,0.0,0,47,
+mimo,omp,0.6276,0.2414,7,29,bash; edit; glob; grep; read; task; write
+claude-code,kimi,0.6117,0.1852,10,54,Agent; AskUserQuestion; EnterPlanMode; ExitPlanMode; Glob; Grep; Task; TaskList; TaskOutput; TaskStop
+mimo,pi,0.5924,0.25,4,16,bash; edit; read; write
+mimo,hermes,0.563,0.0217,1,46,memory
+openclaw,hermes,0.5522,0.0299,2,67,image_generate; process
+codex,hermes,0.5439,0.0,0,55,
+openclaw,omp,0.5262,0.0943,5,53,browser; edit; read; web_search; write
+openclaw,pi,0.5111,0.0769,3,39,edit; read; write
+hermes,pi,0.5087,0.0,0,35,
+antigravity,hermes,0.5035,0.0,0,57,
+hermes,opencode,0.4932,0.0,0,41,
+kimi,omp,0.4923,0.0,0,36,
+kimi,pi,0.4845,0.0,0,20,
+claude-code,hermes,0.4691,0.0,0,79,
+hermes,omp,0.4209,0.02,1,50,todo

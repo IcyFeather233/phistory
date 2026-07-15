@@ -1,0 +1,11 @@
+{
+  "enabled": false,
+  "base_url": "https://siflow-changliu.siflow.cn/siflow/changliu/f93ea1119a/qwen36-35ba3b/v1/8000/v1",
+  "model": "qwen3.6-35ba3b",
+  "limit": 120,
+  "attempted": 0,
+  "succeeded": 0,
+  "failed": 0,
+  "cache_path": "analysis_result/results/classification_cache.jsonl",
+  "note": "model classifier disabled; rule-only labels used"
+}

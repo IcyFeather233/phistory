@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="620" viewBox="0 0 980 620">
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="30" y="32" font-family="Inter,Arial,sans-serif" font-size="20" fill="#222" text-anchor="start" font-weight="700">Observed tool source and schema coverage</text>
+<text x="30" y="52" font-family="Inter,Arial,sans-serif" font-size="12" fill="#555" text-anchor="start" font-weight="400">Blue = parsed from trace tool schema; gray = recovered from prompt text headings. Dot size encodes parsed parameter count.</text>
+<text x="150" y="52" font-family="Inter,Arial,sans-serif" font-size="11" fill="#777" text-anchor="start" font-weight="400">tools</text>
+<text x="795" y="52" font-family="Inter,Arial,sans-serif" font-size="11" fill="#777" text-anchor="middle" font-weight="400">params</text>
+<text x="20" y="87" font-family="Inter,Arial,sans-serif" font-size="12" fill="#222" text-anchor="start" font-weight="400">claude-code</text>
+<rect x="150" y="70" width="0.0" height="22" fill="#3867d6" stroke="none" rx="3" opacity="1"/>
+<rect x="150.0" y="70" width="369.4736842105263" height="22" fill="#a5b1c2" stroke="none" rx="3" opacity="1"/>
+<text x="680" y="86" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="700">27</text>
+<circle cx="795" cy="81" r="4.0" fill="#20bf6b" stroke="#fff" opacity="0.75"/>
+<text x="830" y="86" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">0</text>
+<text x="20" y="129" font-family="Inter,Arial,sans-serif" font-size="12" fill="#222" text-anchor="start" font-weight="400">codex</text>
+<rect x="150" y="112" width="0.0" height="22" fill="#3867d6" stroke="none" rx="3" opacity="1"/>
+<rect x="150.0" y="112" width="54.73684210526316" height="22" fill="#a5b1c2" stroke="none" rx="3" opacity="1"/>
+<text x="680" y="128" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="700">4</text>
+<circle cx="795" cy="123" r="4.0" fill="#20bf6b" stroke="#fff" opacity="0.75"/>
+<text x="830" y="128" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">0</text>
+<text x="20" y="171" font-family="Inter,Arial,sans-serif" font-size="12" fill="#222" text-anchor="start" font-weight="400">antigravity</text>
+<rect x="150" y="154" width="164.21052631578945" height="22" fill="#3867d6" stroke="none" rx="3" opacity="1"/>
+<rect x="314.2105263157895" y="154" width="164.21052631578945" height="22" fill="#a5b1c2" stroke="none" rx="3" opacity="1"/>
+<text x="680" y="170" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="700">24</text>
+<circle cx="795" cy="165" r="4.0" fill="#20bf6b" stroke="#fff" opacity="0.75"/>
+<text x="830" y="170" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">0</text>
+<text x="20" y="213" font-family="Inter,Arial,sans-serif" font-size="12" fill="#222" text-anchor="start" font-weight="400">kimi-code</text>
+<rect x="150" y="196" width="0.0" height="22" fill="#3867d6" stroke="none" rx="3" opacity="1"/>
+<rect x="150.0" y="196" width="328.4210526315789" height="22" fill="#a5b1c2" stroke="none" rx="3" opacity="1"/>
+<text x="680" y="212" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="700">24</text>
+<circle cx="795" cy="207" r="4.0" fill="#20bf6b" stroke="#fff" opacity="0.75"/>
+<text x="830" y="212" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">0</text>
+<text x="20" y="255" font-family="Inter,Arial,sans-serif" font-size="12" fill="#222" text-anchor="start" font-weight="400">mimo</text>
+<rect x="150" y="238" width="0.0" height="22" fill="#3867d6" stroke="none" rx="3" opacity="1"/>
+<rect x="150.0" y="238" width="218.94736842105263" height="22" fill="#a5b1c2" stroke="none" rx="3" opacity="1"/>
+<text x="680" y="254" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="700">16</text>
+<circle cx="795" cy="249" r="4.0" fill="#20bf6b" stroke="#fff" opacity="0.75"/>
+<text x="830" y="254" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">0</text>
+<text x="20" y="297" font-family="Inter,Arial,sans-serif" font-size="12" fill="#222" text-anchor="start" font-weight="400">openclaw</text>
+<rect x="150" y="280" width="520.0" height="22" fill="#3867d6" stroke="none" rx="3" opacity="1"/>
+<rect x="670.0" y="280" width="0.0" height="22" fill="#a5b1c2" stroke="none" rx="3" opacity="1"/>
+<text x="680" y="296" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="700">38</text>
+<circle cx="795" cy="291" r="22.0" fill="#20bf6b" stroke="#fff" opacity="0.75"/>
+<text x="830" y="296" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">435</text>
+<text x="20" y="339" font-family="Inter,Arial,sans-serif" font-size="12" fill="#222" text-anchor="start" font-weight="400">hermes</text>
+<rect x="150" y="322" width="0.0" height="22" fill="#3867d6" stroke="none" rx="3" opacity="1"/>
+<rect x="150.0" y="322" width="396.8421052631579" height="22" fill="#a5b1c2" stroke="none" rx="3" opacity="1"/>
+<text x="680" y="338" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="700">29</text>
+<circle cx="795" cy="333" r="4.0" fill="#20bf6b" stroke="#fff" opacity="0.75"/>
+<text x="830" y="338" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">0</text>
+<text x="20" y="381" font-family="Inter,Arial,sans-serif" font-size="12" fill="#222" text-anchor="start" font-weight="400">kimi</text>
+<rect x="150" y="364" width="205.26315789473685" height="22" fill="#3867d6" stroke="none" rx="3" opacity="1"/>
+<rect x="355.2631578947369" y="364" width="0.0" height="22" fill="#a5b1c2" stroke="none" rx="3" opacity="1"/>
+<text x="680" y="380" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="700">15</text>
+<circle cx="795" cy="375" r="9.916662619393144" fill="#20bf6b" stroke="#fff" opacity="0.75"/>
+<text x="830" y="380" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">47</text>
+<text x="20" y="423" font-family="Inter,Arial,sans-serif" font-size="12" fill="#222" text-anchor="start" font-weight="400">opencode</text>
+<rect x="150" y="406" width="0.0" height="22" fill="#3867d6" stroke="none" rx="3" opacity="1"/>
+<rect x="150.0" y="406" width="136.8421052631579" height="22" fill="#a5b1c2" stroke="none" rx="3" opacity="1"/>
+<text x="680" y="422" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="700">10</text>
+<circle cx="795" cy="417" r="4.0" fill="#20bf6b" stroke="#fff" opacity="0.75"/>
+<text x="830" y="422" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">0</text>
+<text x="20" y="465" font-family="Inter,Arial,sans-serif" font-size="12" fill="#222" text-anchor="start" font-weight="400">pi</text>
+<rect x="150" y="448" width="54.73684210526316" height="22" fill="#3867d6" stroke="none" rx="3" opacity="1"/>
+<rect x="204.73684210526315" y="448" width="0.0" height="22" fill="#a5b1c2" stroke="none" rx="3" opacity="1"/>
+<text x="680" y="464" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="700">4</text>
+<circle cx="795" cy="459" r="6.589101828021074" fill="#20bf6b" stroke="#fff" opacity="0.75"/>
+<text x="830" y="464" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">9</text>
+<text x="20" y="507" font-family="Inter,Arial,sans-serif" font-size="12" fill="#222" text-anchor="start" font-weight="400">omp</text>
+<rect x="150" y="490" width="0.0" height="22" fill="#3867d6" stroke="none" rx="3" opacity="1"/>
+<rect x="150.0" y="490" width="273.6842105263158" height="22" fill="#a5b1c2" stroke="none" rx="3" opacity="1"/>
+<text x="680" y="506" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="700">20</text>
+<circle cx="795" cy="501" r="4.0" fill="#20bf6b" stroke="#fff" opacity="0.75"/>
+<text x="830" y="506" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">0</text>
+<rect x="150" y="547" width="16" height="12" fill="#3867d6" stroke="none" rx="2" opacity="1"/>
+<text x="172" y="557" font-family="Inter,Arial,sans-serif" font-size="11" fill="#333" text-anchor="start" font-weight="400">trace schema tools</text>
+<rect x="305" y="547" width="16" height="12" fill="#a5b1c2" stroke="none" rx="2" opacity="1"/>
+<text x="327" y="557" font-family="Inter,Arial,sans-serif" font-size="11" fill="#333" text-anchor="start" font-weight="400">prompt-text tools</text>
+<circle cx="480" cy="553" r="8" fill="#20bf6b" stroke="#fff" opacity="0.75"/>
+<text x="495" y="557" font-family="Inter,Arial,sans-serif" font-size="11" fill="#333" text-anchor="start" font-weight="400">parsed parameter count</text>
+</svg>

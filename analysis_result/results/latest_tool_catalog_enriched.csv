@@ -1,0 +1,212 @@
+agent_id,version,published_at,tool_name,normalized_tool_name,tool_category,tool_category_label,source,parameter_count,required_parameter_count,description_chars,schema_chars
+claude-code,2.1.209,2026-07-14T04:45:37.792Z,Agent,agent,delegation_multi_agent,Delegation/multi-agent,prompt_text,0,0,0,2
+claude-code,2.1.209,2026-07-14T04:45:37.792Z,Bash,bash,shell_process,Shell/process,prompt_text,0,0,0,2
+claude-code,2.1.209,2026-07-14T04:45:37.792Z,CronCreate,croncreate,scheduled_async,Scheduled/async,prompt_text,0,0,0,2
+claude-code,2.1.209,2026-07-14T04:45:37.792Z,CronDelete,crondelete,scheduled_async,Scheduled/async,prompt_text,0,0,0,2
+claude-code,2.1.209,2026-07-14T04:45:37.792Z,CronList,cronlist,scheduled_async,Scheduled/async,prompt_text,0,0,0,2
+claude-code,2.1.209,2026-07-14T04:45:37.792Z,DesignSync,designsync,skills_extensibility,Skills/extensibility,prompt_text,0,0,0,2
+claude-code,2.1.209,2026-07-14T04:45:37.792Z,Edit,edit,file_write_edit,File write/edit,prompt_text,0,0,0,2
+claude-code,2.1.209,2026-07-14T04:45:37.792Z,EnterWorktree,enterworktree,other,Other,prompt_text,0,0,0,2
+claude-code,2.1.209,2026-07-14T04:45:37.792Z,ExitWorktree,exitworktree,other,Other,prompt_text,0,0,0,2
+claude-code,2.1.209,2026-07-14T04:45:37.792Z,Monitor,monitor,scheduled_async,Scheduled/async,prompt_text,0,0,0,2
+claude-code,2.1.209,2026-07-14T04:45:37.792Z,NotebookEdit,notebookedit,file_write_edit,File write/edit,prompt_text,0,0,0,2
+claude-code,2.1.209,2026-07-14T04:45:37.792Z,PushNotification,pushnotification,scheduled_async,Scheduled/async,prompt_text,0,0,0,2
+claude-code,2.1.209,2026-07-14T04:45:37.792Z,Read,read,file_read,File read,prompt_text,0,0,0,2
+claude-code,2.1.209,2026-07-14T04:45:37.792Z,ReportFindings,reportfindings,other,Other,prompt_text,0,0,0,2
+claude-code,2.1.209,2026-07-14T04:45:37.792Z,ScheduleWakeup,schedulewakeup,scheduled_async,Scheduled/async,prompt_text,0,0,0,2
+claude-code,2.1.209,2026-07-14T04:45:37.792Z,SendMessage,sendmessage,memory_context_session,Memory/session,prompt_text,0,0,0,2
+claude-code,2.1.209,2026-07-14T04:45:37.792Z,Skill,skill,skills_extensibility,Skills/extensibility,prompt_text,0,0,0,2
+claude-code,2.1.209,2026-07-14T04:45:37.792Z,TaskCreate,taskcreate,delegation_multi_agent,Delegation/multi-agent,prompt_text,0,0,0,2
+claude-code,2.1.209,2026-07-14T04:45:37.792Z,TaskGet,taskget,delegation_multi_agent,Delegation/multi-agent,prompt_text,0,0,0,2
+claude-code,2.1.209,2026-07-14T04:45:37.792Z,TaskList,tasklist,delegation_multi_agent,Delegation/multi-agent,prompt_text,0,0,0,2
+claude-code,2.1.209,2026-07-14T04:45:37.792Z,TaskOutput,taskoutput,delegation_multi_agent,Delegation/multi-agent,prompt_text,0,0,0,2
+claude-code,2.1.209,2026-07-14T04:45:37.792Z,TaskStop,taskstop,delegation_multi_agent,Delegation/multi-agent,prompt_text,0,0,0,2
+claude-code,2.1.209,2026-07-14T04:45:37.792Z,TaskUpdate,taskupdate,delegation_multi_agent,Delegation/multi-agent,prompt_text,0,0,0,2
+claude-code,2.1.209,2026-07-14T04:45:37.792Z,WebFetch,webfetch,web_browser,Web/browser,prompt_text,0,0,0,2
+claude-code,2.1.209,2026-07-14T04:45:37.792Z,WebSearch,websearch,web_browser,Web/browser,prompt_text,0,0,0,2
+claude-code,2.1.209,2026-07-14T04:45:37.792Z,Workflow,workflow,skills_extensibility,Skills/extensibility,prompt_text,0,0,0,2
+claude-code,2.1.209,2026-07-14T04:45:37.792Z,Write,write,file_write_edit,File write/edit,prompt_text,0,0,0,2
+codex,0.144.4,2026-07-14T05:10:51.485Z,collaboration,collaboration,user_interaction,User interaction,prompt_text,0,0,0,2
+codex,0.144.4,2026-07-14T05:10:51.485Z,exec,exec,shell_process,Shell/process,prompt_text,0,0,0,2
+codex,0.144.4,2026-07-14T05:10:51.485Z,request_user_input,request_user_input,user_interaction,User interaction,prompt_text,0,0,0,2
+codex,0.144.4,2026-07-14T05:10:51.485Z,wait,wait,other,Other,prompt_text,0,0,0,2
+antigravity,1.1.2,2026-07-13T23:26:02Z,generate_image,generate_image,media_multimodal,Media/multimodal,prompt_text,0,0,0,2
+antigravity,1.1.2,2026-07-13T23:26:02Z,grep_search,grep_search,search_discovery,Search/discovery,prompt_text,0,0,0,2
+antigravity,1.1.2,2026-07-13T23:26:02Z,list_dir,list_dir,search_discovery,Search/discovery,prompt_text,0,0,0,2
+antigravity,1.1.2,2026-07-13T23:26:02Z,manage_task,manage_task,planning_task_state,Planning/task state,prompt_text,0,0,0,2
+antigravity,1.1.2,2026-07-13T23:26:02Z,multi_replace_file_content,multi_replace_file_content,file_write_edit,File write/edit,prompt_text,0,0,0,2
+antigravity,1.1.2,2026-07-13T23:26:02Z,read_url_content,read_url_content,web_browser,Web/browser,prompt_text,0,0,0,2
+antigravity,1.1.2,2026-07-13T23:26:02Z,replace_file_content,replace_file_content,file_write_edit,File write/edit,prompt_text,0,0,0,2
+antigravity,1.1.2,2026-07-13T23:26:02Z,run_command,run_command,shell_process,Shell/process,prompt_text,0,0,0,2
+antigravity,1.1.2,2026-07-13T23:26:02Z,schedule,schedule,scheduled_async,Scheduled/async,prompt_text,0,0,0,2
+antigravity,1.1.2,2026-07-13T23:26:02Z,search_web,search_web,web_browser,Web/browser,prompt_text,0,0,0,2
+antigravity,1.1.2,2026-07-13T23:26:02Z,tool_0,tool_0,opaque_alias,Opaque trace alias,trace,0,0,0,2
+antigravity,1.1.2,2026-07-13T23:26:02Z,tool_1,tool_1,opaque_alias,Opaque trace alias,trace,0,0,0,2
+antigravity,1.1.2,2026-07-13T23:26:02Z,tool_10,tool_10,opaque_alias,Opaque trace alias,trace,0,0,0,2
+antigravity,1.1.2,2026-07-13T23:26:02Z,tool_11,tool_11,opaque_alias,Opaque trace alias,trace,0,0,0,2
+antigravity,1.1.2,2026-07-13T23:26:02Z,tool_2,tool_2,opaque_alias,Opaque trace alias,trace,0,0,0,2
+antigravity,1.1.2,2026-07-13T23:26:02Z,tool_3,tool_3,opaque_alias,Opaque trace alias,trace,0,0,0,2
+antigravity,1.1.2,2026-07-13T23:26:02Z,tool_4,tool_4,opaque_alias,Opaque trace alias,trace,0,0,0,2
+antigravity,1.1.2,2026-07-13T23:26:02Z,tool_5,tool_5,opaque_alias,Opaque trace alias,trace,0,0,0,2
+antigravity,1.1.2,2026-07-13T23:26:02Z,tool_6,tool_6,opaque_alias,Opaque trace alias,trace,0,0,0,2
+antigravity,1.1.2,2026-07-13T23:26:02Z,tool_7,tool_7,opaque_alias,Opaque trace alias,trace,0,0,0,2
+antigravity,1.1.2,2026-07-13T23:26:02Z,tool_8,tool_8,opaque_alias,Opaque trace alias,trace,0,0,0,2
+antigravity,1.1.2,2026-07-13T23:26:02Z,tool_9,tool_9,opaque_alias,Opaque trace alias,trace,0,0,0,2
+antigravity,1.1.2,2026-07-13T23:26:02Z,view_file,view_file,file_read,File read,prompt_text,0,0,0,2
+antigravity,1.1.2,2026-07-13T23:26:02Z,write_to_file,write_to_file,file_write_edit,File write/edit,prompt_text,0,0,0,2
+kimi-code,0.24.1,2026-07-14T09:06:27.396Z,Agent,agent,delegation_multi_agent,Delegation/multi-agent,prompt_text,0,0,0,2
+kimi-code,0.24.1,2026-07-14T09:06:27.396Z,AgentSwarm,agentswarm,delegation_multi_agent,Delegation/multi-agent,prompt_text,0,0,0,2
+kimi-code,0.24.1,2026-07-14T09:06:27.396Z,AskUserQuestion,askuserquestion,user_interaction,User interaction,prompt_text,0,0,0,2
+kimi-code,0.24.1,2026-07-14T09:06:27.396Z,Bash,bash,shell_process,Shell/process,prompt_text,0,0,0,2
+kimi-code,0.24.1,2026-07-14T09:06:27.396Z,CreateGoal,creategoal,planning_task_state,Planning/task state,prompt_text,0,0,0,2
+kimi-code,0.24.1,2026-07-14T09:06:27.396Z,CronCreate,croncreate,scheduled_async,Scheduled/async,prompt_text,0,0,0,2
+kimi-code,0.24.1,2026-07-14T09:06:27.396Z,CronDelete,crondelete,scheduled_async,Scheduled/async,prompt_text,0,0,0,2
+kimi-code,0.24.1,2026-07-14T09:06:27.396Z,CronList,cronlist,scheduled_async,Scheduled/async,prompt_text,0,0,0,2
+kimi-code,0.24.1,2026-07-14T09:06:27.396Z,Edit,edit,file_write_edit,File write/edit,prompt_text,0,0,0,2
+kimi-code,0.24.1,2026-07-14T09:06:27.396Z,EnterPlanMode,enterplanmode,planning_task_state,Planning/task state,prompt_text,0,0,0,2
+kimi-code,0.24.1,2026-07-14T09:06:27.396Z,ExitPlanMode,exitplanmode,planning_task_state,Planning/task state,prompt_text,0,0,0,2
+kimi-code,0.24.1,2026-07-14T09:06:27.396Z,FetchURL,fetchurl,web_browser,Web/browser,prompt_text,0,0,0,2
+kimi-code,0.24.1,2026-07-14T09:06:27.396Z,GetGoal,getgoal,planning_task_state,Planning/task state,prompt_text,0,0,0,2
+kimi-code,0.24.1,2026-07-14T09:06:27.396Z,Glob,glob,search_discovery,Search/discovery,prompt_text,0,0,0,2
+kimi-code,0.24.1,2026-07-14T09:06:27.396Z,Grep,grep,search_discovery,Search/discovery,prompt_text,0,0,0,2
+kimi-code,0.24.1,2026-07-14T09:06:27.396Z,Read,read,file_read,File read,prompt_text,0,0,0,2
+kimi-code,0.24.1,2026-07-14T09:06:27.396Z,SetGoalBudget,setgoalbudget,planning_task_state,Planning/task state,prompt_text,0,0,0,2
+kimi-code,0.24.1,2026-07-14T09:06:27.396Z,Skill,skill,skills_extensibility,Skills/extensibility,prompt_text,0,0,0,2
+kimi-code,0.24.1,2026-07-14T09:06:27.396Z,TaskList,tasklist,delegation_multi_agent,Delegation/multi-agent,prompt_text,0,0,0,2
+kimi-code,0.24.1,2026-07-14T09:06:27.396Z,TaskOutput,taskoutput,delegation_multi_agent,Delegation/multi-agent,prompt_text,0,0,0,2
+kimi-code,0.24.1,2026-07-14T09:06:27.396Z,TaskStop,taskstop,delegation_multi_agent,Delegation/multi-agent,prompt_text,0,0,0,2
+kimi-code,0.24.1,2026-07-14T09:06:27.396Z,TodoList,todolist,planning_task_state,Planning/task state,prompt_text,0,0,0,2
+kimi-code,0.24.1,2026-07-14T09:06:27.396Z,UpdateGoal,updategoal,planning_task_state,Planning/task state,prompt_text,0,0,0,2
+kimi-code,0.24.1,2026-07-14T09:06:27.396Z,Write,write,file_write_edit,File write/edit,prompt_text,0,0,0,2
+mimo,0.1.5,2026-07-07T10:07:26.006Z,actor,actor,shell_process,Shell/process,prompt_text,0,0,0,2
+mimo,0.1.5,2026-07-07T10:07:26.006Z,bash,bash,shell_process,Shell/process,prompt_text,0,0,0,2
+mimo,0.1.5,2026-07-07T10:07:26.006Z,change_directory,change_directory,shell_process,Shell/process,prompt_text,0,0,0,2
+mimo,0.1.5,2026-07-07T10:07:26.006Z,cron,cron,scheduled_async,Scheduled/async,prompt_text,0,0,0,2
+mimo,0.1.5,2026-07-07T10:07:26.006Z,edit,edit,file_write_edit,File write/edit,prompt_text,0,0,0,2
+mimo,0.1.5,2026-07-07T10:07:26.006Z,glob,glob,search_discovery,Search/discovery,prompt_text,0,0,0,2
+mimo,0.1.5,2026-07-07T10:07:26.006Z,grep,grep,search_discovery,Search/discovery,prompt_text,0,0,0,2
+mimo,0.1.5,2026-07-07T10:07:26.006Z,history,history,memory_context_session,Memory/session,prompt_text,0,0,0,2
+mimo,0.1.5,2026-07-07T10:07:26.006Z,memory,memory,memory_context_session,Memory/session,prompt_text,0,0,0,2
+mimo,0.1.5,2026-07-07T10:07:26.006Z,notebook_edit,notebook_edit,file_write_edit,File write/edit,prompt_text,0,0,0,2
+mimo,0.1.5,2026-07-07T10:07:26.006Z,read,read,file_read,File read,prompt_text,0,0,0,2
+mimo,0.1.5,2026-07-07T10:07:26.006Z,skill,skill,skills_extensibility,Skills/extensibility,prompt_text,0,0,0,2
+mimo,0.1.5,2026-07-07T10:07:26.006Z,task,task,delegation_multi_agent,Delegation/multi-agent,prompt_text,0,0,0,2
+mimo,0.1.5,2026-07-07T10:07:26.006Z,webfetch,webfetch,web_browser,Web/browser,prompt_text,0,0,0,2
+mimo,0.1.5,2026-07-07T10:07:26.006Z,workflow,workflow,skills_extensibility,Skills/extensibility,prompt_text,0,0,0,2
+mimo,0.1.5,2026-07-07T10:07:26.006Z,write,write,file_write_edit,File write/edit,prompt_text,0,0,0,2
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,agents_list,agents_list,delegation_multi_agent,Delegation/multi-agent,trace,0,0,63,36
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,apply_patch,apply_patch,file_write_edit,File write/edit,trace,1,1,132,162
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,browser,browser,web_browser,Web/browser,trace,54,1,1546,3999
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,canvas,canvas,media_multimodal,Media/multimodal,trace,18,1,106,804
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,create_goal,create_goal,planning_task_state,Planning/task state,trace,2,1,155,281
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,cron,cron,scheduled_async,Scheduled/async,trace,15,1,4062,10354
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,dir_fetch,dir_fetch,search_discovery,Search/discovery,trace,7,2,598,805
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,dir_list,dir_list,search_discovery,Search/discovery,trace,7,2,577,762
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,edit,edit,file_write_edit,File write/edit,trace,2,2,326,870
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,exec,exec,shell_process,Shell/process,trace,12,1,539,1403
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,file_fetch,file_fetch,file_read,File read,trace,6,2,639,642
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,file_write,file_write,file_write_edit,File write/edit,trace,7,2,550,1019
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,gateway,gateway,runtime_integration,Runtime/integration,trace,14,1,566,713
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,get_goal,get_goal,planning_task_state,Planning/task state,trace,0,0,71,36
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,image,image,media_multimodal,Media/multimodal,trace,6,0,119,381
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,image_generate,image_generate,media_multimodal,Media/multimodal,trace,16,0,468,2445
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,memory_get,memory_get,memory_context_session,Memory/session,trace,4,1,239,267
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,memory_search,memory_search,memory_context_session,Memory/session,trace,4,1,605,275
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,message,message,memory_context_session,Memory/session,trace,106,1,71,6339
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,node_inference,node_inference,runtime_integration,Runtime/integration,trace,8,1,206,740
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,nodes,nodes,runtime_integration,Runtime/integration,trace,32,1,143,1953
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,pdf,pdf,media_multimodal,Media/multimodal,trace,7,0,159,484
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,process,process,shell_process,Shell/process,trace,12,1,456,1146
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,read,read,file_read,File read,trace,3,1,303,323
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,session_status,session_status,memory_context_session,Memory/session,trace,2,0,278,97
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,sessions_history,sessions_history,memory_context_session,Memory/session,trace,4,1,149,222
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,sessions_list,sessions_list,memory_context_session,Memory/session,trace,10,0,150,514
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,sessions_send,sessions_send,memory_context_session,Memory/session,trace,5,1,282,304
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,sessions_spawn,sessions_spawn,memory_context_session,Memory/session,trace,15,1,578,1247
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,sessions_yield,sessions_yield,memory_context_session,Memory/session,trace,1,0,79,65
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,skill_workshop,skill_workshop,skills_extensibility,Skills/extensibility,trace,13,1,171,2409
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,subagents,subagents,delegation_multi_agent,Delegation/multi-agent,trace,2,0,132,134
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,tts,tts,media_multimodal,Media/multimodal,trace,3,1,217,285
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,update_goal,update_goal,planning_task_state,Planning/task state,trace,2,1,212,224
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,video_generate,video_generate,media_multimodal,Media/multimodal,trace,18,0,307,2153
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,web_fetch,web_fetch,web_browser,Web/browser,trace,3,1,93,343
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,web_search,web_search,web_browser,Web/browser,trace,12,1,65,1068
+openclaw,2026.7.1,2026-07-13T17:58:18.920Z,write,write,file_write_edit,File write/edit,trace,2,2,127,240
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,browser_back,browser_back,web_browser,Web/browser,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,browser_click,browser_click,web_browser,Web/browser,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,browser_console,browser_console,web_browser,Web/browser,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,browser_get_images,browser_get_images,web_browser,Web/browser,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,browser_navigate,browser_navigate,web_browser,Web/browser,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,browser_press,browser_press,web_browser,Web/browser,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,browser_scroll,browser_scroll,web_browser,Web/browser,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,browser_snapshot,browser_snapshot,web_browser,Web/browser,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,browser_type,browser_type,web_browser,Web/browser,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,browser_vision,browser_vision,web_browser,Web/browser,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,clarify,clarify,user_interaction,User interaction,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,cronjob,cronjob,scheduled_async,Scheduled/async,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,delegate_task,delegate_task,delegation_multi_agent,Delegation/multi-agent,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,execute_code,execute_code,shell_process,Shell/process,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,image_generate,image_generate,media_multimodal,Media/multimodal,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,memory,memory,memory_context_session,Memory/session,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,patch,patch,file_write_edit,File write/edit,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,process,process,shell_process,Shell/process,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,read_file,read_file,file_read,File read,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,search_files,search_files,search_discovery,Search/discovery,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,session_search,session_search,memory_context_session,Memory/session,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,skill_manage,skill_manage,skills_extensibility,Skills/extensibility,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,skill_view,skill_view,skills_extensibility,Skills/extensibility,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,skills_list,skills_list,skills_extensibility,Skills/extensibility,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,terminal,terminal,shell_process,Shell/process,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,text_to_speech,text_to_speech,media_multimodal,Media/multimodal,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,todo,todo,planning_task_state,Planning/task state,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,vision_analyze,vision_analyze,media_multimodal,Media/multimodal,prompt_text,0,0,0,2
+hermes,v2026.7.7.2,2026-07-08T03:11:22Z,write_file,write_file,file_write_edit,File write/edit,prompt_text,0,0,0,2
+kimi,1.48.0,2026-06-22T12:50:45Z,Agent,agent,delegation_multi_agent,Delegation/multi-agent,trace,7,2,3961,1379
+kimi,1.48.0,2026-06-22T12:50:45Z,AskUserQuestion,askuserquestion,user_interaction,User interaction,trace,1,1,1141,1118
+kimi,1.48.0,2026-06-22T12:50:45Z,EnterPlanMode,enterplanmode,planning_task_state,Planning/task state,trace,0,0,2086,36
+kimi,1.48.0,2026-06-22T12:50:45Z,ExitPlanMode,exitplanmode,planning_task_state,Planning/task state,trace,1,0,2087,797
+kimi,1.48.0,2026-06-22T12:50:45Z,FetchURL,fetchurl,web_browser,Web/browser,trace,1,1,67,131
+kimi,1.48.0,2026-06-22T12:50:45Z,Glob,glob,search_discovery,Search/discovery,trace,3,1,1400,440
+kimi,1.48.0,2026-06-22T12:50:45Z,Grep,grep,search_discovery,Search/discovery,trace,14,1,552,3135
+kimi,1.48.0,2026-06-22T12:50:45Z,ReadFile,readfile,file_read,File read,trace,3,1,1420,795
+kimi,1.48.0,2026-06-22T12:50:45Z,SetTodoList,settodolist,planning_task_state,Planning/task state,trace,1,0,2381,500
+kimi,1.48.0,2026-06-22T12:50:45Z,Shell,shell,shell_process,Shell/process,trace,4,1,3552,616
+kimi,1.48.0,2026-06-22T12:50:45Z,StrReplaceFile,strreplacefile,file_write_edit,File write/edit,trace,2,2,268,1092
+kimi,1.48.0,2026-06-22T12:50:45Z,TaskList,tasklist,delegation_multi_agent,Delegation/multi-agent,trace,2,0,573,285
+kimi,1.48.0,2026-06-22T12:50:45Z,TaskOutput,taskoutput,delegation_multi_agent,Delegation/multi-agent,trace,3,1,871,413
+kimi,1.48.0,2026-06-22T12:50:45Z,TaskStop,taskstop,delegation_multi_agent,Delegation/multi-agent,trace,2,1,449,270
+kimi,1.48.0,2026-06-22T12:50:45Z,WriteFile,writefile,file_write_edit,File write/edit,trace,3,2,324,572
+opencode,1.17.20,2026-07-13T21:07:14.162Z,bash,bash,shell_process,Shell/process,prompt_text,0,0,0,2
+opencode,1.17.20,2026-07-13T21:07:14.162Z,edit,edit,file_write_edit,File write/edit,prompt_text,0,0,0,2
+opencode,1.17.20,2026-07-13T21:07:14.162Z,glob,glob,search_discovery,Search/discovery,prompt_text,0,0,0,2
+opencode,1.17.20,2026-07-13T21:07:14.162Z,grep,grep,search_discovery,Search/discovery,prompt_text,0,0,0,2
+opencode,1.17.20,2026-07-13T21:07:14.162Z,read,read,file_read,File read,prompt_text,0,0,0,2
+opencode,1.17.20,2026-07-13T21:07:14.162Z,skill,skill,skills_extensibility,Skills/extensibility,prompt_text,0,0,0,2
+opencode,1.17.20,2026-07-13T21:07:14.162Z,task,task,delegation_multi_agent,Delegation/multi-agent,prompt_text,0,0,0,2
+opencode,1.17.20,2026-07-13T21:07:14.162Z,todowrite,todowrite,planning_task_state,Planning/task state,prompt_text,0,0,0,2
+opencode,1.17.20,2026-07-13T21:07:14.162Z,webfetch,webfetch,web_browser,Web/browser,prompt_text,0,0,0,2
+opencode,1.17.20,2026-07-13T21:07:14.162Z,write,write,file_write_edit,File write/edit,prompt_text,0,0,0,2
+pi,0.80.6,2026-07-09T23:21:59.601Z,bash,bash,shell_process,Shell/process,trace,2,1,248,231
+pi,0.80.6,2026-07-09T23:21:59.601Z,edit,edit,file_write_edit,File write/edit,trace,2,2,326,808
+pi,0.80.6,2026-07-09T23:21:59.601Z,read,read,file_read,File read,trace,3,1,303,323
+pi,0.80.6,2026-07-09T23:21:59.601Z,write,write,file_write_edit,File write/edit,trace,2,2,127,240
+omp,16.5.0,2026-07-14T00:39:52.848Z,ast_edit,ast_edit,file_write_edit,File write/edit,prompt_text,0,0,0,2
+omp,16.5.0,2026-07-14T00:39:52.848Z,ast_grep,ast_grep,search_discovery,Search/discovery,prompt_text,0,0,0,2
+omp,16.5.0,2026-07-14T00:39:52.848Z,bash,bash,shell_process,Shell/process,prompt_text,0,0,0,2
+omp,16.5.0,2026-07-14T00:39:52.848Z,browser,browser,web_browser,Web/browser,prompt_text,0,0,0,2
+omp,16.5.0,2026-07-14T00:39:52.848Z,debug,debug,shell_process,Shell/process,prompt_text,0,0,0,2
+omp,16.5.0,2026-07-14T00:39:52.848Z,edit,edit,file_write_edit,File write/edit,prompt_text,0,0,0,2
+omp,16.5.0,2026-07-14T00:39:52.848Z,eval,eval,shell_process,Shell/process,prompt_text,0,0,0,2
+omp,16.5.0,2026-07-14T00:39:52.848Z,generate_image,generate_image,media_multimodal,Media/multimodal,prompt_text,0,0,0,2
+omp,16.5.0,2026-07-14T00:39:52.848Z,glob,glob,search_discovery,Search/discovery,prompt_text,0,0,0,2
+omp,16.5.0,2026-07-14T00:39:52.848Z,grep,grep,search_discovery,Search/discovery,prompt_text,0,0,0,2
+omp,16.5.0,2026-07-14T00:39:52.848Z,irc,irc,runtime_integration,Runtime/integration,prompt_text,0,0,0,2
+omp,16.5.0,2026-07-14T00:39:52.848Z,job,job,scheduled_async,Scheduled/async,prompt_text,0,0,0,2
+omp,16.5.0,2026-07-14T00:39:52.848Z,launch,launch,shell_process,Shell/process,prompt_text,0,0,0,2
+omp,16.5.0,2026-07-14T00:39:52.848Z,lsp,lsp,search_discovery,Search/discovery,prompt_text,0,0,0,2
+omp,16.5.0,2026-07-14T00:39:52.848Z,read,read,file_read,File read,prompt_text,0,0,0,2
+omp,16.5.0,2026-07-14T00:39:52.848Z,resolve,resolve,search_discovery,Search/discovery,prompt_text,0,0,0,2
+omp,16.5.0,2026-07-14T00:39:52.848Z,task,task,delegation_multi_agent,Delegation/multi-agent,prompt_text,0,0,0,2
+omp,16.5.0,2026-07-14T00:39:52.848Z,todo,todo,planning_task_state,Planning/task state,prompt_text,0,0,0,2
+omp,16.5.0,2026-07-14T00:39:52.848Z,web_search,web_search,web_browser,Web/browser,prompt_text,0,0,0,2
+omp,16.5.0,2026-07-14T00:39:52.848Z,write,write,file_write_edit,File write/edit,prompt_text,0,0,0,2

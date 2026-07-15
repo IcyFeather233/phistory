@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="620" viewBox="0 0 980 620">
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="30" y="32" font-family="Inter,Arial,sans-serif" font-size="20" fill="#222" text-anchor="start" font-weight="700">Tool-surface complexity map</text>
+<text x="30" y="52" font-family="Inter,Arial,sans-serif" font-size="12" fill="#555" text-anchor="start" font-weight="400">x = tool count, y = number of tool families, bubble = parsed parameter count.</text>
+<line x1="90" y1="540" x2="940" y2="540" stroke="#333"/>
+<line x1="90" y1="70" x2="90" y2="540" stroke="#333"/>
+<line x1="90.0" y1="70" x2="90.0" y2="540" stroke="#edf0f3"/>
+<text x="90.0" y="558" font-family="Inter,Arial,sans-serif" font-size="10" fill="#777" text-anchor="middle" font-weight="400">0</text>
+<line x1="313.6842105263158" y1="70" x2="313.6842105263158" y2="540" stroke="#edf0f3"/>
+<text x="313.6842105263158" y="558" font-family="Inter,Arial,sans-serif" font-size="10" fill="#777" text-anchor="middle" font-weight="400">10</text>
+<line x1="537.3684210526316" y1="70" x2="537.3684210526316" y2="540" stroke="#edf0f3"/>
+<text x="537.3684210526316" y="558" font-family="Inter,Arial,sans-serif" font-size="10" fill="#777" text-anchor="middle" font-weight="400">20</text>
+<line x1="761.0526315789474" y1="70" x2="761.0526315789474" y2="540" stroke="#edf0f3"/>
+<text x="761.0526315789474" y="558" font-family="Inter,Arial,sans-serif" font-size="10" fill="#777" text-anchor="middle" font-weight="400">30</text>
+<line x1="90" y1="540.0" x2="940" y2="540.0" stroke="#edf0f3"/>
+<text x="80" y="544.0" font-family="Inter,Arial,sans-serif" font-size="10" fill="#777" text-anchor="end" font-weight="400">0</text>
+<line x1="90" y1="461.6666666666667" x2="940" y2="461.6666666666667" stroke="#edf0f3"/>
+<text x="80" y="465.6666666666667" font-family="Inter,Arial,sans-serif" font-size="10" fill="#777" text-anchor="end" font-weight="400">2</text>
+<line x1="90" y1="383.33333333333337" x2="940" y2="383.33333333333337" stroke="#edf0f3"/>
+<text x="80" y="387.33333333333337" font-family="Inter,Arial,sans-serif" font-size="10" fill="#777" text-anchor="end" font-weight="400">4</text>
+<line x1="90" y1="305.0" x2="940" y2="305.0" stroke="#edf0f3"/>
+<text x="80" y="309.0" font-family="Inter,Arial,sans-serif" font-size="10" fill="#777" text-anchor="end" font-weight="400">6</text>
+<line x1="90" y1="226.66666666666669" x2="940" y2="226.66666666666669" stroke="#edf0f3"/>
+<text x="80" y="230.66666666666669" font-family="Inter,Arial,sans-serif" font-size="10" fill="#777" text-anchor="end" font-weight="400">8</text>
+<line x1="90" y1="148.33333333333331" x2="940" y2="148.33333333333331" stroke="#edf0f3"/>
+<text x="80" y="152.33333333333331" font-family="Inter,Arial,sans-serif" font-size="10" fill="#777" text-anchor="end" font-weight="400">10</text>
+<line x1="90" y1="70.0" x2="940" y2="70.0" stroke="#edf0f3"/>
+<text x="80" y="74.0" font-family="Inter,Arial,sans-serif" font-size="10" fill="#777" text-anchor="end" font-weight="400">12</text>
+<text x="515.0" y="595" font-family="Inter,Arial,sans-serif" font-size="12" fill="#333" text-anchor="middle" font-weight="700">Observed tool count</text>
+<text x="22" y="305.0" font-family="Inter,Arial,sans-serif" font-size="12" fill="#333" text-anchor="middle" font-weight="700" transform="rotate(-90 22 305.0)">Tool-family count</text>
+<circle cx="693.9473684210526" cy="187.5" r="6.0" fill="#fd9644" stroke="#fff" opacity="0.72"/>
+<text x="703.9473684210526" y="191.5" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">claude-code</text>
+<circle cx="179.4736842105263" cy="422.5" r="6.0" fill="#fd9644" stroke="#fff" opacity="0.72"/>
+<text x="189.4736842105263" y="426.5" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">codex</text>
+<circle cx="626.8421052631579" cy="226.66666666666669" r="6.0" fill="#3867d6" stroke="#fff" opacity="0.72"/>
+<text x="636.8421052631579" y="230.66666666666669" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">antigravity</text>
+<circle cx="626.8421052631579" cy="148.33333333333331" r="6.0" fill="#fd9644" stroke="#fff" opacity="0.72"/>
+<text x="636.8421052631579" y="152.33333333333331" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">kimi-code</text>
+<circle cx="447.89473684210526" cy="187.5" r="6.0" fill="#fd9644" stroke="#fff" opacity="0.72"/>
+<text x="457.89473684210526" y="191.5" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">mimo</text>
+<circle cx="940.0" cy="70.0" r="28.0" fill="#3867d6" stroke="#fff" opacity="0.72"/>
+<text x="972.0" y="74.0" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">openclaw</text>
+<circle cx="738.6842105263158" cy="70.0" r="6.0" fill="#fd9644" stroke="#fff" opacity="0.72"/>
+<text x="748.6842105263158" y="74.0" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">hermes</text>
+<circle cx="425.5263157894737" cy="226.66666666666669" r="13.231476534813842" fill="#3867d6" stroke="#fff" opacity="0.72"/>
+<text x="442.75779232428755" y="230.66666666666669" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">kimi</text>
+<circle cx="313.6842105263158" cy="226.66666666666669" r="6.0" fill="#fd9644" stroke="#fff" opacity="0.72"/>
+<text x="323.6842105263158" y="230.66666666666669" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">opencode</text>
+<circle cx="179.4736842105263" cy="422.5" r="9.164457789803535" fill="#3867d6" stroke="#fff" opacity="0.72"/>
+<text x="192.63814200032982" y="426.5" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">pi</text>
+<circle cx="537.3684210526316" cy="148.33333333333331" r="6.0" fill="#fd9644" stroke="#fff" opacity="0.72"/>
+<text x="547.3684210526316" y="152.33333333333331" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">omp</text>
+</svg>

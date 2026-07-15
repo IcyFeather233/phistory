@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="579" height="564" viewBox="0 0 579 564">
+<title>Category-distribution cosine similarity</title>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<style>text{font-family:Inter,Arial,sans-serif;fill:#111827}</style>
+<text x="20" y="24" font-size="16" font-weight="bold">Category-distribution cosine similarity</text>
+<text x="172" y="52" font-size="9" font-weight="normal" transform="rotate(-45 172 52)">claude-cod</text>
+<text x="206" y="52" font-size="9" font-weight="normal" transform="rotate(-45 206 52)">codex</text>
+<text x="240" y="52" font-size="9" font-weight="normal" transform="rotate(-45 240 52)">antigravit</text>
+<text x="274" y="52" font-size="9" font-weight="normal" transform="rotate(-45 274 52)">kimi-code</text>
+<text x="308" y="52" font-size="9" font-weight="normal" transform="rotate(-45 308 52)">mimo</text>
+<text x="342" y="52" font-size="9" font-weight="normal" transform="rotate(-45 342 52)">openclaw</text>
+<text x="376" y="52" font-size="9" font-weight="normal" transform="rotate(-45 376 52)">hermes</text>
+<text x="410" y="52" font-size="9" font-weight="normal" transform="rotate(-45 410 52)">kimi</text>
+<text x="444" y="52" font-size="9" font-weight="normal" transform="rotate(-45 444 52)">opencode</text>
+<text x="478" y="52" font-size="9" font-weight="normal" transform="rotate(-45 478 52)">pi</text>
+<text x="512" y="52" font-size="9" font-weight="normal" transform="rotate(-45 512 52)">omp</text>
+<text x="10" y="81" font-size="12" font-weight="normal">claude-code</text>
+<rect x="165" y="60" width="32" height="32" fill="rgb(37,99,235)"/>
+<rect x="199" y="60" width="32" height="32" fill="rgb(66,120,238)"/>
+<rect x="233" y="60" width="32" height="32" fill="rgb(104,148,242)"/>
+<rect x="267" y="60" width="32" height="32" fill="rgb(79,129,239)"/>
+<rect x="301" y="60" width="32" height="32" fill="rgb(63,118,238)"/>
+<rect x="335" y="60" width="32" height="32" fill="rgb(108,151,242)"/>
+<rect x="369" y="60" width="32" height="32" fill="rgb(144,177,246)"/>
+<rect x="403" y="60" width="32" height="32" fill="rgb(115,156,243)"/>
+<rect x="437" y="60" width="32" height="32" fill="rgb(58,114,237)"/>
+<rect x="471" y="60" width="32" height="32" fill="rgb(95,141,241)"/>
+<rect x="505" y="60" width="32" height="32" fill="rgb(90,138,240)"/>
+<text x="10" y="115" font-size="12" font-weight="normal">codex</text>
+<rect x="165" y="94" width="32" height="32" fill="rgb(66,120,238)"/>
+<rect x="199" y="94" width="32" height="32" fill="rgb(37,99,235)"/>
+<rect x="233" y="94" width="32" height="32" fill="rgb(74,126,239)"/>
+<rect x="267" y="94" width="32" height="32" fill="rgb(58,114,237)"/>
+<rect x="301" y="94" width="32" height="32" fill="rgb(92,139,240)"/>
+<rect x="335" y="94" width="32" height="32" fill="rgb(93,140,241)"/>
+<rect x="369" y="94" width="32" height="32" fill="rgb(129,166,244)"/>
+<rect x="403" y="94" width="32" height="32" fill="rgb(95,142,241)"/>
+<rect x="437" y="94" width="32" height="32" fill="rgb(66,120,238)"/>
+<rect x="471" y="94" width="32" height="32" fill="rgb(69,122,238)"/>
+<rect x="505" y="94" width="32" height="32" fill="rgb(69,123,238)"/>
+<text x="10" y="149" font-size="12" font-weight="normal">antigravity</text>
+<rect x="165" y="128" width="32" height="32" fill="rgb(104,148,242)"/>
+<rect x="199" y="128" width="32" height="32" fill="rgb(74,126,239)"/>
+<rect x="233" y="128" width="32" height="32" fill="rgb(37,99,235)"/>
+<rect x="267" y="128" width="32" height="32" fill="rgb(69,122,238)"/>
+<rect x="301" y="128" width="32" height="32" fill="rgb(106,149,242)"/>
+<rect x="335" y="128" width="32" height="32" fill="rgb(105,148,242)"/>
+<rect x="369" y="128" width="32" height="32" fill="rgb(137,172,245)"/>
+<rect x="403" y="128" width="32" height="32" fill="rgb(109,151,242)"/>
+<rect x="437" y="128" width="32" height="32" fill="rgb(85,134,240)"/>
+<rect x="471" y="128" width="32" height="32" fill="rgb(77,128,239)"/>
+<rect x="505" y="128" width="32" height="32" fill="rgb(47,106,236)"/>
+<text x="10" y="183" font-size="12" font-weight="normal">kimi-code</text>
+<rect x="165" y="162" width="32" height="32" fill="rgb(79,129,239)"/>
+<rect x="199" y="162" width="32" height="32" fill="rgb(58,114,237)"/>
+<rect x="233" y="162" width="32" height="32" fill="rgb(69,122,238)"/>
+<rect x="267" y="162" width="32" height="32" fill="rgb(37,99,235)"/>
+<rect x="301" y="162" width="32" height="32" fill="rgb(100,145,241)"/>
+<rect x="335" y="162" width="32" height="32" fill="rgb(104,148,242)"/>
+<rect x="369" y="162" width="32" height="32" fill="rgb(86,135,240)"/>
+<rect x="403" y="162" width="32" height="32" fill="rgb(98,144,241)"/>
+<rect x="437" y="162" width="32" height="32" fill="rgb(82,132,240)"/>
+<rect x="471" y="162" width="32" height="32" fill="rgb(64,118,238)"/>
+<rect x="505" y="162" width="32" height="32" fill="rgb(66,120,238)"/>
+<text x="10" y="217" font-size="12" font-weight="normal">mimo</text>
+<rect x="165" y="196" width="32" height="32" fill="rgb(63,118,238)"/>
+<rect x="199" y="196" width="32" height="32" fill="rgb(92,139,240)"/>
+<rect x="233" y="196" width="32" height="32" fill="rgb(106,149,242)"/>
+<rect x="267" y="196" width="32" height="32" fill="rgb(100,145,241)"/>
+<rect x="301" y="196" width="32" height="32" fill="rgb(37,99,235)"/>
+<rect x="335" y="196" width="32" height="32" fill="rgb(88,136,240)"/>
+<rect x="369" y="196" width="32" height="32" fill="rgb(125,163,244)"/>
+<rect x="403" y="196" width="32" height="32" fill="rgb(98,144,241)"/>
+<rect x="437" y="196" width="32" height="32" fill="rgb(54,111,237)"/>
+<rect x="471" y="196" width="32" height="32" fill="rgb(119,159,243)"/>
+<rect x="505" y="196" width="32" height="32" fill="rgb(112,154,242)"/>
+<text x="10" y="251" font-size="12" font-weight="normal">openclaw</text>
+<rect x="165" y="230" width="32" height="32" fill="rgb(108,151,242)"/>
+<rect x="199" y="230" width="32" height="32" fill="rgb(93,140,241)"/>
+<rect x="233" y="230" width="32" height="32" fill="rgb(105,148,242)"/>
+<rect x="267" y="230" width="32" height="32" fill="rgb(104,148,242)"/>
+<rect x="301" y="230" width="32" height="32" fill="rgb(88,136,240)"/>
+<rect x="335" y="230" width="32" height="32" fill="rgb(37,99,235)"/>
+<rect x="369" y="230" width="32" height="32" fill="rgb(127,165,244)"/>
+<rect x="403" y="230" width="32" height="32" fill="rgb(41,102,235)"/>
+<rect x="437" y="230" width="32" height="32" fill="rgb(81,131,239)"/>
+<rect x="471" y="230" width="32" height="32" fill="rgb(136,171,245)"/>
+<rect x="505" y="230" width="32" height="32" fill="rgb(133,169,244)"/>
+<text x="10" y="285" font-size="12" font-weight="normal">hermes</text>
+<rect x="165" y="264" width="32" height="32" fill="rgb(144,177,246)"/>
+<rect x="199" y="264" width="32" height="32" fill="rgb(129,166,244)"/>
+<rect x="233" y="264" width="32" height="32" fill="rgb(137,172,245)"/>
+<rect x="267" y="264" width="32" height="32" fill="rgb(86,135,240)"/>
+<rect x="301" y="264" width="32" height="32" fill="rgb(125,163,244)"/>
+<rect x="335" y="264" width="32" height="32" fill="rgb(127,165,244)"/>
+<rect x="369" y="264" width="32" height="32" fill="rgb(37,99,235)"/>
+<rect x="403" y="264" width="32" height="32" fill="rgb(111,153,242)"/>
+<rect x="437" y="264" width="32" height="32" fill="rgb(139,174,245)"/>
+<rect x="471" y="264" width="32" height="32" fill="rgb(136,171,245)"/>
+<rect x="505" y="264" width="32" height="32" fill="rgb(154,184,247)"/>
+<text x="10" y="319" font-size="12" font-weight="normal">kimi</text>
+<rect x="165" y="298" width="32" height="32" fill="rgb(115,156,243)"/>
+<rect x="199" y="298" width="32" height="32" fill="rgb(95,142,241)"/>
+<rect x="233" y="298" width="32" height="32" fill="rgb(109,151,242)"/>
+<rect x="267" y="298" width="32" height="32" fill="rgb(98,144,241)"/>
+<rect x="301" y="298" width="32" height="32" fill="rgb(98,144,241)"/>
+<rect x="335" y="298" width="32" height="32" fill="rgb(41,102,235)"/>
+<rect x="369" y="298" width="32" height="32" fill="rgb(111,153,242)"/>
+<rect x="403" y="298" width="32" height="32" fill="rgb(37,99,235)"/>
+<rect x="437" y="298" width="32" height="32" fill="rgb(90,138,240)"/>
+<rect x="471" y="298" width="32" height="32" fill="rgb(141,175,245)"/>
+<rect x="505" y="298" width="32" height="32" fill="rgb(140,174,245)"/>
+<text x="10" y="353" font-size="12" font-weight="normal">opencode</text>
+<rect x="165" y="332" width="32" height="32" fill="rgb(58,114,237)"/>
+<rect x="199" y="332" width="32" height="32" fill="rgb(66,120,238)"/>
+<rect x="233" y="332" width="32" height="32" fill="rgb(85,134,240)"/>
+<rect x="267" y="332" width="32" height="32" fill="rgb(82,132,240)"/>
+<rect x="301" y="332" width="32" height="32" fill="rgb(54,111,237)"/>
+<rect x="335" y="332" width="32" height="32" fill="rgb(81,131,239)"/>
+<rect x="369" y="332" width="32" height="32" fill="rgb(139,174,245)"/>
+<rect x="403" y="332" width="32" height="32" fill="rgb(90,138,240)"/>
+<rect x="437" y="332" width="32" height="32" fill="rgb(37,99,235)"/>
+<rect x="471" y="332" width="32" height="32" fill="rgb(93,140,241)"/>
+<rect x="505" y="332" width="32" height="32" fill="rgb(85,134,240)"/>
+<text x="10" y="387" font-size="12" font-weight="normal">pi</text>
+<rect x="165" y="366" width="32" height="32" fill="rgb(95,141,241)"/>
+<rect x="199" y="366" width="32" height="32" fill="rgb(69,122,238)"/>
+<rect x="233" y="366" width="32" height="32" fill="rgb(77,128,239)"/>
+<rect x="267" y="366" width="32" height="32" fill="rgb(64,118,238)"/>
+<rect x="301" y="366" width="32" height="32" fill="rgb(119,159,243)"/>
+<rect x="335" y="366" width="32" height="32" fill="rgb(136,171,245)"/>
+<rect x="369" y="366" width="32" height="32" fill="rgb(136,171,245)"/>
+<rect x="403" y="366" width="32" height="32" fill="rgb(141,175,245)"/>
+<rect x="437" y="366" width="32" height="32" fill="rgb(93,140,241)"/>
+<rect x="471" y="366" width="32" height="32" fill="rgb(37,99,235)"/>
+<rect x="505" y="366" width="32" height="32" fill="rgb(59,115,237)"/>
+<text x="10" y="421" font-size="12" font-weight="normal">omp</text>
+<rect x="165" y="400" width="32" height="32" fill="rgb(90,138,240)"/>
+<rect x="199" y="400" width="32" height="32" fill="rgb(69,123,238)"/>
+<rect x="233" y="400" width="32" height="32" fill="rgb(47,106,236)"/>
+<rect x="267" y="400" width="32" height="32" fill="rgb(66,120,238)"/>
+<rect x="301" y="400" width="32" height="32" fill="rgb(112,154,242)"/>
+<rect x="335" y="400" width="32" height="32" fill="rgb(133,169,244)"/>
+<rect x="369" y="400" width="32" height="32" fill="rgb(154,184,247)"/>
+<rect x="403" y="400" width="32" height="32" fill="rgb(140,174,245)"/>
+<rect x="437" y="400" width="32" height="32" fill="rgb(85,134,240)"/>
+<rect x="471" y="400" width="32" height="32" fill="rgb(59,115,237)"/>
+<rect x="505" y="400" width="32" height="32" fill="rgb(37,99,235)"/>
+</svg>

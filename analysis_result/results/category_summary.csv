@@ -1,0 +1,140 @@
+agent_id,category,category_label,clause_count,share
+claude-code,identity_mission,Identity/Mission,1415,0.0374
+claude-code,interaction_output,Interaction/Output,3550,0.0937
+claude-code,planning_lifecycle,Planning,4624,0.1221
+claude-code,software_engineering_workflow,SE Workflow,5292,0.1397
+claude-code,tool_capability,Tool Capability,1010,0.0267
+claude-code,tool_use_policy,Tool-use Policy,1794,0.0474
+claude-code,permissions_side_effects,Permissions,822,0.0217
+claude-code,safety_security,Safety,2106,0.0556
+claude-code,environment_sandbox,Environment,617,0.0163
+claude-code,memory_context,Memory,4056,0.1071
+claude-code,extensibility,Extensibility,282,0.0074
+claude-code,multi_agent,Multi-agent,146,0.0039
+claude-code,reliability_verification,Reliability,667,0.0176
+claude-code,runtime_capture_artifact,Runtime/Capture,6767,0.1787
+claude-code,uncertain,Uncertain,4728,0.1248
+codex,identity_mission,Identity/Mission,199,0.0208
+codex,interaction_output,Interaction/Output,1711,0.1793
+codex,planning_lifecycle,Planning,482,0.0505
+codex,software_engineering_workflow,SE Workflow,1138,0.1192
+codex,tool_capability,Tool Capability,27,0.0028
+codex,tool_use_policy,Tool-use Policy,172,0.018
+codex,permissions_side_effects,Permissions,314,0.0329
+codex,environment_sandbox,Environment,214,0.0224
+codex,memory_context,Memory,55,0.0058
+codex,extensibility,Extensibility,453,0.0475
+codex,reliability_verification,Reliability,352,0.0369
+codex,runtime_capture_artifact,Runtime/Capture,2322,0.2433
+codex,uncertain,Uncertain,2106,0.2206
+antigravity,identity_mission,Identity/Mission,45,0.0175
+antigravity,interaction_output,Interaction/Output,80,0.0312
+antigravity,planning_lifecycle,Planning,64,0.025
+antigravity,software_engineering_workflow,SE Workflow,139,0.0542
+antigravity,tool_use_policy,Tool-use Policy,32,0.0125
+antigravity,permissions_side_effects,Permissions,16,0.0062
+antigravity,safety_security,Safety,16,0.0062
+antigravity,environment_sandbox,Environment,43,0.0168
+antigravity,memory_context,Memory,16,0.0062
+antigravity,extensibility,Extensibility,109,0.0425
+antigravity,multi_agent,Multi-agent,16,0.0062
+antigravity,reliability_verification,Reliability,595,0.232
+antigravity,runtime_capture_artifact,Runtime/Capture,643,0.2507
+antigravity,uncertain,Uncertain,751,0.2928
+kimi-code,identity_mission,Identity/Mission,58,0.0114
+kimi-code,interaction_output,Interaction/Output,301,0.0593
+kimi-code,planning_lifecycle,Planning,318,0.0626
+kimi-code,software_engineering_workflow,SE Workflow,524,0.1032
+kimi-code,tool_capability,Tool Capability,29,0.0057
+kimi-code,tool_use_policy,Tool-use Policy,277,0.0546
+kimi-code,permissions_side_effects,Permissions,215,0.0424
+kimi-code,environment_sandbox,Environment,161,0.0317
+kimi-code,memory_context,Memory,37,0.0073
+kimi-code,extensibility,Extensibility,747,0.1472
+kimi-code,multi_agent,Multi-agent,174,0.0343
+kimi-code,reliability_verification,Reliability,318,0.0626
+kimi-code,runtime_capture_artifact,Runtime/Capture,927,0.1826
+kimi-code,uncertain,Uncertain,990,0.195
+mimo,identity_mission,Identity/Mission,25,0.0378
+mimo,interaction_output,Interaction/Output,40,0.0605
+mimo,planning_lifecycle,Planning,65,0.0983
+mimo,software_engineering_workflow,SE Workflow,30,0.0454
+mimo,tool_capability,Tool Capability,11,0.0166
+mimo,tool_use_policy,Tool-use Policy,10,0.0151
+mimo,permissions_side_effects,Permissions,15,0.0227
+mimo,safety_security,Safety,5,0.0076
+mimo,environment_sandbox,Environment,1,0.0015
+mimo,memory_context,Memory,160,0.2421
+mimo,extensibility,Extensibility,17,0.0257
+mimo,reliability_verification,Reliability,24,0.0363
+mimo,runtime_capture_artifact,Runtime/Capture,174,0.2632
+mimo,uncertain,Uncertain,84,0.1271
+openclaw,identity_mission,Identity/Mission,1071,0.0555
+openclaw,interaction_output,Interaction/Output,434,0.0225
+openclaw,planning_lifecycle,Planning,136,0.0071
+openclaw,software_engineering_workflow,SE Workflow,388,0.0201
+openclaw,tool_capability,Tool Capability,4,0.0002
+openclaw,tool_use_policy,Tool-use Policy,109,0.0057
+openclaw,permissions_side_effects,Permissions,256,0.0133
+openclaw,safety_security,Safety,85,0.0044
+openclaw,environment_sandbox,Environment,4,0.0002
+openclaw,memory_context,Memory,733,0.038
+openclaw,extensibility,Extensibility,1163,0.0603
+openclaw,multi_agent,Multi-agent,77,0.004
+openclaw,reliability_verification,Reliability,54,0.0028
+openclaw,runtime_capture_artifact,Runtime/Capture,12574,0.6519
+openclaw,uncertain,Uncertain,2201,0.1141
+hermes,identity_mission,Identity/Mission,47,0.0475
+hermes,interaction_output,Interaction/Output,35,0.0354
+hermes,planning_lifecycle,Planning,4,0.004
+hermes,software_engineering_workflow,SE Workflow,24,0.0243
+hermes,tool_use_policy,Tool-use Policy,29,0.0293
+hermes,safety_security,Safety,3,0.003
+hermes,memory_context,Memory,103,0.1041
+hermes,extensibility,Extensibility,403,0.4075
+hermes,reliability_verification,Reliability,25,0.0253
+hermes,runtime_capture_artifact,Runtime/Capture,204,0.2063
+hermes,uncertain,Uncertain,112,0.1132
+kimi,interaction_output,Interaction/Output,66,0.0317
+kimi,planning_lifecycle,Planning,26,0.0125
+kimi,software_engineering_workflow,SE Workflow,70,0.0336
+kimi,tool_capability,Tool Capability,12,0.0058
+kimi,tool_use_policy,Tool-use Policy,38,0.0182
+kimi,permissions_side_effects,Permissions,6,0.0029
+kimi,environment_sandbox,Environment,20,0.0096
+kimi,extensibility,Extensibility,316,0.1516
+kimi,reliability_verification,Reliability,38,0.0182
+kimi,runtime_capture_artifact,Runtime/Capture,1342,0.644
+kimi,uncertain,Uncertain,150,0.072
+opencode,identity_mission,Identity/Mission,170,0.0264
+opencode,interaction_output,Interaction/Output,680,0.1055
+opencode,planning_lifecycle,Planning,1105,0.1714
+opencode,software_engineering_workflow,SE Workflow,170,0.0264
+opencode,tool_capability,Tool Capability,85,0.0132
+opencode,tool_use_policy,Tool-use Policy,170,0.0264
+opencode,memory_context,Memory,765,0.1187
+opencode,reliability_verification,Reliability,255,0.0396
+opencode,runtime_capture_artifact,Runtime/Capture,1857,0.288
+opencode,uncertain,Uncertain,1190,0.1846
+pi,interaction_output,Interaction/Output,29,0.0421
+pi,planning_lifecycle,Planning,58,0.0842
+pi,software_engineering_workflow,SE Workflow,87,0.1263
+pi,permissions_side_effects,Permissions,29,0.0421
+pi,environment_sandbox,Environment,22,0.0319
+pi,extensibility,Extensibility,58,0.0842
+pi,runtime_capture_artifact,Runtime/Capture,116,0.1684
+pi,uncertain,Uncertain,290,0.4209
+omp,identity_mission,Identity/Mission,51,0.0216
+omp,interaction_output,Interaction/Output,119,0.0503
+omp,planning_lifecycle,Planning,176,0.0744
+omp,software_engineering_workflow,SE Workflow,220,0.093
+omp,tool_capability,Tool Capability,23,0.0097
+omp,tool_use_policy,Tool-use Policy,91,0.0385
+omp,permissions_side_effects,Permissions,53,0.0224
+omp,safety_security,Safety,17,0.0072
+omp,memory_context,Memory,6,0.0025
+omp,extensibility,Extensibility,34,0.0144
+omp,multi_agent,Multi-agent,57,0.0241
+omp,reliability_verification,Reliability,396,0.1674
+omp,runtime_capture_artifact,Runtime/Capture,376,0.1589
+omp,uncertain,Uncertain,747,0.3157

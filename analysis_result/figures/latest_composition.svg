@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="430" viewBox="0 0 980 430">
+<title>Latest prompt composition</title>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<style>text{font-family:Inter,Arial,sans-serif;fill:#111827}</style>
+<text x="20" y="24" font-size="16" font-weight="bold">Latest snapshot composition by character count</text>
+<text x="10" y="59" font-size="12" font-weight="normal">claude-code</text>
+<rect x="160.0" y="45" width="6.6" height="17" fill="#2563eb" opacity="0.86"/>
+<rect x="166.6" y="45" width="0.3" height="17" fill="#16a34a" opacity="0.86"/>
+<rect x="166.9" y="45" width="26.9" height="17" fill="#f59e0b" opacity="0.86"/>
+<rect x="193.8" y="45" width="1.3" height="17" fill="#ef4444" opacity="0.86"/>
+<text x="888" y="59" font-size="11" font-weight="normal">93804</text>
+<text x="10" y="87" font-size="12" font-weight="normal">codex</text>
+<rect x="160.0" y="73" width="83.2" height="17" fill="#2563eb" opacity="0.86"/>
+<rect x="243.2" y="73" width="0.0" height="17" fill="#16a34a" opacity="0.86"/>
+<rect x="243.3" y="73" width="37.0" height="17" fill="#f59e0b" opacity="0.86"/>
+<rect x="280.3" y="73" width="2.7" height="17" fill="#ef4444" opacity="0.86"/>
+<text x="888" y="87" font-size="11" font-weight="normal">60516</text>
+<text x="10" y="115" font-size="12" font-weight="normal">antigravity</text>
+<rect x="160.0" y="101" width="74.2" height="17" fill="#2563eb" opacity="0.86"/>
+<rect x="234.2" y="101" width="0.3" height="17" fill="#16a34a" opacity="0.86"/>
+<rect x="234.4" y="101" width="24.0" height="17" fill="#f59e0b" opacity="0.86"/>
+<rect x="258.5" y="101" width="2.6" height="17" fill="#ef4444" opacity="0.86"/>
+<text x="888" y="115" font-size="11" font-weight="normal">56057</text>
+<text x="10" y="143" font-size="12" font-weight="normal">kimi-code</text>
+<rect x="160.0" y="129" width="76.8" height="17" fill="#2563eb" opacity="0.86"/>
+<rect x="236.8" y="129" width="0.3" height="17" fill="#16a34a" opacity="0.86"/>
+<rect x="237.1" y="129" width="21.2" height="17" fill="#f59e0b" opacity="0.86"/>
+<rect x="258.3" y="129" width="3.3" height="17" fill="#ef4444" opacity="0.86"/>
+<text x="888" y="143" font-size="11" font-weight="normal">91392</text>
+<text x="10" y="171" font-size="12" font-weight="normal">mimo</text>
+<rect x="160.0" y="157" width="149.1" height="17" fill="#2563eb" opacity="0.86"/>
+<rect x="309.1" y="157" width="0.2" height="17" fill="#16a34a" opacity="0.86"/>
+<rect x="309.3" y="157" width="19.9" height="17" fill="#f59e0b" opacity="0.86"/>
+<rect x="329.2" y="157" width="0.2" height="17" fill="#ef4444" opacity="0.86"/>
+<text x="888" y="171" font-size="11" font-weight="normal">126838</text>
+<text x="10" y="199" font-size="12" font-weight="normal">openclaw</text>
+<rect x="160.0" y="185" width="84.7" height="17" fill="#2563eb" opacity="0.86"/>
+<rect x="244.7" y="185" width="258.5" height="17" fill="#16a34a" opacity="0.86"/>
+<rect x="503.2" y="185" width="89.2" height="17" fill="#f59e0b" opacity="0.86"/>
+<rect x="592.4" y="185" width="0.3" height="17" fill="#ef4444" opacity="0.86"/>
+<text x="888" y="199" font-size="11" font-weight="normal">118397</text>
+<text x="10" y="227" font-size="12" font-weight="normal">hermes</text>
+<rect x="160.0" y="213" width="10.4" height="17" fill="#2563eb" opacity="0.86"/>
+<rect x="170.4" y="213" width="0.3" height="17" fill="#16a34a" opacity="0.86"/>
+<rect x="170.7" y="213" width="27.4" height="17" fill="#f59e0b" opacity="0.86"/>
+<rect x="198.1" y="213" width="0.2" height="17" fill="#ef4444" opacity="0.86"/>
+<text x="888" y="227" font-size="11" font-weight="normal">65612</text>
+<text x="10" y="255" font-size="12" font-weight="normal">kimi</text>
+<rect x="160.0" y="241" width="23.9" height="17" fill="#2563eb" opacity="0.86"/>
+<rect x="183.9" y="241" width="65.7" height="17" fill="#16a34a" opacity="0.86"/>
+<rect x="249.6" y="241" width="57.0" height="17" fill="#f59e0b" opacity="0.86"/>
+<rect x="306.6" y="241" width="0.2" height="17" fill="#ef4444" opacity="0.86"/>
+<text x="888" y="255" font-size="11" font-weight="normal">52057</text>
+<text x="10" y="283" font-size="12" font-weight="normal">opencode</text>
+<rect x="160.0" y="269" width="35.2" height="17" fill="#2563eb" opacity="0.86"/>
+<rect x="195.2" y="269" width="0.1" height="17" fill="#16a34a" opacity="0.86"/>
+<rect x="195.3" y="269" width="13.6" height="17" fill="#f59e0b" opacity="0.86"/>
+<rect x="209.0" y="269" width="0.2" height="17" fill="#ef4444" opacity="0.86"/>
+<text x="888" y="283" font-size="11" font-weight="normal">32734</text>
+<text x="10" y="311" font-size="12" font-weight="normal">pi</text>
+<rect x="160.0" y="297" width="14.0" height="17" fill="#2563eb" opacity="0.86"/>
+<rect x="174.0" y="297" width="9.1" height="17" fill="#16a34a" opacity="0.86"/>
+<rect x="183.1" y="297" width="0.2" height="17" fill="#ef4444" opacity="0.86"/>
+<text x="888" y="311" font-size="11" font-weight="normal">5712</text>
+<text x="10" y="339" font-size="12" font-weight="normal">omp</text>
+<rect x="160.0" y="325" width="71.9" height="17" fill="#2563eb" opacity="0.86"/>
+<rect x="231.9" y="325" width="0.2" height="17" fill="#16a34a" opacity="0.86"/>
+<rect x="232.2" y="325" width="10.4" height="17" fill="#f59e0b" opacity="0.86"/>
+<rect x="242.6" y="325" width="0.2" height="17" fill="#ef4444" opacity="0.86"/>
+<text x="888" y="339" font-size="11" font-weight="normal">104238</text>
+<rect x="20" y="400" width="12" height="12" fill="#2563eb"/>
+<text x="37" y="410" font-size="11" font-weight="normal">instruction</text>
+<rect x="155" y="400" width="12" height="12" fill="#16a34a"/>
+<text x="172" y="410" font-size="11" font-weight="normal">tool schema</text>
+<rect x="290" y="400" width="12" height="12" fill="#f59e0b"/>
+<text x="307" y="410" font-size="11" font-weight="normal">runtime</text>
+<rect x="425" y="400" width="12" height="12" fill="#ef4444"/>
+<text x="442" y="410" font-size="11" font-weight="normal">capture artifact</text>
+</svg>

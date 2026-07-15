@@ -1,0 +1,21 @@
+agent_id,version,published_at,normalized_churn,added_clauses,removed_clauses,moved_clauses,dominant_churn_categories
+claude-code,2.1.69,2026-03-04T21:46:46.306Z,0.806747,5,1,11,SE Workflow:2; Uncertain:2; Memory:1
+claude-code,2.1.70,2026-03-06T00:09:06.874Z,0.79896,1,2,5,Uncertain:2; Extensibility:1
+codex,0.144.0,2026-07-09T16:50:26.998Z,0.760116,118,162,39,Uncertain:73; Runtime/Capture:69; Interaction/Output:46
+kimi,1.35.0,2026-04-15T12:55:10Z,0.311457,52,11,62,Runtime/Capture:43; Interaction/Output:4; Extensibility:4
+codex,0.115.0,2026-03-16T19:38:16.363Z,0.226794,3,1,18,Extensibility:2; Runtime/Capture:2
+opencode,1.15.2,2026-05-16T12:51:28.082Z,0.195734,0,0,0,
+claude-code,2.1.154,2026-05-28T15:40:50.400Z,0.188383,26,169,10,Memory:57; Runtime/Capture:57; Uncertain:19
+codex,0.133.0,2026-05-21T17:13:06.253Z,0.174468,1,1,0,Runtime/Capture:2
+codex,0.96.0,2026-02-04T18:24:44.133Z,0.166069,0,0,0,
+opencode,1.17.8,2026-06-17T21:24:39.626Z,0.142857,1,1,0,Runtime/Capture:2
+claude-code,2.0.77,2026-01-06T00:26:25.533Z,0.140303,1,7,79,SE Workflow:4; Tool-use Policy:1; Extensibility:1
+codex,0.106.0,2026-02-26T23:12:45.073Z,0.132075,35,21,84,Uncertain:17; Interaction/Output:10; Planning:7
+openclaw,2026.4.22,2026-04-23T14:21:23.543Z,0.126207,13,13,0,Extensibility:14; Safety:4; Permissions:2
+hermes,v2026.4.30,2026-04-30T18:31:21Z,0.115347,1,0,20,Extensibility:1
+hermes,v2026.5.16,2026-05-16T09:59:15Z,0.115274,3,0,14,Memory:1; Reliability:1; Runtime/Capture:1
+claude-code,2.1.142,2026-05-14T20:17:28.262Z,0.115115,2,2,0,Runtime/Capture:2; Uncertain:2
+codex,0.125.0,2026-04-24T18:01:41.002Z,0.11245,127,84,56,Uncertain:62; Runtime/Capture:47; Interaction/Output:44
+codex,0.99.0,2026-02-11T20:43:52.809Z,0.107383,46,32,60,Interaction/Output:23; Uncertain:19; SE Workflow:13
+kimi-code,0.5.0,2026-05-28T14:15:50.478Z,0.105356,0,0,0,
+mimo,0.1.5,2026-07-07T10:07:26.006Z,0.102,40,3,39,Runtime/Capture:19; Uncertain:9; SE Workflow:5
