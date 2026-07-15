@@ -33,8 +33,8 @@ The model request includes `chat_template_kwargs={"enable_thinking": false}`.
 
 - `data/derived/`: normalized machine-readable tables.
 - `results/`: aggregate metrics, claims audit, and data-quality reports.
-- `figures/`: generated SVG figures.
-- `report.md`: Chinese analysis report.
+- `figures/`: generated SVG figures. The main report currently embeds 14 figures covering archive coverage, OPS composition, longitudinal change, category activity, and cross-agent similarity.
+- `report.md`: Chinese analysis report; tables retain exact values while adjacent figures provide the primary visual reading.
 
 ## Invariants
 

@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1260" height="590" viewBox="0 0 1260 590">
+<title>First-to-latest prompt component change</title>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<style>text{font-family:Inter,Arial,sans-serif;fill:#111827}</style>
+<text x="20" y="28" font-size="17" font-weight="bold">First-to-latest OPS component change</text>
+<text x="20" y="50" font-size="11" font-weight="normal">Stacked sections are from prompt.md; green diamond is raw tool-schema delta (separate evidence plane)</text>
+<line x1="642.5" y1="78" x2="642.5" y2="535" stroke="#64748b" stroke-width="1.2"/>
+<text x="18" y="103" font-size="12" font-weight="bold">claude-code</text>
+<rect x="574.6" y="86" width="67.9" height="20" fill="#2563eb" opacity="0.88"/>
+<rect x="642.5" y="86" width="328.6" height="20" fill="#0f766e" opacity="0.88"/>
+<rect x="971.1" y="86" width="22.1" height="20" fill="#f59e0b" opacity="0.88"/>
+<rect x="571.0" y="86" width="3.5" height="20" fill="#dc2626" opacity="0.88"/>
+<polygon points="589.8,83 594.8,88 589.8,93 584.8,88" fill="#16a34a" stroke="#ffffff" stroke-width="1"/>
+<text x="1128" y="102" font-size="11" font-weight="bold">net +40,257</text>
+<text x="18" y="141" font-size="12" font-weight="bold">codex</text>
+<rect x="642.5" y="124" width="51.5" height="20" fill="#2563eb" opacity="0.88"/>
+<rect x="694.0" y="124" width="231.9" height="20" fill="#0f766e" opacity="0.88"/>
+<rect x="638.7" y="124" width="3.8" height="20" fill="#f59e0b" opacity="0.88"/>
+<rect x="926.0" y="124" width="3.3" height="20" fill="#dc2626" opacity="0.88"/>
+<polygon points="624.8,121 629.8,126 624.8,131 619.8,126" fill="#16a34a" stroke="#ffffff" stroke-width="1"/>
+<text x="1128" y="140" font-size="11" font-weight="bold">net +40,322</text>
+<text x="18" y="179" font-size="12" font-weight="bold">antigravity</text>
+<rect x="642.5" y="162" width="13.0" height="20" fill="#2563eb" opacity="0.88"/>
+<rect x="655.5" y="162" width="50.8" height="20" fill="#0f766e" opacity="0.88"/>
+<rect x="706.4" y="162" width="1.3" height="20" fill="#f59e0b" opacity="0.88"/>
+<polygon points="642.7,159 647.7,164 642.7,169 637.7,164" fill="#16a34a" stroke="#ffffff" stroke-width="1"/>
+<text x="1128" y="178" font-size="11" font-weight="bold">net +9,242</text>
+<text x="18" y="217" font-size="12" font-weight="bold">kimi-code</text>
+<rect x="642.5" y="200" width="16.4" height="20" fill="#2563eb" opacity="0.88"/>
+<rect x="658.9" y="200" width="226.3" height="20" fill="#0f766e" opacity="0.88"/>
+<rect x="885.2" y="200" width="9.9" height="20" fill="#f59e0b" opacity="0.88"/>
+<rect x="895.1" y="200" width="1.6" height="20" fill="#dc2626" opacity="0.88"/>
+<polygon points="553.2,197 558.2,202 553.2,207 548.2,202" fill="#16a34a" stroke="#ffffff" stroke-width="1"/>
+<text x="1128" y="216" font-size="11" font-weight="bold">net +36,585</text>
+<text x="18" y="255" font-size="12" font-weight="bold">mimo</text>
+<rect x="642.5" y="238" width="111.2" height="20" fill="#2563eb" opacity="0.88"/>
+<rect x="753.7" y="238" width="196.7" height="20" fill="#0f766e" opacity="0.88"/>
+<polygon points="642.5,235 647.5,240 642.5,245 637.5,240" fill="#16a34a" stroke="#ffffff" stroke-width="1"/>
+<text x="1128" y="254" font-size="11" font-weight="bold">net +43,855</text>
+<text x="18" y="293" font-size="12" font-weight="bold">openclaw</text>
+<rect x="642.5" y="276" width="31.1" height="20" fill="#2563eb" opacity="0.88"/>
+<rect x="673.6" y="276" width="400.5" height="20" fill="#0f766e" opacity="0.88"/>
+<rect x="1074.1" y="276" width="20.7" height="20" fill="#f59e0b" opacity="0.88"/>
+<rect x="1094.8" y="276" width="0.2" height="20" fill="#dc2626" opacity="0.88"/>
+<polygon points="856.4,273 861.4,278 856.4,283 851.4,278" fill="#16a34a" stroke="#ffffff" stroke-width="1"/>
+<text x="1128" y="292" font-size="11" font-weight="bold">net +64,690</text>
+<text x="18" y="331" font-size="12" font-weight="bold">hermes</text>
+<rect x="616.5" y="314" width="26.0" height="20" fill="#2563eb" opacity="0.88"/>
+<rect x="642.5" y="314" width="159.9" height="20" fill="#0f766e" opacity="0.88"/>
+<rect x="802.4" y="314" width="18.3" height="20" fill="#f59e0b" opacity="0.88"/>
+<polygon points="642.5,311 647.5,316 642.5,321 637.5,316" fill="#16a34a" stroke="#ffffff" stroke-width="1"/>
+<text x="1128" y="330" font-size="11" font-weight="bold">net +21,499</text>
+<text x="18" y="369" font-size="12" font-weight="bold">kimi</text>
+<rect x="638.9" y="352" width="3.6" height="20" fill="#2563eb" opacity="0.88"/>
+<rect x="642.5" y="352" width="128.8" height="20" fill="#0f766e" opacity="0.88"/>
+<rect x="771.3" y="352" width="40.8" height="20" fill="#f59e0b" opacity="0.88"/>
+<polygon points="677.5,349 682.5,354 677.5,359 672.5,354" fill="#16a34a" stroke="#ffffff" stroke-width="1"/>
+<text x="1128" y="368" font-size="11" font-weight="bold">net +23,762</text>
+<text x="18" y="407" font-size="12" font-weight="bold">opencode</text>
+<rect x="642.5" y="390" width="0.0" height="20" fill="#2563eb" opacity="0.88"/>
+<rect x="562.7" y="390" width="79.8" height="20" fill="#0f766e" opacity="0.88"/>
+<rect x="642.5" y="390" width="3.4" height="20" fill="#f59e0b" opacity="0.88"/>
+<polygon points="642.5,387 647.5,392 642.5,397 637.5,392" fill="#16a34a" stroke="#ffffff" stroke-width="1"/>
+<text x="1128" y="406" font-size="11" font-weight="bold">net -11,010</text>
+<text x="18" y="445" font-size="12" font-weight="bold">pi</text>
+<rect x="642.5" y="428" width="0.8" height="20" fill="#2563eb" opacity="0.88"/>
+<rect x="642.0" y="428" width="0.5" height="20" fill="#0f766e" opacity="0.88"/>
+<polygon points="642.1,425 647.1,430 642.1,435 637.1,430" fill="#16a34a" stroke="#ffffff" stroke-width="1"/>
+<text x="1128" y="444" font-size="11" font-weight="bold">net +50</text>
+<text x="18" y="483" font-size="12" font-weight="bold">omp</text>
+<rect x="642.5" y="466" width="24.8" height="20" fill="#2563eb" opacity="0.88"/>
+<rect x="667.3" y="466" width="58.8" height="20" fill="#0f766e" opacity="0.88"/>
+<rect x="638.8" y="466" width="3.7" height="20" fill="#f59e0b" opacity="0.88"/>
+<polygon points="642.5,463 647.5,468 642.5,473 637.5,468" fill="#16a34a" stroke="#ffffff" stroke-width="1"/>
+<text x="1128" y="482" font-size="11" font-weight="bold">net +11,594</text>
+<text x="175" y="558" font-size="10" font-weight="normal">-64,097 chars</text>
+<text x="632.5" y="558" font-size="10" font-weight="normal">0</text>
+<text x="1038" y="558" font-size="10" font-weight="normal">+64,097</text>
+<rect x="185" y="562" width="12" height="12" fill="#2563eb"/>
+<text x="202" y="572" font-size="10" font-weight="normal">instruction</text>
+<rect x="335" y="562" width="12" height="12" fill="#0f766e"/>
+<text x="352" y="572" font-size="10" font-weight="normal">tool text</text>
+<rect x="485" y="562" width="12" height="12" fill="#f59e0b"/>
+<text x="502" y="572" font-size="10" font-weight="normal">runtime</text>
+<rect x="635" y="562" width="12" height="12" fill="#dc2626"/>
+<text x="652" y="572" font-size="10" font-weight="normal">capture artifact</text>
+<polygon points="785,560 791,566 785,572 779,566" fill="#16a34a"/>
+<text x="797" y="570" font-size="10" font-weight="normal">raw schema delta</text>
+</svg>

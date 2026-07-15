@@ -1,19 +1,19 @@
 agent_id,category,category_label,clause_count,share
-claude-code,identity_mission,Identity/Mission,1415,0.0374
-claude-code,interaction_output,Interaction/Output,3550,0.0937
-claude-code,planning_lifecycle,Planning,4624,0.1221
-claude-code,software_engineering_workflow,SE Workflow,5292,0.1397
-claude-code,tool_capability,Tool Capability,1010,0.0267
-claude-code,tool_use_policy,Tool-use Policy,1794,0.0474
+claude-code,identity_mission,Identity/Mission,1417,0.0374
+claude-code,interaction_output,Interaction/Output,3551,0.0936
+claude-code,planning_lifecycle,Planning,4624,0.1219
+claude-code,software_engineering_workflow,SE Workflow,5292,0.1396
+claude-code,tool_capability,Tool Capability,1010,0.0266
+claude-code,tool_use_policy,Tool-use Policy,1794,0.0473
 claude-code,permissions_side_effects,Permissions,822,0.0217
-claude-code,safety_security,Safety,2106,0.0556
+claude-code,safety_security,Safety,2109,0.0556
 claude-code,environment_sandbox,Environment,617,0.0163
-claude-code,memory_context,Memory,4056,0.1071
+claude-code,memory_context,Memory,4058,0.107
 claude-code,extensibility,Extensibility,282,0.0074
 claude-code,multi_agent,Multi-agent,146,0.0039
 claude-code,reliability_verification,Reliability,667,0.0176
-claude-code,runtime_capture_artifact,Runtime/Capture,6767,0.1787
-claude-code,uncertain,Uncertain,4728,0.1248
+claude-code,runtime_capture_artifact,Runtime/Capture,6803,0.1794
+claude-code,uncertain,Uncertain,4729,0.1247
 codex,identity_mission,Identity/Mission,199,0.0208
 codex,interaction_output,Interaction/Output,1711,0.1793
 codex,planning_lifecycle,Planning,482,0.0505
@@ -106,35 +106,35 @@ kimi,extensibility,Extensibility,316,0.1516
 kimi,reliability_verification,Reliability,38,0.0182
 kimi,runtime_capture_artifact,Runtime/Capture,1342,0.644
 kimi,uncertain,Uncertain,150,0.072
-opencode,identity_mission,Identity/Mission,170,0.0264
-opencode,interaction_output,Interaction/Output,680,0.1055
-opencode,planning_lifecycle,Planning,1105,0.1714
-opencode,software_engineering_workflow,SE Workflow,170,0.0264
-opencode,tool_capability,Tool Capability,85,0.0132
-opencode,tool_use_policy,Tool-use Policy,170,0.0264
-opencode,memory_context,Memory,765,0.1187
-opencode,reliability_verification,Reliability,255,0.0396
-opencode,runtime_capture_artifact,Runtime/Capture,1857,0.288
-opencode,uncertain,Uncertain,1190,0.1846
-pi,interaction_output,Interaction/Output,29,0.0421
-pi,planning_lifecycle,Planning,58,0.0842
-pi,software_engineering_workflow,SE Workflow,87,0.1263
-pi,permissions_side_effects,Permissions,29,0.0421
-pi,environment_sandbox,Environment,22,0.0319
-pi,extensibility,Extensibility,58,0.0842
-pi,runtime_capture_artifact,Runtime/Capture,116,0.1684
-pi,uncertain,Uncertain,290,0.4209
-omp,identity_mission,Identity/Mission,51,0.0216
-omp,interaction_output,Interaction/Output,119,0.0503
-omp,planning_lifecycle,Planning,176,0.0744
-omp,software_engineering_workflow,SE Workflow,220,0.093
-omp,tool_capability,Tool Capability,23,0.0097
-omp,tool_use_policy,Tool-use Policy,91,0.0385
-omp,permissions_side_effects,Permissions,53,0.0224
-omp,safety_security,Safety,17,0.0072
-omp,memory_context,Memory,6,0.0025
-omp,extensibility,Extensibility,34,0.0144
-omp,multi_agent,Multi-agent,57,0.0241
-omp,reliability_verification,Reliability,396,0.1674
-omp,runtime_capture_artifact,Runtime/Capture,376,0.1589
-omp,uncertain,Uncertain,747,0.3157
+opencode,identity_mission,Identity/Mission,174,0.0264
+opencode,interaction_output,Interaction/Output,696,0.1054
+opencode,planning_lifecycle,Planning,1131,0.1713
+opencode,software_engineering_workflow,SE Workflow,174,0.0264
+opencode,tool_capability,Tool Capability,87,0.0132
+opencode,tool_use_policy,Tool-use Policy,174,0.0264
+opencode,memory_context,Memory,783,0.1186
+opencode,reliability_verification,Reliability,261,0.0395
+opencode,runtime_capture_artifact,Runtime/Capture,1903,0.2883
+opencode,uncertain,Uncertain,1218,0.1845
+pi,interaction_output,Interaction/Output,30,0.0421
+pi,planning_lifecycle,Planning,60,0.0842
+pi,software_engineering_workflow,SE Workflow,90,0.1262
+pi,permissions_side_effects,Permissions,30,0.0421
+pi,environment_sandbox,Environment,23,0.0323
+pi,extensibility,Extensibility,60,0.0842
+pi,runtime_capture_artifact,Runtime/Capture,120,0.1683
+pi,uncertain,Uncertain,300,0.4208
+omp,identity_mission,Identity/Mission,57,0.0214
+omp,interaction_output,Interaction/Output,133,0.0499
+omp,planning_lifecycle,Planning,198,0.0742
+omp,software_engineering_workflow,SE Workflow,246,0.0922
+omp,tool_capability,Tool Capability,27,0.0101
+omp,tool_use_policy,Tool-use Policy,107,0.0401
+omp,permissions_side_effects,Permissions,63,0.0236
+omp,safety_security,Safety,19,0.0071
+omp,memory_context,Memory,9,0.0034
+omp,extensibility,Extensibility,38,0.0142
+omp,multi_agent,Multi-agent,69,0.0259
+omp,reliability_verification,Reliability,448,0.168
+omp,runtime_capture_artifact,Runtime/Capture,418,0.1567
+omp,uncertain,Uncertain,835,0.3131

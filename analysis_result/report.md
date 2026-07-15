@@ -2,7 +2,7 @@
 
 ## 0. 读法和结论边界
 
-本报告分析当前仓库中的 737 个完整 OPS 快照，覆盖 11 个 Agent CLI。OPS（Observed Prompt Surface）指 Phistory 在特定 capture profile 下捕获到的 prompt-bearing request。它能支持 prompt 文本、工具声明、运行时上下文和版本演化的描述性结论；不能单独证明完整 harness、真实行为、安全性提升或厂商动机。
+本报告分析当前仓库中的 743 个完整 OPS 快照，覆盖 11 个 Agent CLI。OPS（Observed Prompt Surface）指 Phistory 在特定 capture profile 下捕获到的 prompt-bearing request。它能支持 prompt 文本、工具声明、运行时上下文和版本演化的描述性结论；不能单独证明完整 harness、真实行为、安全性提升或厂商动机。
 
 本次分类状态：model classifier disabled; rule-only labels used。类别分析是规则优先的第一版结果，适合找趋势和候选案例；正式技术报告中应把强结论限定在 `claims.csv` 已记录的证据范围内。
 
@@ -24,12 +24,12 @@
 
 ### 1.2 数据覆盖
 
-仓库 commit：`199034e1f7595fed179a3d0dda8c1bda338c6733`；分析时间：2026-07-15 03:12 UTC。
-`trace.jsonl` 解析状态：`ok`=664, `missing_body`=73。`missing_body` 多数意味着该 tap client 的 trace 请求体不在统一 `request.body` 位置，相关快照仍保留在文本分析中。
+仓库 commit：`9912d0ca0f650be13d84b10bd04eca852bb9cfe8`；分析时间：2026-07-15 07:02 UTC。
+`trace.jsonl` 解析状态：`ok`=668, `missing_body`=75。`missing_body` 多数意味着该 tap client 的 trace 请求体不在统一 `request.body` 位置，相关快照仍保留在文本分析中。
 
 | Agent | Snapshots | First | Last | Distinct capture commands | Static prompt files |
 | --- | ---: | --- | --- | ---: | ---: |
-| claude-code | 366 | 2025-05-22 | 2026-07-14 | 5 | 31 |
+| claude-code | 367 | 2025-05-22 | 2026-07-14 | 5 | 32 |
 | codex | 68 | 2026-01-09 | 2026-07-14 | 4 | 0 |
 | antigravity | 16 | 2026-06-01 | 2026-07-13 | 16 | 0 |
 | kimi-code | 44 | 2026-05-22 | 2026-07-14 | 2 | 0 |
@@ -37,10 +37,13 @@
 | openclaw | 68 | 2026-01-30 | 2026-07-13 | 3 | 0 |
 | hermes | 19 | 2026-03-24 | 2026-07-08 | 3 | 0 |
 | kimi | 20 | 2026-01-27 | 2026-06-22 | 2 | 0 |
-| opencode | 85 | 2026-04-08 | 2026-07-13 | 3 | 0 |
-| pi | 29 | 2026-05-07 | 2026-07-09 | 3 | 0 |
-| omp | 17 | 2026-07-02 | 2026-07-14 | 1 | 0 |
+| opencode | 87 | 2026-04-08 | 2026-07-14 | 3 | 0 |
+| pi | 30 | 2026-05-07 | 2026-07-14 | 3 | 0 |
+| omp | 19 | 2026-07-02 | 2026-07-14 | 1 | 0 |
 
+![Archive coverage timeline](figures/archive_coverage.svg)
+
+**覆盖图读法：**每一行是一种 Agent；灰线表示当前 archive 覆盖的日历跨度，蓝点表示实际 captured version。它能直观看出 Claude Code 的时间跨度和样本密度远高于近期加入的 OMP、MiMo、Antigravity，因此跨 Agent 汇总必须使用 agent-level macro average，不能把全部版本直接混在一起计数。
 
 下面这张图就是全版本二维时间轴：横轴为版本发布时间，纵轴为 `prompt.md` 字符数；不同 agent 用不同颜色表示，每个圆点对应一个 captured version，折线连接同一 agent 的相邻版本。
 
@@ -48,7 +51,7 @@
 **字符数折线图说明：**这张二维时间轴的 y 轴已改为 `prompt.md` 字符数，因此和 RQ1 的 `Prompt chars` 指标一致。当前全历史字符数最高的是 `mimo` `0.1.5`（126,838 chars）；最新快照中的字符数最大值是 `mimo` `0.1.5`（126,838 chars）。如果需要排查 Markdown/JSON 格式化带来的行数差异，脚本仍会生成补充图 `figures/prompt_lines_timeline.svg`。
 **Claude Code `2.1.69` deferred-tool case note：**图中最大相邻负跳变是 `claude-code` `2.1.68` -> `2.1.69`，prompt 字符数从 80,485 降到 19,658（-60,827 chars），观测工具数从 18 降到 1。该快照的 prompt 中出现 `<available-deferred-tools>`，并且 raw trace 只直接暴露 `ToolSearch`。这表示大量工具没有在初始请求里以完整 tool schema 形式 eagerly declared，而是先列出可延迟加载的工具名，再要求模型通过 `ToolSearch` 按需加载具体工具定义。下一版 `2.1.70` 又回到 79,710 chars、18 个观测工具，所以这更像短暂的暴露方式切换，而不是持续收缩。Phistory 对相邻版本使用同一条 capture command 和同一个简单合成任务，因此 `Reply with one short sentence.` 不是充分解释；但这仍然是 *under this archived capture profile* 的观测，不能推出交互模式或真实运行时功能也删除了工具。技术报告中建议写成：`2.1.69` 的初始 OPS 从 eager tool declaration 暂时变成 deferred tool discovery，导致 capability/tool plane 从初始 prompt 中大幅移出。
 **opencode `1.15.2` prompt-pruning case note：**`1.15.1` -> `1.15.2` 是图中第二大的非 Claude Code 负跳变之一，prompt 字符数从 48,995 降到 35,358（-13,637 chars）。相邻版本 capture command 相同，instruction/runtime 基本不变，工具集合稳定为 10 个；主要变化是 tool/instruction guidance 文本从 39,507 降到 26,065 chars。最大减少来自这些 section：`Examples of When to Use the Todo List` -4,111 chars; `Committing changes with git` -3,756 chars; `Examples of When NOT to Use the Todo List` -2,178 chars; `Creating pull requests` -1,884 chars；同时新增/合并为更短的 section：`Git and GitHub` +1,824 chars; `Examples` +1,344 chars。下一版 `1.15.3` 保持在 35,358 chars，说明这是持续压缩后的新 plateau。因此它更像是 prompt pruning/compaction：把 Git/GitHub、Task、TodoWrite 等长示例和冗长操作协议压缩成更短规则，而不是 deferred-tool 机制或采集失败。
-**为什么 Pi 看起来几乎没变：**在当前 archive 中 Pi 有 29 个快照，发布时间覆盖 2026-05-07 到 2026-07-09。`prompt.md` 字符数只在 5,637–5,784 chars 之间波动，而全图 y 轴最高到 126,838 chars，所以在统一尺度图上接近水平线。首尾字符数从 5,637 到 5,712，净变化 75 chars；工具数一直是 4，参数数一直是 9，schema 字符数只有 1602, 1664 这几个状态。主要可见变化是少量文档路径/读文档规则、`read` 支持格式，以及 `edit` schema 的 `additionalProperties` 字段变化；因此它不是图漏画，而是该 capture profile 下 OPS 本身较小且低 churn。
+**为什么 Pi 看起来几乎没变：**在当前 archive 中 Pi 有 30 个快照，发布时间覆盖 2026-05-07 到 2026-07-14。`prompt.md` 字符数只在 5,637–5,784 chars 之间波动，而全图 y 轴最高到 126,838 chars，所以在统一尺度图上接近水平线。首尾字符数从 5,637 到 5,687，净变化 50 chars；工具数一直是 4，参数数一直是 9，schema 字符数只有 1602, 1664 这几个状态。主要可见变化是少量文档路径/读文档规则、`read` 支持格式，以及 `edit` schema 的 `additionalProperties` 字段变化；因此它不是图漏画，而是该 capture profile 下 OPS 本身较小且低 churn。
 关键有效性含义：不同 agent 的 command、tap mode、模型/provider 假配置并不一致，所以横向比较要解释为 *under archived capture profiles* 的 OPS 差异。Claude Code 的 `static-prompts.*` 只作为补充材料，不和 runtime OPS 混合。
 
 ## 2. RQ1：不同 Agent CLI 的 OPS 结构有什么异同？
@@ -77,7 +80,7 @@ RQ1 的结构表把 prompt surface 拆成几个 plane/component。需要注意�
 
 | Agent | Version | Prompt chars | Dominant component | Instr% | Tool text% | Tool schema% | Runtime% | Capture-artifact% | Tools | Params | Governance notes |
 | --- | --- | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| claude-code | 2.1.209 | 93,804 | tool_prompt | 1.2% | 91.9% | 0.1% | 5.1% | 0.2% | 27 | 0 | many prohibitions |
+| claude-code | 2.1.210 | 93,804 | tool_prompt | 1.2% | 91.9% | 0.1% | 5.1% | 0.2% | 27 | 0 | many prohibitions |
 | codex | 0.144.4 | 60,516 | tool_prompt | 24.2% | 62.9% | 0.0% | 10.8% | 0.8% | 4 | 0 | many prohibitions |
 | antigravity | 1.1.2 | 56,057 | tool_prompt | 23.3% | 66.9% | 0.1% | 7.6% | 0.8% | 24 | 0 | - |
 | kimi-code | 0.24.1 | 91,392 | tool_prompt | 14.8% | 79.0% | 0.1% | 4.1% | 0.6% | 24 | 0 | many prohibitions |
@@ -85,9 +88,17 @@ RQ1 的结构表把 prompt surface 拆成几个 plane/component。需要注意�
 | openclaw | 2026.7.1 | 118,397 | tool_prompt | 12.6% | 72.0% | 38.5% | 13.3% | 0.1% | 38 | 435 | - |
 | hermes | v2026.7.7.2 | 65,612 | tool_prompt | 2.8% | 88.8% | 0.1% | 7.4% | 0.1% | 29 | 0 | - |
 | kimi | 1.48.0 | 52,057 | tool_prompt | 8.1% | 71.1% | 22.2% | 19.3% | 0.1% | 15 | 47 | many prohibitions; verification-heavy |
-| opencode | 1.17.20 | 32,734 | tool_prompt | 18.9% | 71.8% | 0.1% | 7.3% | 0.1% | 10 | 0 | verification-heavy; must-heavy |
-| pi | 0.80.6 | 5,712 | tool_prompt | 43.3% | 54.6% | 28.1% | 0.0% | 0.5% | 4 | 9 | - |
-| omp | 16.5.0 | 104,238 | tool_prompt | 12.2% | 81.9% | 0.0% | 1.8% | 0.0% | 20 | 0 | many prohibitions; verification-heavy |
+| opencode | 1.18.1 | 32,734 | tool_prompt | 18.9% | 71.8% | 0.1% | 7.3% | 0.1% | 10 | 0 | verification-heavy; must-heavy |
+| pi | 0.80.7 | 5,687 | tool_prompt | 43.1% | 54.8% | 28.2% | 0.0% | 0.5% | 4 | 9 | - |
+| omp | 16.5.2 | 103,456 | tool_prompt | 12.4% | 81.6% | 0.0% | 1.8% | 0.0% | 20 | 0 | many prohibitions; verification-heavy |
+
+![Latest OPS composition](figures/latest_composition.svg)
+
+**组成图读法：**横向堆叠条展示最新快照中 instruction、工具说明、runtime 和 capture artifact 的字符组成；它比单看 Prompt chars 更能区分“核心规则增长”和“工具/环境文本增长”。Raw tool schema 是独立证据平面，不能与这些 prompt.md 分量直接相加。
+
+![Prompt governance density](figures/governance_density_heatmap.svg)
+
+**治理图读法：**四列分别统计 must/required、never/prohibition、confirm/approval、test/verify 在每千个 instruction 单词中的出现密度。颜色在每列内独立归一化，适合观察同一种信号的 Agent 差异；不同列之间不宜直接用颜色深浅比较，更不能解释成安全分数。
 
 可用于技术报告的观察：
 
@@ -95,15 +106,6 @@ RQ1 的结构表把 prompt surface 拆成几个 plane/component。需要注意�
 - **文本/运行时-heavy 类型**：MiMo、OpenClaw、OMP 等最新快照中有较大的非核心 instruction 组成，说明仅报告总长度会混淆 instruction、runtime 和 capture artifact。
 - **小型低 churn 类型**：Pi 最新快照只有 4 个工具、9 个参数，instruction 与 tool text 都能正常抽取；它适合当作‘版本发布较多但 OPS 设计变化很少’的对照样本。
 - **治理指标只表示文本显式性**：must/never/confirm/test 等密度适合比较 prompt-level governance，但不是行为安全分数。
-
-
-### 2.3 Tool surface：不同 Agent 的工具有什么区别
-
-详细工具面分析见 [`tool_surface_analysis.md`](tool_surface_analysis.md)，机器可读表见 `results/latest_tool_profiles_enriched.csv`、`results/latest_tool_catalog_enriched.csv` 和 `results/tool_family_similarity_enriched.csv`。新增图表包括 `figures/tool_family_stacked_bar.svg`、`figures/tool_family_heatmap.svg`、`figures/tool_source_schema_bar.svg`、`figures/tool_surface_complexity_scatter.svg` 和 `figures/tool_family_similarity_heatmap.svg`。简要结论：Pi 是最小 bash/read/write/edit 四件套；opencode/MiMo/Kimi 属于经典 coding toolkit；Claude Code/Kimi Code/OpenClaw 更偏任务编排、cron、skill、session 等状态型控制面；Hermes/OpenClaw/OMP/Antigravity 更突出 browser、多模态或 IDE/runtime 集成；Codex 最新 OPS 则只暴露少数高层入口。注意这些都是 archived capture profile 下的 observed tools，不等同于完整 harness 功能清单。
-
-![Tool family composition](figures/tool_family_stacked_bar.svg)
-
-![Tool surface complexity map](figures/tool_surface_complexity_scatter.svg)
 
 ## 3. RQ2：同一个 Agent 的 OPS 如何随时间变化？
 
@@ -116,11 +118,11 @@ RQ1 的结构表把 prompt surface 拆成几个 plane/component。需要注意�
 - `figures/prompt_chars_timeline.svg`：横轴时间、纵轴 prompt 字符数、不同 agent 不同颜色、每个版本一个点。
 - `figures/prompt_lines_timeline.svg`：补充图，纵轴是 prompt 行数，用于排查 Markdown/JSON 展开格式差异。
 
-按 whole prompt hash 折叠后，平均每个 agent 有 43.5 个 whole-prompt epoch。release 频率和 prompt 设计变化频率明显不是同一个量，因此后续分析应优先以 epoch/change event 为单位。
+按 whole prompt hash 折叠后，平均每个 agent 有 43.8 个 whole-prompt epoch。release 频率和 prompt 设计变化频率明显不是同一个量，因此后续分析应优先以 epoch/change event 为单位。
 
 | Agent | Versions | Prompt delta | Delta% | Instr delta | Schema delta | Tool delta | Whole epochs | Max churn | Mean nonzero churn |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| claude-code | 1.0.0 -> 2.1.209 | 40,257 | 75.18% | -9,625 | -7,461 | 12 | 270 | 0.807 | 0.016 |
+| claude-code | 1.0.0 -> 2.1.210 | 40,257 | 75.18% | -9,625 | -7,461 | 12 | 271 | 0.807 | 0.016 |
 | codex | 0.80.0 -> 0.144.4 | 40,322 | 199.67% | 7,298 | -2,502 | -3 | 32 | 0.760 | 0.072 |
 | antigravity | 1.0.4 -> 1.1.2 | 9,242 | 19.74% | 1,847 | 26 | 13 | 11 | 0.076 | 0.022 |
 | kimi-code | 0.1.1 -> 0.24.1 | 36,585 | 66.75% | 2,328 | -12,650 | 9 | 20 | 0.105 | 0.019 |
@@ -128,13 +130,32 @@ RQ1 的结构表把 prompt surface 拆成几个 plane/component。需要注意�
 | openclaw | 2026.1.29 -> 2026.7.1 | 64,690 | 120.45% | 4,405 | 30,304 | 15 | 68 | 0.126 | 0.023 |
 | hermes | v2026.3.23 -> v2026.7.7.2 | 21,499 | 48.74% | -3,690 | -2 | -1 | 18 | 0.115 | 0.036 |
 | kimi | 1.0 -> 1.48.0 | 23,762 | 83.98% | -508 | 4,962 | 6 | 5 | 0.311 | 0.082 |
-| opencode | 1.4.0 -> 1.17.20 | -11,010 | -25.17% | -3 | 0 | 0 | 30 | 0.196 | 0.020 |
-| pi | 0.74.0 -> 0.80.6 | 75 | 1.33% | 142 | -62 | 0 | 6 | 0.019 | 0.007 |
-| omp | 16.3.3 -> 16.5.0 | 12,376 | 13.47% | 3,306 | 2 | 1 | 13 | 0.046 | 0.007 |
+| opencode | 1.4.0 -> 1.18.1 | -11,010 | -25.17% | -3 | 0 | 0 | 31 | 0.196 | 0.020 |
+| pi | 0.74.0 -> 0.80.7 | 50 | 0.89% | 117 | -62 | 0 | 7 | 0.019 | 0.006 |
+| omp | 16.3.3 -> 16.5.2 | 11,594 | 12.62% | 3,514 | 2 | 1 | 14 | 0.046 | 0.007 |
+
+![First-to-latest component deltas](figures/longitudinal_component_deltas.svg)
+
+**净变化组成：**堆叠条把首尾 prompt.md section 的变化拆成 instruction、tool text、runtime 和 capture artifact；绿色菱形单独表示 raw tool-schema 变化。右侧 net 数字仍以完整 prompt.md 字符数计算，所以它和堆叠分量可能有少量 heading/格式开销差异。
+**首尾分量的定量读法：**10/11 个 Agent 的最大绝对分量变化来自 `tool_prompt_chars`。全历史首尾净收缩的 Agent 为 `opencode` (-11,010 chars)。因此总长度趋势总体由工具说明驱动，但个别 Agent 的收缩和接近不变仍是重要反例。
+
+![Captured releases versus prompt epochs](figures/epoch_release_comparison.svg)
+
+**Release 与 epoch：**灰色是归档版本数，紫/蓝/绿分别是 whole OPS、instruction、tool epoch 数。若 epoch 条明显短于 release 条，说明多个软件版本复用了相同 prompt design；这正是为什么纵向研究不能把每个 release 当成独立设计样本。
+**Epoch ratio 的定量读法：**whole-epoch/release 比例最低的是 `pi` 23.3% (7/30)、`kimi` 25.0% (5/20)、`opencode` 35.6% (31/87)；最高的是 `openclaw` 100.0% (68/68)、`mimo` 100.0% (5/5)、`hermes` 94.7% (18/19)。低比例表示 archive 中存在较多 prompt-identical releases；高比例则表示几乎每个 captured release 都形成新的 whole OPS 状态。
+
+![All-version churn distribution](figures/churn_distribution.svg)
+
+**中间版本没有被省略：**每个点对应一对相邻版本，包括零 churn 版本；菱形是中位数，三角形是 P90，右侧标出最大值。这张图和字符时间线共同回答“变化是否持续发生”：大量点挤在零附近但少数点远离主体，才构成 bursty evolution 的证据。
+**Churn 分布的定量读法：**零 churn transition 比例最高的是 `pi` 79.3% (29 transitions)、`kimi` 78.9% (19 transitions)、`opencode` 65.1% (86 transitions)；单次最大 churn 最高的是 `claude-code` 0.807、`codex` 0.760、`kimi` 0.311。这说明‘大量稳定 release + 少数剧烈 redesign’在部分 Agent 上非常明显，但不是所有 Agent 都共享同一种节奏。
 
 ### 3.2 Prompt-size major jump events
 
 下面这张表系统覆盖字符数折线图里的主要大跳变，按相邻 captured version 的 `abs(prompt_delta_chars)` 排序。完整 Top 30 机器可读表在 `results/major_jump_events.csv`。注意：`days_between` 大的事件可能是 archive 覆盖缺口后的累计变化，不应直接解释成单日改版。
+
+![Largest adjacent prompt jumps](figures/major_jump_lollipop.svg)
+
+**跳变图读法：**零点左侧是收缩、右侧是增长，线段颜色表示绝对变化最大的 component。它把表中的正负方向和主来源同时编码出来；具体机制仍应以下方 section evidence 和逐事件解释为准。
 
 | Agent | Version transition | Δ chars | Days | Main source | Tool Δ | Same command | Interpretation | Section evidence |
 | --- | --- | ---: | ---: | --- | ---: | --- | --- | --- |
@@ -369,6 +390,10 @@ profile-sensitive 事件包括 `mimo 0.1.4->0.1.5`。这些事件仍然有文本
 | codex | 0.96.0 | 0.166 | 0 | 0 | 0 |  |
 | opencode | 1.17.8 | 0.143 | 1 | 1 | 0 | Runtime/Capture:2 |
 
+![Top clause churn events](figures/top_churn_events.svg)
+
+**Clause event 图读法：**绿色、红色、紫色分别表示 add、remove、move 数量，右侧保留 normalized whole-prompt churn。条形为空但 churn 非零时，通常意味着变化发生在工具文本/schema，或未进入当前 instruction/runtime clause 对齐范围；这正好提醒读者不要把两个指标混为一谈。
+
 初步解释：Claude Code 早期和 Codex 近期都有较高 churn 事件，但需要逐条查看 `change_events.csv` 区分真实内容变更、段落重排、工具 schema 重排和 capture profile 变化。`moved_clauses` 较高的事件尤其不应被简单解释为删除/新增。
 
 ## 4. RQ3：哪些类别的 prompt 指令变化更活跃？
@@ -398,9 +423,18 @@ RQ3 的输入不是人工印象，而是脚本生成的 clause 表和相邻版�
 | openclaw | Runtime/Capture 65.2%; Uncertain 11.4%; Extensibility 6.0% | 11.4% | 65.2% |
 | hermes | Extensibility 40.8%; Runtime/Capture 20.6%; Uncertain 11.3% | 11.3% | 20.6% |
 | kimi | Runtime/Capture 64.4%; Extensibility 15.2%; Uncertain 7.2% | 7.2% | 64.4% |
-| opencode | Runtime/Capture 28.8%; Uncertain 18.5%; Planning 17.1% | 18.5% | 28.8% |
+| opencode | Runtime/Capture 28.8%; Uncertain 18.4%; Planning 17.1% | 18.4% | 28.8% |
 | pi | Uncertain 42.1%; Runtime/Capture 16.8%; SE Workflow 12.6% | 42.1% | 16.8% |
-| omp | Uncertain 31.6%; Reliability 16.7%; Runtime/Capture 15.9% | 31.6% | 15.9% |
+| omp | Uncertain 31.3%; Reliability 16.8%; Runtime/Capture 15.7% | 31.3% | 15.7% |
+
+![Clause category distribution](figures/category_heatmap.svg)
+
+![Category-specific churn heatmap](figures/change_heatmap.svg)
+
+![Macro-averaged category churn](figures/category_churn_macro.svg)
+
+**类别图的三种口径：**第一张是全历史 clause 数量，回答“archive 中写了什么”；第二张是 Agent × category 的 add/remove 活动量，回答“哪里发生过变化”；第三张先在每个 Agent 内归一化，再做 macro-average，降低 Claude Code 等高频 archive 对总量的支配。第三张的蓝条是跨 Agent 平均，散点显示 Agent 间异质性；Runtime/Capture 和 Uncertain 较高时应优先视作分类与采集敏感性信号。
+**类别活跃度的定量读法：**agent-level macro-average 排名前四的是 `Runtime/Capture` 37.4%、`Extensibility` 16.9%、`Uncertain` 12.3%、`Environment` 7.6%。其中 Runtime/Capture 和 Uncertain 不宜被当作产品能力趋势；排除这两类后，最高的实质类别可作为后续人工复核和 case study 的优先入口。
 
 可检验趋势假设的当前状态：
 
@@ -425,11 +459,17 @@ RQ3 的输入不是人工印象，而是脚本生成的 clause 表和相邻版�
 | mimo / opencode | 0.917 | 0.529 | bash; edit; glob; grep; read; skill; task; webfetch; write |
 | claude-code / opencode | 0.897 | 0.000 |  |
 | codex / kimi-code | 0.895 | 0.000 |  |
-| pi / omp | 0.892 | 0.200 | bash; edit; read; write |
+| pi / omp | 0.890 | 0.200 | bash; edit; read; write |
 | claude-code / mimo | 0.870 | 0.000 |  |
 | kimi-code / pi | 0.869 | 0.000 |  |
-| kimi-code / omp | 0.857 | 0.000 |  |
 | claude-code / codex | 0.857 | 0.000 |  |
+| codex / opencode | 0.856 | 0.000 |  |
+
+![Category similarity matrix](figures/similarity_heatmap.svg)
+
+![Convergence and divergence map](figures/similarity_pair_scatter.svg)
+
+**双指标图读法：**每个点是一对 Agent，横轴是类别分布 cosine，纵轴是工具集合 Jaccard；虚线为所有 pair 的中位数。右下区域代表高层 prompt 主题相似但工具面重叠低，右上区域才是两个维度都较接近。右侧编号只标注工具重叠最高的若干 pair，避免 55 个标签互相遮挡。
 
 解读建议：类别相似但工具 Jaccard 低，通常表示高层 prompt 功能趋同但具体 capability surface 不同；工具 Jaccard 高但类别相似低，则可能是共享底层工具形态但交互/治理文本不同。不要从相似度直接推断代码共享或抄袭。
 

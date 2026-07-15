@@ -45195,3 +45195,12 @@ pi/0.80.6,pi,0.80.6,read,offset,false,number,Line number to start reading from (
 pi/0.80.6,pi,0.80.6,read,limit,false,number,Maximum number of lines to read
 pi/0.80.6,pi,0.80.6,write,path,true,string,Path to the file to write (relative or absolute)
 pi/0.80.6,pi,0.80.6,write,content,true,string,Content to write to the file
+pi/0.80.7,pi,0.80.7,bash,command,true,string,Bash command to execute
+pi/0.80.7,pi,0.80.7,bash,timeout,false,number,"Timeout in seconds (optional, no default timeout)"
+pi/0.80.7,pi,0.80.7,edit,path,true,string,Path to the file to edit (relative or absolute)
+pi/0.80.7,pi,0.80.7,edit,edits,true,array,"One or more targeted replacements. Each edit is matched against the original file, not incrementally. Do not include overlapping or nested edits. If two changes touch the same block or nearby lines, merge them into one edit instead."
+pi/0.80.7,pi,0.80.7,read,path,true,string,Path to the file to read (relative or absolute)
+pi/0.80.7,pi,0.80.7,read,offset,false,number,Line number to start reading from (1-indexed)
+pi/0.80.7,pi,0.80.7,read,limit,false,number,Maximum number of lines to read
+pi/0.80.7,pi,0.80.7,write,path,true,string,Path to the file to write (relative or absolute)
+pi/0.80.7,pi,0.80.7,write,content,true,string,Content to write to the file

@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="790" viewBox="0 0 1440 790">
+<title>Largest adjacent prompt-size jumps</title>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<style>text{font-family:Inter,Arial,sans-serif;fill:#111827}</style>
+<text x="20" y="28" font-size="17" font-weight="bold">Largest adjacent prompt-size jumps</text>
+<text x="20" y="50" font-size="11" font-weight="normal">Signed character delta; color identifies the component with the largest absolute change</text>
+<line x1="810.0" y1="64" x2="810.0" y2="742" stroke="#475569"/>
+<text x="18" y="86" font-size="10" font-weight="bold">claude-code  2.1.68 -&gt; 2.1.69</text>
+<line x1="810.0" y1="82" x2="415.0" y2="82" stroke="#0f766e" stroke-width="4" stroke-linecap="round"/>
+<circle cx="415.0" cy="82" r="5" fill="#0f766e" stroke="#ffffff" stroke-width="1"/>
+<text x="406.0" y="86" text-anchor="end" font-size="10" font-weight="bold">-60,827</text>
+<text x="18" y="119" font-size="10" font-weight="bold">claude-code  2.1.69 -&gt; 2.1.70</text>
+<line x1="810.0" y1="115" x2="1200.0" y2="115" stroke="#0f766e" stroke-width="4" stroke-linecap="round"/>
+<circle cx="1200.0" cy="115" r="5" fill="#0f766e" stroke="#ffffff" stroke-width="1"/>
+<text x="1209.0" y="119" text-anchor="start" font-size="10" font-weight="bold">+60,052</text>
+<text x="18" y="152" font-size="10" font-weight="bold">mimo  0.1.4 -&gt; 0.1.5</text>
+<line x1="810.0" y1="148" x2="1058.1" y2="148" stroke="#0f766e" stroke-width="4" stroke-linecap="round"/>
+<circle cx="1058.1" cy="148" r="5" fill="#0f766e" stroke="#ffffff" stroke-width="1"/>
+<text x="1067.1" y="152" text-anchor="start" font-size="10" font-weight="bold">+38,203</text>
+<text x="18" y="185" font-size="10" font-weight="bold">kimi  1.6 -&gt; 1.35.0</text>
+<line x1="810.0" y1="181" x2="959.5" y2="181" stroke="#0f766e" stroke-width="4" stroke-linecap="round"/>
+<circle cx="959.5" cy="181" r="5" fill="#0f766e" stroke="#ffffff" stroke-width="1"/>
+<text x="968.5" y="185" text-anchor="start" font-size="10" font-weight="bold">+23,026</text>
+<text x="18" y="218" font-size="10" font-weight="bold">claude-code  2.1.153 -&gt; 2.1.154</text>
+<line x1="810.0" y1="214" x2="665.2" y2="214" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+<circle cx="665.2" cy="214" r="5" fill="#2563eb" stroke="#ffffff" stroke-width="1"/>
+<text x="656.2" y="218" text-anchor="end" font-size="10" font-weight="bold">-22,291</text>
+<text x="18" y="251" font-size="10" font-weight="bold">codex  0.143.0 -&gt; 0.144.0</text>
+<line x1="810.0" y1="247" x2="928.0" y2="247" stroke="#0f766e" stroke-width="4" stroke-linecap="round"/>
+<circle cx="928.0" cy="247" r="5" fill="#0f766e" stroke="#ffffff" stroke-width="1"/>
+<text x="937.0" y="251" text-anchor="start" font-size="10" font-weight="bold">+18,169</text>
+<text x="18" y="284" font-size="10" font-weight="bold">openclaw  2026.5.2 -&gt; 2026.5.3</text>
+<line x1="810.0" y1="280" x2="913.5" y2="280" stroke="#0f766e" stroke-width="4" stroke-linecap="round"/>
+<circle cx="913.5" cy="280" r="5" fill="#0f766e" stroke="#ffffff" stroke-width="1"/>
+<text x="922.5" y="284" text-anchor="start" font-size="10" font-weight="bold">+15,933</text>
+<text x="18" y="317" font-size="10" font-weight="bold">hermes  v2026.5.16 -&gt; v2026.5.28</text>
+<line x1="810.0" y1="313" x2="910.1" y2="313" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+<circle cx="910.1" cy="313" r="5" fill="#2563eb" stroke="#ffffff" stroke-width="1"/>
+<text x="919.1" y="317" text-anchor="start" font-size="10" font-weight="bold">+15,421</text>
+<text x="18" y="350" font-size="10" font-weight="bold">codex  0.114.0 -&gt; 0.115.0</text>
+<line x1="810.0" y1="346" x2="902.2" y2="346" stroke="#0f766e" stroke-width="4" stroke-linecap="round"/>
+<circle cx="902.2" cy="346" r="5" fill="#0f766e" stroke="#ffffff" stroke-width="1"/>
+<text x="911.2" y="350" text-anchor="start" font-size="10" font-weight="bold">+14,204</text>
+<text x="18" y="383" font-size="10" font-weight="bold">opencode  1.15.1 -&gt; 1.15.2</text>
+<line x1="810.0" y1="379" x2="721.4" y2="379" stroke="#0f766e" stroke-width="4" stroke-linecap="round"/>
+<circle cx="721.4" cy="379" r="5" fill="#0f766e" stroke="#ffffff" stroke-width="1"/>
+<text x="712.4" y="383" text-anchor="end" font-size="10" font-weight="bold">-13,637</text>
+<text x="18" y="416" font-size="10" font-weight="bold">claude-code  2.1.186 -&gt; 2.1.187</text>
+<line x1="810.0" y1="412" x2="725.4" y2="412" stroke="#0f766e" stroke-width="4" stroke-linecap="round"/>
+<circle cx="725.4" cy="412" r="5" fill="#0f766e" stroke="#ffffff" stroke-width="1"/>
+<text x="716.4" y="416" text-anchor="end" font-size="10" font-weight="bold">-13,028</text>
+<text x="18" y="449" font-size="10" font-weight="bold">openclaw  2026.2.14 -&gt; 2026.2.15</text>
+<line x1="810.0" y1="445" x2="890.4" y2="445" stroke="#0f766e" stroke-width="4" stroke-linecap="round"/>
+<circle cx="890.4" cy="445" r="5" fill="#0f766e" stroke="#ffffff" stroke-width="1"/>
+<text x="899.4" y="449" text-anchor="start" font-size="10" font-weight="bold">+12,388</text>
+<text x="18" y="482" font-size="10" font-weight="bold">openclaw  2026.4.1 -&gt; 2026.4.2</text>
+<line x1="810.0" y1="478" x2="890.2" y2="478" stroke="#0f766e" stroke-width="4" stroke-linecap="round"/>
+<circle cx="890.2" cy="478" r="5" fill="#0f766e" stroke="#ffffff" stroke-width="1"/>
+<text x="899.2" y="482" text-anchor="start" font-size="10" font-weight="bold">+12,350</text>
+<text x="18" y="515" font-size="10" font-weight="bold">claude-code  2.1.81 -&gt; 2.1.83</text>
+<line x1="810.0" y1="511" x2="886.9" y2="511" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+<circle cx="886.9" cy="511" r="5" fill="#2563eb" stroke="#ffffff" stroke-width="1"/>
+<text x="895.9" y="515" text-anchor="start" font-size="10" font-weight="bold">+11,835</text>
+<text x="18" y="548" font-size="10" font-weight="bold">claude-code  2.1.173 -&gt; 2.1.175</text>
+<line x1="810.0" y1="544" x2="881.0" y2="544" stroke="#0f766e" stroke-width="4" stroke-linecap="round"/>
+<circle cx="881.0" cy="544" r="5" fill="#0f766e" stroke="#ffffff" stroke-width="1"/>
+<text x="890.0" y="548" text-anchor="start" font-size="10" font-weight="bold">+10,934</text>
+<text x="18" y="581" font-size="10" font-weight="bold">kimi-code  0.4.0 -&gt; 0.5.0</text>
+<line x1="810.0" y1="577" x2="878.5" y2="577" stroke="#0f766e" stroke-width="4" stroke-linecap="round"/>
+<circle cx="878.5" cy="577" r="5" fill="#0f766e" stroke="#ffffff" stroke-width="1"/>
+<text x="887.5" y="581" text-anchor="start" font-size="10" font-weight="bold">+10,542</text>
+<text x="18" y="614" font-size="10" font-weight="bold">openclaw  2026.5.28 -&gt; 2026.6.1</text>
+<line x1="810.0" y1="610" x2="876.8" y2="610" stroke="#0f766e" stroke-width="4" stroke-linecap="round"/>
+<circle cx="876.8" cy="610" r="5" fill="#0f766e" stroke="#ffffff" stroke-width="1"/>
+<text x="885.8" y="614" text-anchor="start" font-size="10" font-weight="bold">+10,283</text>
+<text x="18" y="647" font-size="10" font-weight="bold">claude-code  2.1.121 -&gt; 2.1.122</text>
+<line x1="810.0" y1="643" x2="873.6" y2="643" stroke="#0f766e" stroke-width="4" stroke-linecap="round"/>
+<circle cx="873.6" cy="643" r="5" fill="#0f766e" stroke="#ffffff" stroke-width="1"/>
+<text x="882.6" y="647" text-anchor="start" font-size="10" font-weight="bold">+9,795</text>
+<text x="18" y="680" font-size="10" font-weight="bold">claude-code  2.1.202 -&gt; 2.1.203</text>
+<line x1="810.0" y1="676" x2="871.6" y2="676" stroke="#0f766e" stroke-width="4" stroke-linecap="round"/>
+<circle cx="871.6" cy="676" r="5" fill="#0f766e" stroke="#ffffff" stroke-width="1"/>
+<text x="880.6" y="680" text-anchor="start" font-size="10" font-weight="bold">+9,491</text>
+<text x="18" y="713" font-size="10" font-weight="bold">claude-code  2.1.200 -&gt; 2.1.201</text>
+<line x1="810.0" y1="709" x2="869.6" y2="709" stroke="#0f766e" stroke-width="4" stroke-linecap="round"/>
+<circle cx="869.6" cy="709" r="5" fill="#0f766e" stroke="#ffffff" stroke-width="1"/>
+<text x="878.6" y="713" text-anchor="start" font-size="10" font-weight="bold">+9,179</text>
+<circle cx="410" cy="765" r="5" fill="#2563eb"/>
+<text x="420" y="769" font-size="10" font-weight="normal">instruction</text>
+<circle cx="585" cy="765" r="5" fill="#0f766e"/>
+<text x="595" y="769" font-size="10" font-weight="normal">tool text</text>
+<circle cx="760" cy="765" r="5" fill="#16a34a"/>
+<text x="770" y="769" font-size="10" font-weight="normal">tool schema</text>
+<circle cx="935" cy="765" r="5" fill="#f59e0b"/>
+<text x="945" y="769" font-size="10" font-weight="normal">runtime</text>
+<circle cx="1110" cy="765" r="5" fill="#dc2626"/>
+<text x="1120" y="769" font-size="10" font-weight="normal">capture artifact</text>
+</svg>

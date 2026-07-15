@@ -201,7 +201,17 @@ def main() -> int:
             similarity_pairs,
         ),
     )
-    render_figures(snapshots, snapshot_rows, clauses, cross_agent, longitudinal)
+    render_figures(
+        snapshots,
+        snapshot_rows,
+        clauses,
+        cross_agent,
+        longitudinal,
+        latest_structural,
+        top_changes,
+        major_jumps,
+        similarity_pairs,
+    )
 
     elapsed = round(time.time() - started, 2)
     print(f"analysis complete: {len(snapshots)} snapshots, {len(clauses)} clauses, {elapsed}s")
@@ -1636,6 +1646,119 @@ def render_report(
     max_prompt = max(latest, key=lambda row: int(row["prompt_chars"])) if latest else {}
     avg_epochs = mean(float(row["whole_prompt_epochs"]) for row in cross_agent) if cross_agent else 0
     coverage = coverage_rows(snapshots)
+
+    epoch_ratios = sorted(
+        (
+            int(row["whole_prompt_epochs"]) / max(1, int(row["snapshots"])),
+            row["agent_id"],
+            int(row["whole_prompt_epochs"]),
+            int(row["snapshots"]),
+        )
+        for row in cross_agent
+    )
+    low_epoch = epoch_ratios[:3]
+    high_epoch = sorted(epoch_ratios, reverse=True)[:3]
+    epoch_ratio_note = (
+        "**Epoch ratio 的定量读法：**whole-epoch/release 比例最低的是 "
+        + "、".join(f"`{agent}` {ratio:.1%} ({epochs}/{releases})" for ratio, agent, epochs, releases in low_epoch)
+        + "；最高的是 "
+        + "、".join(f"`{agent}` {ratio:.1%} ({epochs}/{releases})" for ratio, agent, epochs, releases in high_epoch)
+        + "。低比例表示 archive 中存在较多 prompt-identical releases；高比例则表示几乎每个 captured release 都形成新的 whole OPS 状态。"
+    )
+
+    long_by_agent: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in longitudinal:
+        long_by_agent[row["agent_id"]].append(row)
+    churn_stats = []
+    for agent_id, rows in long_by_agent.items():
+        ordered_rows = sorted(
+            rows,
+            key=lambda row: parse_time(row["published_at"]) or datetime.min.replace(tzinfo=timezone.utc),
+        )
+        values = [float(row["normalized_churn"]) for row in ordered_rows[1:]]
+        sorted_values = sorted(values)
+        p90_index = min(len(sorted_values) - 1, max(0, math.ceil(len(sorted_values) * 0.9) - 1)) if sorted_values else 0
+        churn_stats.append(
+            {
+                "agent_id": agent_id,
+                "transitions": len(values),
+                "zero_share": sum(value == 0 for value in values) / len(values) if values else 0,
+                "p90": sorted_values[p90_index] if sorted_values else 0,
+                "maximum": max(values, default=0),
+            }
+        )
+    highest_zero = sorted(churn_stats, key=lambda row: row["zero_share"], reverse=True)[:3]
+    largest_max = sorted(churn_stats, key=lambda row: row["maximum"], reverse=True)[:3]
+    churn_distribution_note = (
+        "**Churn 分布的定量读法：**零 churn transition 比例最高的是 "
+        + "、".join(
+            f"`{row['agent_id']}` {row['zero_share']:.1%} ({row['transitions']} transitions)"
+            for row in highest_zero
+        )
+        + "；单次最大 churn 最高的是 "
+        + "、".join(f"`{row['agent_id']}` {row['maximum']:.3f}" for row in largest_max)
+        + "。这说明‘大量稳定 release + 少数剧烈 redesign’在部分 Agent 上非常明显，但不是所有 Agent 都共享同一种节奏。"
+    )
+
+    snapshot_groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in snapshot_rows:
+        snapshot_groups[row["agent_id"]].append(row)
+    component_keys = ["instruction_chars", "tool_prompt_chars", "runtime_chars", "capture_artifact_chars"]
+    dominant_delta_counts = Counter()
+    negative_net_agents = []
+    for agent_id, rows in snapshot_groups.items():
+        ordered_rows = sorted(
+            rows,
+            key=lambda row: parse_time(row["published_at"]) or datetime.min.replace(tzinfo=timezone.utc),
+        )
+        first, latest_row = ordered_rows[0], ordered_rows[-1]
+        deltas = {key: int(latest_row[key]) - int(first[key]) for key in component_keys}
+        dominant_delta_counts[max(deltas, key=lambda key: abs(deltas[key]))] += 1
+        prompt_delta = int(latest_row["prompt_chars"]) - int(first["prompt_chars"])
+        if prompt_delta < 0:
+            negative_net_agents.append((agent_id, prompt_delta))
+    dominant_component, dominant_count = dominant_delta_counts.most_common(1)[0]
+    component_delta_note = (
+        f"**首尾分量的定量读法：**{dominant_count}/{len(snapshot_groups)} 个 Agent 的最大绝对分量变化来自 "
+        f"`{dominant_component}`。全历史首尾净收缩的 Agent 为 "
+        + (
+            "、".join(f"`{agent}` ({delta:+,} chars)" for agent, delta in negative_net_agents)
+            if negative_net_agents
+            else "无"
+        )
+        + "。因此总长度趋势总体由工具说明驱动，但个别 Agent 的收缩和接近不变仍是重要反例。"
+    )
+
+    category_churn_counts: dict[str, Counter] = defaultdict(Counter)
+    for row in longitudinal:
+        for category in CATEGORY_ORDER:
+            category_churn_counts[row["agent_id"]][category] += int(row.get(f"churn_{category}", 0))
+    category_agent_shares: dict[str, dict[str, float]] = {}
+    for agent_id, counts in category_churn_counts.items():
+        total = sum(counts.values())
+        category_agent_shares[agent_id] = {
+            category: counts[category] / total if total else 0
+            for category in CATEGORY_ORDER
+        }
+    category_macro = sorted(
+        [
+            (
+                mean(shares.get(category, 0) for shares in category_agent_shares.values()),
+                category,
+            )
+            for category in CATEGORY_ORDER
+        ],
+        reverse=True,
+    )
+    category_macro_note = (
+        "**类别活跃度的定量读法：**agent-level macro-average 排名前四的是 "
+        + "、".join(
+            f"`{CATEGORY_LABELS.get(category, category)}` {share:.1%}"
+            for share, category in category_macro[:4]
+        )
+        + "。其中 Runtime/Capture 和 Uncertain 不宜被当作产品能力趋势；排除这两类后，最高的实质类别可作为后续人工复核和 case study 的优先入口。"
+    )
+
     category_by_agent: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for row in category_summary:
         category_by_agent[row["agent_id"]].append(row)
@@ -1807,6 +1930,9 @@ def render_report(
     lines.extend(
         [
             "",
+            "![Archive coverage timeline](figures/archive_coverage.svg)",
+            "",
+            "**覆盖图读法：**每一行是一种 Agent；灰线表示当前 archive 覆盖的日历跨度，蓝点表示实际 captured version。它能直观看出 Claude Code 的时间跨度和样本密度远高于近期加入的 OMP、MiMo、Antigravity，因此跨 Agent 汇总必须使用 agent-level macro average，不能把全部版本直接混在一起计数。",
             "",
             "下面这张图就是全版本二维时间轴：横轴为版本发布时间，纵轴为 `prompt.md` 字符数；不同 agent 用不同颜色表示，每个圆点对应一个 captured version，折线连接同一 agent 的相邻版本。",
             "",
@@ -1869,6 +1995,14 @@ def render_report(
     lines.extend(
         [
             "",
+            "![Latest OPS composition](figures/latest_composition.svg)",
+            "",
+            "**组成图读法：**横向堆叠条展示最新快照中 instruction、工具说明、runtime 和 capture artifact 的字符组成；它比单看 Prompt chars 更能区分“核心规则增长”和“工具/环境文本增长”。Raw tool schema 是独立证据平面，不能与这些 prompt.md 分量直接相加。",
+            "",
+            "![Prompt governance density](figures/governance_density_heatmap.svg)",
+            "",
+            "**治理图读法：**四列分别统计 must/required、never/prohibition、confirm/approval、test/verify 在每千个 instruction 单词中的出现密度。颜色在每列内独立归一化，适合观察同一种信号的 Agent 差异；不同列之间不宜直接用颜色深浅比较，更不能解释成安全分数。",
+            "",
             "可用于技术报告的观察：",
             "",
             "- **工具文本/tool-schema-heavy 类型**：多个 agent 的最新 OPS 由工具说明文本主导；OpenClaw 还额外暴露较长 JSON schema，适合讨论 capability plane 如何贡献 prompt surface 规模。",
@@ -1900,9 +2034,28 @@ def render_report(
     lines.extend(
         [
             "",
+            "![First-to-latest component deltas](figures/longitudinal_component_deltas.svg)",
+            "",
+            "**净变化组成：**堆叠条把首尾 prompt.md section 的变化拆成 instruction、tool text、runtime 和 capture artifact；绿色菱形单独表示 raw tool-schema 变化。右侧 net 数字仍以完整 prompt.md 字符数计算，所以它和堆叠分量可能有少量 heading/格式开销差异。",
+            component_delta_note,
+            "",
+            "![Captured releases versus prompt epochs](figures/epoch_release_comparison.svg)",
+            "",
+            "**Release 与 epoch：**灰色是归档版本数，紫/蓝/绿分别是 whole OPS、instruction、tool epoch 数。若 epoch 条明显短于 release 条，说明多个软件版本复用了相同 prompt design；这正是为什么纵向研究不能把每个 release 当成独立设计样本。",
+            epoch_ratio_note,
+            "",
+            "![All-version churn distribution](figures/churn_distribution.svg)",
+            "",
+            "**中间版本没有被省略：**每个点对应一对相邻版本，包括零 churn 版本；菱形是中位数，三角形是 P90，右侧标出最大值。这张图和字符时间线共同回答“变化是否持续发生”：大量点挤在零附近但少数点远离主体，才构成 bursty evolution 的证据。",
+            churn_distribution_note,
+            "",
             "### 3.2 Prompt-size major jump events",
             "",
             "下面这张表系统覆盖字符数折线图里的主要大跳变，按相邻 captured version 的 `abs(prompt_delta_chars)` 排序。完整 Top 30 机器可读表在 `results/major_jump_events.csv`。注意：`days_between` 大的事件可能是 archive 覆盖缺口后的累计变化，不应直接解释成单日改版。",
+            "",
+            "![Largest adjacent prompt jumps](figures/major_jump_lollipop.svg)",
+            "",
+            "**跳变图读法：**零点左侧是收缩、右侧是增长，线段颜色表示绝对变化最大的 component。它把表中的正负方向和主来源同时编码出来；具体机制仍应以下方 section evidence 和逐事件解释为准。",
             "",
             "| Agent | Version transition | Δ chars | Days | Main source | Tool Δ | Same command | Interpretation | Section evidence |",
             "| --- | --- | ---: | ---: | --- | ---: | --- | --- | --- |",
@@ -1939,6 +2092,10 @@ def render_report(
     lines.extend(
         [
             "",
+            "![Top clause churn events](figures/top_churn_events.svg)",
+            "",
+            "**Clause event 图读法：**绿色、红色、紫色分别表示 add、remove、move 数量，右侧保留 normalized whole-prompt churn。条形为空但 churn 非零时，通常意味着变化发生在工具文本/schema，或未进入当前 instruction/runtime clause 对齐范围；这正好提醒读者不要把两个指标混为一谈。",
+            "",
             "初步解释：Claude Code 早期和 Codex 近期都有较高 churn 事件，但需要逐条查看 `change_events.csv` 区分真实内容变更、段落重排、工具 schema 重排和 capture profile 变化。`moved_clauses` 较高的事件尤其不应被简单解释为删除/新增。",
             "",
             "## 4. RQ3：哪些类别的 prompt 指令变化更活跃？",
@@ -1971,6 +2128,15 @@ def render_report(
     lines.extend(
         [
             "",
+            "![Clause category distribution](figures/category_heatmap.svg)",
+            "",
+            "![Category-specific churn heatmap](figures/change_heatmap.svg)",
+            "",
+            "![Macro-averaged category churn](figures/category_churn_macro.svg)",
+            "",
+            "**类别图的三种口径：**第一张是全历史 clause 数量，回答“archive 中写了什么”；第二张是 Agent × category 的 add/remove 活动量，回答“哪里发生过变化”；第三张先在每个 Agent 内归一化，再做 macro-average，降低 Claude Code 等高频 archive 对总量的支配。第三张的蓝条是跨 Agent 平均，散点显示 Agent 间异质性；Runtime/Capture 和 Uncertain 较高时应优先视作分类与采集敏感性信号。",
+            category_macro_note,
+            "",
             "可检验趋势假设的当前状态：",
             "",
             "| Hypothesis | Current evidence status | How to use it |",
@@ -1997,6 +2163,12 @@ def render_report(
         )
     lines.extend(
         [
+            "",
+            "![Category similarity matrix](figures/similarity_heatmap.svg)",
+            "",
+            "![Convergence and divergence map](figures/similarity_pair_scatter.svg)",
+            "",
+            "**双指标图读法：**每个点是一对 Agent，横轴是类别分布 cosine，纵轴是工具集合 Jaccard；虚线为所有 pair 的中位数。右下区域代表高层 prompt 主题相似但工具面重叠低，右上区域才是两个维度都较接近。右侧编号只标注工具重叠最高的若干 pair，避免 55 个标签互相遮挡。",
             "",
             "解读建议：类别相似但工具 Jaccard 低，通常表示高层 prompt 功能趋同但具体 capability surface 不同；工具 Jaccard 高但类别相似低，则可能是共享底层工具形态但交互/治理文本不同。不要从相似度直接推断代码共享或抄袭。",
             "",
@@ -2036,15 +2208,27 @@ def render_figures(
     clauses: list[dict[str, Any]],
     cross_agent: list[dict[str, Any]],
     longitudinal: list[dict[str, Any]],
+    latest_structural: list[dict[str, Any]],
+    top_changes: list[dict[str, Any]],
+    major_jumps: list[dict[str, Any]],
+    similarity_pairs: list[dict[str, Any]],
 ) -> None:
     render_archive_coverage(snapshots)
     render_latest_composition(latest_rows(snapshot_rows))
     render_tool_counts(latest_rows(snapshot_rows))
+    render_governance_density(latest_structural)
     render_prompt_growth(snapshot_rows)
     render_prompt_lines_timeline(snapshot_rows)
+    render_longitudinal_component_deltas(snapshot_rows)
+    render_epoch_release_comparison(cross_agent)
+    render_churn_distribution(longitudinal)
+    render_major_jump_lollipop(major_jumps)
+    render_top_churn_events(top_changes)
     render_category_heatmap(clauses)
     render_change_heatmap(longitudinal)
+    render_category_churn_macro(longitudinal)
     render_similarity_heatmap(cross_agent)
+    render_similarity_pair_scatter(similarity_pairs)
 
 
 def render_archive_coverage(snapshots: list[Snapshot]) -> None:
@@ -2071,33 +2255,53 @@ def render_archive_coverage(snapshots: list[Snapshot]) -> None:
 
 
 def render_latest_composition(latest: list[dict[str, Any]]) -> None:
-    width, height = 980, 430
+    width, height = 1180, 570
     parts = svg_header(width, height, "Latest prompt composition")
-    parts.append(svg_text(20, 24, "Latest snapshot composition by character count", 16, "bold"))
+    parts.append(svg_text(20, 28, "Latest OPS composition by character count", 17, "bold"))
+    parts.append(svg_text(20, 50, "Stack = non-overlapping prompt.md sections; green diamond = raw schema size on the same character scale", 11))
     max_total = max(int(row["prompt_chars"]) for row in latest) if latest else 1
-    colors = [
+    specs = [
         ("instruction_chars", "#2563eb", "instruction"),
-        ("tool_schema_chars", "#16a34a", "tool schema"),
+        ("tool_prompt_chars", "#0f766e", "tool text"),
         ("runtime_chars", "#f59e0b", "runtime"),
-        ("capture_artifact_chars", "#ef4444", "capture artifact"),
+        ("capture_artifact_chars", "#dc2626", "capture artifact"),
     ]
-    x0, y0, bar_w, row_h = 160, 45, 720, 28
-    for i, row in enumerate(latest):
-        y = y0 + i * row_h
-        parts.append(svg_text(10, y + 14, row["agent_id"], 12))
+    x0, y0, bar_w, row_h = 165, 76, 805, 39
+    for index, row in enumerate(latest):
+        y = y0 + index * row_h
+        parts.append(svg_text(18, y + 15, row["agent_id"], 12, "bold"))
         x = x0
-        for key, color, _label in colors:
+        accounted = 0
+        for key, color, _label in specs:
             value = int(row[key])
+            accounted += value
             w = value / max_total * bar_w
             if w > 0:
-                parts.append(f'<rect x="{x:.1f}" y="{y}" width="{w:.1f}" height="17" fill="{color}" opacity="0.86"/>')
+                parts.append(f'<rect x="{x:.1f}" y="{y}" width="{w:.1f}" height="19" fill="{color}" opacity="0.9"/>')
             x += w
-        parts.append(svg_text(x0 + bar_w + 8, y + 14, str(row["prompt_chars"]), 11))
-    lx = 20
-    for _key, color, label in colors:
-        parts.append(f'<rect x="{lx}" y="{height-30}" width="12" height="12" fill="{color}"/>')
-        parts.append(svg_text(lx + 17, height - 20, label, 11))
-        lx += 135
+        other = max(0, int(row["prompt_chars"]) - accounted)
+        other_w = other / max_total * bar_w
+        if other_w:
+            parts.append(f'<rect x="{x:.1f}" y="{y}" width="{other_w:.1f}" height="19" fill="#cbd5e1"/>')
+        total_x = x0 + int(row["prompt_chars"]) / max_total * bar_w
+        parts.append(f'<line x1="{x0}" y1="{y+26}" x2="{total_x:.1f}" y2="{y+26}" stroke="#dcfce7" stroke-width="2"/>')
+        schema_x = x0 + int(row["tool_schema_chars"]) / max_total * bar_w
+        parts.append(
+            f'<polygon points="{schema_x:.1f},{y+20} {schema_x+5:.1f},{y+26} {schema_x:.1f},{y+32} {schema_x-5:.1f},{y+26}" '
+            f'fill="#16a34a" stroke="#ffffff" stroke-width="1"/>'
+        )
+        parts.append(svg_text(990, y + 15, f"{int(row['prompt_chars']):,} chars", 11, "bold"))
+        parts.append(svg_text(1090, y + 15, f"{int(row['tool_count'])} tools", 10))
+    legend_x = 165
+    for _key, color, label in specs:
+        parts.append(f'<rect x="{legend_x}" y="{height-30}" width="12" height="12" fill="{color}"/>')
+        parts.append(svg_text(legend_x + 17, height - 20, label, 10))
+        legend_x += 150
+    parts.append(f'<rect x="{legend_x}" y="{height-30}" width="12" height="12" fill="#cbd5e1"/>')
+    parts.append(svg_text(legend_x + 17, height - 20, "headings / other", 10))
+    legend_x += 155
+    parts.append(f'<polygon points="{legend_x},{height-32} {legend_x+6},{height-24} {legend_x},{height-16} {legend_x-6},{height-24}" fill="#16a34a"/>')
+    parts.append(svg_text(legend_x + 12, height - 20, "raw schema (separate)", 10))
     write_text(FIGURES / "latest_composition.svg", "\n".join(parts + ["</svg>\n"]))
 
 
@@ -2113,6 +2317,410 @@ def render_tool_counts(latest: list[dict[str, Any]]) -> None:
         parts.append(f'<rect x="145" y="{y}" width="{w:.1f}" height="16" fill="#7c3aed" opacity="0.85"/>')
         parts.append(svg_text(155 + w, y + 13, str(row["tool_count"]), 11))
     write_text(FIGURES / "tool_counts.svg", "\n".join(parts + ["</svg>\n"]))
+
+
+
+
+def render_governance_density(latest_structural: list[dict[str, Any]]) -> None:
+    metrics = [
+        ("must_density_per_1k", "Must / required"),
+        ("never_density_per_1k", "Never / prohibit"),
+        ("confirmation_density_per_1k", "Confirm / approval"),
+        ("verification_density_per_1k", "Test / verify"),
+    ]
+    rows = sorted(latest_structural, key=lambda row: agent_sort_key(row["agent_id"]))
+    cell_w, cell_h = 150, 34
+    left, top = 165, 72
+    width = left + len(metrics) * cell_w + 65
+    height = top + len(rows) * cell_h + 78
+    maxima = {
+        key: max((float(row.get(key, 0)) for row in rows), default=1.0) or 1.0
+        for key, _label in metrics
+    }
+    parts = svg_header(width, height, "Latest prompt governance density")
+    parts.append(svg_text(20, 27, "Latest prompt-level governance signals", 17, "bold"))
+    parts.append(svg_text(20, 49, "Matches per 1,000 instruction words; each column uses its own color scale", 11))
+    for index, (_key, label) in enumerate(metrics):
+        parts.append(svg_text(left + index * cell_w + 10, top - 13, label, 11, "bold"))
+    for row_index, row in enumerate(rows):
+        y = top + row_index * cell_h
+        parts.append(svg_text(18, y + 22, row["agent_id"], 12, "bold"))
+        for col_index, (key, _label) in enumerate(metrics):
+            value = float(row.get(key, 0))
+            intensity = value / maxima[key] if maxima[key] else 0
+            x = left + col_index * cell_w
+            parts.append(
+                f'<rect x="{x}" y="{y}" width="{cell_w-8}" height="{cell_h-5}" rx="3" '
+                f'fill="{blue_scale(intensity)}" stroke="#d7dee8"/>'
+            )
+            text_color = "#ffffff" if intensity > 0.62 else "#111827"
+            parts.append(
+                f'<text x="{x + (cell_w-8)/2:.1f}" y="{y+20}" text-anchor="middle" '
+                f'font-size="11" font-weight="bold" fill="{text_color}" '
+                f'style="fill:{text_color}">{value:.2f}</text>'
+            )
+    parts.append(svg_text(18, height - 22, "Textual explicitness only; this is not a behavioral safety score.", 11))
+    write_text(FIGURES / "governance_density_heatmap.svg", "\n".join(parts + ["</svg>\n"]))
+
+
+def render_longitudinal_component_deltas(snapshot_rows: list[dict[str, Any]]) -> None:
+    grouped: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in snapshot_rows:
+        grouped[row["agent_id"]].append(row)
+    component_specs = [
+        ("instruction_chars", "#2563eb", "instruction"),
+        ("tool_prompt_chars", "#0f766e", "tool text"),
+        ("runtime_chars", "#f59e0b", "runtime"),
+        ("capture_artifact_chars", "#dc2626", "capture artifact"),
+    ]
+    rows = []
+    for agent_id in sorted(grouped, key=agent_sort_key):
+        items = sorted(
+            grouped[agent_id],
+            key=lambda row: parse_time(row["published_at"]) or datetime.min.replace(tzinfo=timezone.utc),
+        )
+        first, latest = items[0], items[-1]
+        deltas = {key: int(latest[key]) - int(first[key]) for key, _color, _label in component_specs}
+        rows.append(
+            {
+                "agent_id": agent_id,
+                "deltas": deltas,
+                "schema_delta": int(latest["tool_schema_chars"]) - int(first["tool_schema_chars"]),
+                "prompt_delta": int(latest["prompt_chars"]) - int(first["prompt_chars"]),
+            }
+        )
+    max_extent = max(
+        (
+            max(
+                sum(max(0, row["deltas"][key]) for key, _color, _label in component_specs),
+                abs(sum(min(0, row["deltas"][key]) for key, _color, _label in component_specs)),
+                abs(row["schema_delta"]),
+            )
+            for row in rows
+        ),
+        default=1,
+    )
+    width, height = 1260, 590
+    left, right, top, bottom = 175, 1110, 86, 535
+    zero_x = (left + right) / 2
+    half_w = (right - left) / 2 - 15
+    scale = half_w / max_extent if max_extent else 1
+    parts = svg_header(width, height, "First-to-latest prompt component change")
+    parts.append(svg_text(20, 28, "First-to-latest OPS component change", 17, "bold"))
+    parts.append(svg_text(20, 50, "Stacked sections are from prompt.md; green diamond is raw tool-schema delta (separate evidence plane)", 11))
+    parts.append(f'<line x1="{zero_x:.1f}" y1="{top-8}" x2="{zero_x:.1f}" y2="{bottom}" stroke="#64748b" stroke-width="1.2"/>')
+    row_h = 38
+    for index, row in enumerate(rows):
+        y = top + index * row_h
+        parts.append(svg_text(18, y + 17, row["agent_id"], 12, "bold"))
+        pos_x = zero_x
+        neg_x = zero_x
+        for key, color, _label in component_specs:
+            delta = row["deltas"][key]
+            if delta > 0:
+                w = delta * scale
+                parts.append(f'<rect x="{pos_x:.1f}" y="{y}" width="{w:.1f}" height="20" fill="{color}" opacity="0.88"/>')
+                pos_x += w
+            elif delta < 0:
+                w = abs(delta) * scale
+                neg_x -= w
+                parts.append(f'<rect x="{neg_x:.1f}" y="{y}" width="{w:.1f}" height="20" fill="{color}" opacity="0.88"/>')
+        schema_x = zero_x + row["schema_delta"] * scale
+        parts.append(
+            f'<polygon points="{schema_x:.1f},{y-3} {schema_x+5:.1f},{y+2} {schema_x:.1f},{y+7} {schema_x-5:.1f},{y+2}" '
+            f'fill="#16a34a" stroke="#ffffff" stroke-width="1"/>'
+        )
+        parts.append(svg_text(1128, y + 16, f"net {row['prompt_delta']:+,}", 11, "bold"))
+    parts.append(svg_text(left, bottom + 23, f"-{fmt_int(max_extent)} chars", 10))
+    parts.append(svg_text(zero_x - 10, bottom + 23, "0", 10))
+    parts.append(svg_text(right - 72, bottom + 23, f"+{fmt_int(max_extent)}", 10))
+    legend_x = 185
+    for _key, color, label in component_specs:
+        parts.append(f'<rect x="{legend_x}" y="{height-28}" width="12" height="12" fill="{color}"/>')
+        parts.append(svg_text(legend_x + 17, height - 18, label, 10))
+        legend_x += 150
+    parts.append(f'<polygon points="{legend_x},{height-30} {legend_x+6},{height-24} {legend_x},{height-18} {legend_x-6},{height-24}" fill="#16a34a"/>')
+    parts.append(svg_text(legend_x + 12, height - 20, "raw schema delta", 10))
+    write_text(FIGURES / "longitudinal_component_deltas.svg", "\n".join(parts + ["</svg>\n"]))
+
+
+def render_epoch_release_comparison(cross_agent: list[dict[str, Any]]) -> None:
+    rows = sorted(cross_agent, key=lambda row: agent_sort_key(row["agent_id"]))
+    specs = [
+        ("snapshots", "#94a3b8", "captured releases"),
+        ("whole_prompt_epochs", "#7c3aed", "whole OPS epochs"),
+        ("instruction_epochs", "#2563eb", "instruction epochs"),
+        ("tool_epochs", "#16a34a", "tool epochs"),
+    ]
+    max_value = max((int(row["snapshots"]) for row in rows), default=1)
+    width, height = 1120, 560
+    left, plot_right, top = 165, 930, 82
+    row_h, bar_h = 38, 6
+    parts = svg_header(width, height, "Captured releases versus prompt epochs")
+    parts.append(svg_text(20, 28, "Release frequency is not prompt-design frequency", 17, "bold"))
+    parts.append(svg_text(20, 50, "Consecutive identical hashes collapse into separate whole, instruction, and tool epochs", 11))
+    for index, row in enumerate(rows):
+        y = top + index * row_h
+        parts.append(svg_text(18, y + 15, row["agent_id"], 12, "bold"))
+        for offset, (key, color, _label) in enumerate(specs):
+            value = int(row.get(key, 0))
+            w = value / max_value * (plot_right - left)
+            yy = y + offset * (bar_h + 1) - 8
+            parts.append(f'<rect x="{left}" y="{yy}" width="{w:.1f}" height="{bar_h}" rx="2" fill="{color}"/>')
+        ratio = int(row["whole_prompt_epochs"]) / max(1, int(row["snapshots"]))
+        parts.append(svg_text(950, y + 15, f"{ratio:.0%} whole/release", 11))
+    legend_x = 165
+    for _key, color, label in specs:
+        parts.append(f'<rect x="{legend_x}" y="{height-27}" width="13" height="10" fill="{color}"/>')
+        parts.append(svg_text(legend_x + 18, height - 18, label, 10))
+        legend_x += 195
+    write_text(FIGURES / "epoch_release_comparison.svg", "\n".join(parts + ["</svg>\n"]))
+
+
+def render_churn_distribution(longitudinal: list[dict[str, Any]]) -> None:
+    grouped: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in longitudinal:
+        grouped[row["agent_id"]].append(row)
+    rows = []
+    for agent_id in sorted(grouped, key=agent_sort_key):
+        items = sorted(
+            grouped[agent_id],
+            key=lambda row: parse_time(row["published_at"]) or datetime.min.replace(tzinfo=timezone.utc),
+        )
+        values = [float(row["normalized_churn"]) for row in items[1:]]
+        ordered = sorted(values)
+        median = ordered[len(ordered) // 2] if ordered else 0
+        p90_index = min(len(ordered) - 1, max(0, math.ceil(len(ordered) * 0.9) - 1)) if ordered else 0
+        p90 = ordered[p90_index] if ordered else 0
+        rows.append((agent_id, values, median, p90, max(values, default=0)))
+    max_churn = max((item[4] for item in rows), default=1) or 1
+    axis_max = max(0.2, math.ceil(max_churn * 10) / 10)
+    width, height = 1180, 590
+    left, right, top, bottom = 165, 1010, 78, 520
+    row_h = 38
+    colors = ["#2563eb", "#16a34a", "#dc2626", "#9333ea", "#0891b2", "#f97316", "#4f46e5", "#65a30d", "#be123c", "#0f766e", "#a16207"]
+    parts = svg_header(width, height, "All-version normalized churn distribution")
+    parts.append(svg_text(20, 28, "All adjacent-version prompt churn", 17, "bold"))
+    parts.append(svg_text(20, 50, "Every dot is one transition, including zero-churn releases; diamond = median, triangle = p90", 11))
+    for tick in range(6):
+        value = axis_max * tick / 5
+        x = left + (right - left) * tick / 5
+        parts.append(f'<line x1="{x:.1f}" y1="{top-10}" x2="{x:.1f}" y2="{bottom}" stroke="#e2e8f0"/>')
+        parts.append(svg_text(x - 12, bottom + 22, f"{value:.2f}", 10))
+    for index, (agent_id, values, median, p90, maximum) in enumerate(rows):
+        y = top + index * row_h
+        color = colors[index % len(colors)]
+        parts.append(svg_text(18, y + 5, agent_id, 12, "bold"))
+        parts.append(f'<line x1="{left}" y1="{y}" x2="{right}" y2="{y}" stroke="#f1f5f9"/>')
+        for point_index, value in enumerate(values):
+            x = left + min(value, axis_max) / axis_max * (right - left)
+            jitter = ((point_index % 5) - 2) * 2.4
+            parts.append(f'<circle cx="{x:.1f}" cy="{y+jitter:.1f}" r="2.5" fill="{color}" opacity="0.42"/>')
+        median_x = left + median / axis_max * (right - left)
+        p90_x = left + p90 / axis_max * (right - left)
+        parts.append(
+            f'<polygon points="{median_x:.1f},{y-7} {median_x+6:.1f},{y} {median_x:.1f},{y+7} {median_x-6:.1f},{y}" '
+            f'fill="{color}" stroke="#ffffff"/>'
+        )
+        parts.append(f'<polygon points="{p90_x:.1f},{y-8} {p90_x+7:.1f},{y+6} {p90_x-7:.1f},{y+6}" fill="#111827"/>')
+        parts.append(svg_text(1030, y + 5, f"max {maximum:.3f}", 10))
+    parts.append(svg_text(left, height - 22, "Normalized line churn", 11, "bold"))
+    write_text(FIGURES / "churn_distribution.svg", "\n".join(parts + ["</svg>\n"]))
+
+
+def render_major_jump_lollipop(major_jumps: list[dict[str, Any]]) -> None:
+    rows = major_jumps[:20]
+    max_abs = max((abs(int(row["prompt_delta_chars"])) for row in rows), default=1)
+    width, height = 1440, 790
+    label_right, plot_right, top, row_h = 385, 1235, 82, 33
+    center = (label_right + plot_right) / 2
+    half_w = (plot_right - label_right) / 2 - 30
+    colors = {
+        "instruction": "#2563eb",
+        "tool_text": "#0f766e",
+        "tool_schema": "#16a34a",
+        "runtime": "#f59e0b",
+        "capture_artifact": "#dc2626",
+    }
+    parts = svg_header(width, height, "Largest adjacent prompt-size jumps")
+    parts.append(svg_text(20, 28, "Largest adjacent prompt-size jumps", 17, "bold"))
+    parts.append(svg_text(20, 50, "Signed character delta; color identifies the component with the largest absolute change", 11))
+    parts.append(f'<line x1="{center:.1f}" y1="{top-18}" x2="{center:.1f}" y2="{top + len(rows)*row_h}" stroke="#475569"/>')
+    for index, row in enumerate(rows):
+        y = top + index * row_h
+        delta = int(row["prompt_delta_chars"])
+        endpoint = center + delta / max_abs * half_w
+        color = colors.get(row["dominant_component_delta"], "#64748b")
+        label = f"{row['agent_id']}  {row['previous_version']} -> {row['version']}"
+        parts.append(svg_text(18, y + 4, label, 10, "bold"))
+        parts.append(f'<line x1="{center:.1f}" y1="{y}" x2="{endpoint:.1f}" y2="{y}" stroke="{color}" stroke-width="4" stroke-linecap="round"/>')
+        parts.append(f'<circle cx="{endpoint:.1f}" cy="{y}" r="5" fill="{color}" stroke="#ffffff" stroke-width="1"/>')
+        text_x = endpoint + 9 if delta >= 0 else endpoint - 9
+        anchor = "start" if delta >= 0 else "end"
+        parts.append(
+            f'<text x="{text_x:.1f}" y="{y+4}" text-anchor="{anchor}" font-size="10" font-weight="bold">{delta:+,}</text>'
+        )
+    legend_x = 410
+    for key in ("instruction", "tool_text", "tool_schema", "runtime", "capture_artifact"):
+        parts.append(f'<circle cx="{legend_x}" cy="{height-25}" r="5" fill="{colors[key]}"/>')
+        parts.append(svg_text(legend_x + 10, height - 21, key.replace("_", " "), 10))
+        legend_x += 175
+    write_text(FIGURES / "major_jump_lollipop.svg", "\n".join(parts + ["</svg>\n"]))
+
+
+def render_top_churn_events(top_changes: list[dict[str, Any]]) -> None:
+    rows = top_changes[:10]
+    max_count = max(
+        (
+            int(row["added_clauses"]) + int(row["removed_clauses"]) + int(row["moved_clauses"])
+            for row in rows
+        ),
+        default=1,
+    )
+    width, height = 1160, 530
+    left, right, top, row_h = 260, 930, 78, 39
+    specs = [
+        ("added_clauses", "#16a34a", "added"),
+        ("removed_clauses", "#dc2626", "removed"),
+        ("moved_clauses", "#7c3aed", "moved"),
+    ]
+    parts = svg_header(width, height, "Top clause-level churn events")
+    parts.append(svg_text(20, 28, "Largest clause-level change events", 17, "bold"))
+    parts.append(svg_text(20, 50, "Bar length is event count; right-side label reports normalized whole-prompt churn", 11))
+    for index, row in enumerate(rows):
+        y = top + index * row_h
+        parts.append(svg_text(18, y + 15, f"{row['agent_id']}  {row['version']}", 11, "bold"))
+        x = left
+        total = 0
+        for key, color, _label in specs:
+            value = int(row[key])
+            total += value
+            w = value / max_count * (right - left)
+            if w:
+                parts.append(f'<rect x="{x:.1f}" y="{y}" width="{w:.1f}" height="19" fill="{color}" opacity="0.86"/>')
+            x += w
+        if total == 0:
+            parts.append(svg_text(left + 7, y + 14, "text churn; no aligned instruction-clause event", 10))
+        parts.append(svg_text(955, y + 15, f"churn {float(row['normalized_churn']):.3f}", 10, "bold"))
+    legend_x = 260
+    for _key, color, label in specs:
+        parts.append(f'<rect x="{legend_x}" y="{height-27}" width="13" height="11" fill="{color}"/>')
+        parts.append(svg_text(legend_x + 19, height - 18, label, 10))
+        legend_x += 120
+    write_text(FIGURES / "top_churn_events.svg", "\n".join(parts + ["</svg>\n"]))
+
+
+def render_category_churn_macro(longitudinal: list[dict[str, Any]]) -> None:
+    counts: dict[str, Counter] = defaultdict(Counter)
+    for row in longitudinal:
+        for category in CATEGORY_ORDER:
+            counts[row["agent_id"]][category] += int(row.get(f"churn_{category}", 0))
+    agents = sorted(counts, key=agent_sort_key)
+    shares: dict[str, dict[str, float]] = {}
+    for agent_id in agents:
+        total = sum(counts[agent_id].values())
+        shares[agent_id] = {
+            category: counts[agent_id][category] / total if total else 0
+            for category in CATEGORY_ORDER
+        }
+    macro = {
+        category: mean(shares[agent_id][category] for agent_id in agents)
+        for category in CATEGORY_ORDER
+    }
+    categories = sorted(CATEGORY_ORDER, key=lambda category: macro[category], reverse=True)
+    max_share = max(macro.values(), default=1) or 1
+    width, height = 1180, 690
+    left, right, top, row_h = 205, 975, 78, 37
+    colors = ["#2563eb", "#0f766e", "#7c3aed", "#f59e0b", "#dc2626", "#16a34a", "#4f46e5", "#0891b2", "#be123c", "#65a30d", "#a16207"]
+    parts = svg_header(width, height, "Macro-averaged category churn share")
+    parts.append(svg_text(20, 28, "Which instruction categories change most?", 17, "bold"))
+    parts.append(svg_text(20, 50, "Bars are agent-level macro means; dots show individual agents, so prolific archives do not dominate", 11))
+    for index, category in enumerate(categories):
+        y = top + index * row_h
+        value = macro[category]
+        w = value / max_share * (right - left)
+        parts.append(svg_text(18, y + 15, CATEGORY_LABELS.get(category, category), 11, "bold"))
+        parts.append(f'<rect x="{left}" y="{y}" width="{w:.1f}" height="19" rx="3" fill="#dbeafe"/>')
+        for agent_index, agent_id in enumerate(agents):
+            x = left + shares[agent_id][category] / max_share * (right - left)
+            jitter = ((agent_index % 5) - 2) * 1.7
+            parts.append(f'<circle cx="{x:.1f}" cy="{y+9.5+jitter:.1f}" r="2.8" fill="{colors[agent_index % len(colors)]}" opacity="0.65"/>')
+        parts.append(f'<line x1="{left+w:.1f}" y1="{y-2}" x2="{left+w:.1f}" y2="{y+22}" stroke="#1d4ed8" stroke-width="2"/>')
+        parts.append(svg_text(995, y + 15, f"{value:.1%}", 10, "bold"))
+    parts.append(svg_text(20, height - 18, "Churn counts additions and removals; moved clauses are excluded from category activity.", 10))
+    write_text(FIGURES / "category_churn_macro.svg", "\n".join(parts + ["</svg>\n"]))
+
+
+def render_similarity_pair_scatter(similarity_pairs: list[dict[str, Any]]) -> None:
+    rows = list(similarity_pairs)
+    width, height = 1180, 700
+    left, right, top, bottom = 85, 800, 75, 620
+    x_min, x_max = 0.0, 1.0
+    y_min, y_max = 0.0, max(0.6, max((float(row["tool_jaccard"]) for row in rows), default=0.6))
+    cat_median = sorted(float(row["category_cosine"]) for row in rows)[len(rows) // 2] if rows else 0.5
+    tool_median = sorted(float(row["tool_jaccard"]) for row in rows)[len(rows) // 2] if rows else 0.2
+    selected = sorted(
+        rows,
+        key=lambda row: (
+            float(row["tool_jaccard"]),
+            float(row["category_cosine"]) - float(row["tool_jaccard"]),
+        ),
+        reverse=True,
+    )[:6]
+    selected_ids = {
+        (row["agent_left"], row["agent_right"]): index + 1
+        for index, row in enumerate(selected)
+    }
+    parts = svg_header(width, height, "Cross-agent convergence and divergence map")
+    parts.append(svg_text(20, 28, "Cross-agent similarity has two distinct dimensions", 17, "bold"))
+    parts.append(svg_text(20, 50, "Each point is an agent pair: prompt-category cosine versus observed-tool Jaccard", 11))
+    for tick in range(6):
+        x_value = tick / 5
+        x = left + x_value * (right - left)
+        y_value = y_min + (y_max - y_min) * tick / 5
+        y = bottom - (y_value - y_min) / (y_max - y_min) * (bottom - top)
+        parts.append(f'<line x1="{x:.1f}" y1="{top}" x2="{x:.1f}" y2="{bottom}" stroke="#e2e8f0"/>')
+        parts.append(svg_text(x - 10, bottom + 22, f"{x_value:.1f}", 10))
+        parts.append(f'<line x1="{left}" y1="{y:.1f}" x2="{right}" y2="{y:.1f}" stroke="#e2e8f0"/>')
+        parts.append(svg_text(38, y + 4, f"{y_value:.1f}", 10))
+    median_x = left + cat_median * (right - left)
+    median_y = bottom - tool_median / y_max * (bottom - top)
+    parts.append(f'<line x1="{median_x:.1f}" y1="{top}" x2="{median_x:.1f}" y2="{bottom}" stroke="#94a3b8" stroke-dasharray="5 5"/>')
+    parts.append(f'<line x1="{left}" y1="{median_y:.1f}" x2="{right}" y2="{median_y:.1f}" stroke="#94a3b8" stroke-dasharray="5 5"/>')
+    parts.append(svg_text(left + 12, top + 18, "tool-aligned / topic-divergent", 10, "bold"))
+    parts.append(svg_text(right - 185, top + 18, "aligned on both", 10, "bold"))
+    parts.append(svg_text(left + 12, bottom - 12, "divergent on both", 10, "bold"))
+    parts.append(svg_text(right - 205, bottom - 12, "topic-aligned / tool-divergent", 10, "bold"))
+    for row in rows:
+        category = float(row["category_cosine"])
+        tool = float(row["tool_jaccard"])
+        x = left + category * (right - left)
+        y = bottom - tool / y_max * (bottom - top)
+        key = (row["agent_left"], row["agent_right"])
+        if key in selected_ids:
+            parts.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="9" fill="#0f766e" stroke="#ffffff" stroke-width="1.5"/>')
+            parts.append(
+                f'<text x="{x:.1f}" y="{y+3.5:.1f}" text-anchor="middle" font-size="9" font-weight="bold" '
+                f'fill="#ffffff" style="fill:#ffffff">{selected_ids[key]}</text>'
+            )
+        else:
+            parts.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="4" fill="#64748b" opacity="0.42"/>')
+    parts.append(svg_text((left + right) / 2 - 95, height - 28, "Category-distribution cosine", 11, "bold"))
+    parts.append(svg_text(18, top - 12, "Tool Jaccard", 11, "bold"))
+    parts.append(f'<rect x="835" y="76" width="320" height="330" rx="5" fill="#f8fafc" stroke="#dbe3ec"/>')
+    parts.append(svg_text(855, 103, "Selected high tool-overlap pairs", 13, "bold"))
+    for index, row in enumerate(selected, start=1):
+        y = 132 + (index - 1) * 43
+        parts.append(f'<circle cx="858" cy="{y-4}" r="9" fill="#0f766e"/>')
+        parts.append(
+            f'<text x="858" y="{y-.5}" text-anchor="middle" font-size="9" font-weight="bold" '
+            f'fill="#ffffff" style="fill:#ffffff">{index}</text>'
+        )
+        parts.append(svg_text(876, y, f"{row['agent_left']} / {row['agent_right']}", 10, "bold"))
+        parts.append(svg_text(876, y + 16, f"category {float(row['category_cosine']):.3f}  |  tools {float(row['tool_jaccard']):.3f}", 9))
+    parts.append(svg_text(835, 443, "Dashed lines are pairwise medians.", 10))
+    parts.append(svg_text(835, 461, "Similarity describes archived OPS only.", 10))
+    write_text(FIGURES / "similarity_pair_scatter.svg", "\n".join(parts + ["</svg>\n"]))
 
 
 
@@ -2274,24 +2882,56 @@ def render_heatmap(
 ) -> None:
     rows = sorted(matrix, key=agent_sort_key)
     cols = columns or CATEGORY_ORDER
-    cell, left, top = 34, 165, 60
-    width = left + len(cols) * cell + 40
-    height = top + len(rows) * cell + 130
-    values = [value_transform(matrix[r][c]) for r in rows for c in cols]
-    max_value = max(values) if values else 1
+    cell_w, cell_h = 55, 39
+    left, top = 160, 128
+    width = left + len(cols) * cell_w + 55
+    height = top + len(rows) * cell_h + 78
+    transformed = [value_transform(matrix[row][col]) for row in rows for col in cols]
+    max_value = max(transformed) if transformed else 1
+    is_similarity = columns is not None
+    subtitle = (
+        "Cell value = cosine similarity; darker means more similar"
+        if is_similarity
+        else (
+            "Color = log(1 + add/remove events); compare rows as activity profiles"
+            if filename == "change_heatmap.svg"
+            else "Color = log(1 + clause count); compare rows as archive composition profiles"
+        )
+    )
     parts = svg_header(width, height, title)
-    parts.append(svg_text(20, 24, title, 16, "bold"))
-    for i, col in enumerate(cols):
-        parts.append(svg_text(left + i * cell + 7, top - 8, col[:10], 9, rotate=-45))
-    for r, row in enumerate(rows):
-        y = top + r * cell
-        parts.append(svg_text(10, y + 21, row, 12))
-        for c, col in enumerate(cols):
-            value = value_transform(matrix[row][col])
+    parts.append(svg_text(20, 28, title, 17, "bold"))
+    parts.append(svg_text(20, 50, subtitle, 11))
+    for index, col in enumerate(cols):
+        label = CATEGORY_LABELS.get(col, col)
+        parts.append(svg_text(left + index * cell_w + 11, top - 13, label, 10, "bold", rotate=-45))
+    for row_index, row in enumerate(rows):
+        y = top + row_index * cell_h
+        parts.append(svg_text(16, y + 24, row, 12, "bold"))
+        for col_index, col in enumerate(cols):
+            raw_value = float(matrix[row][col])
+            value = value_transform(raw_value)
             intensity = value / max_value if max_value else 0
             color = blue_scale(intensity)
-            x = left + c * cell
-            parts.append(f'<rect x="{x}" y="{y}" width="{cell-2}" height="{cell-2}" fill="{color}"/>')
+            x = left + col_index * cell_w
+            parts.append(
+                f'<rect x="{x}" y="{y}" width="{cell_w-3}" height="{cell_h-3}" rx="2" '
+                f'fill="{color}" stroke="#ffffff"/>'
+            )
+            if is_similarity:
+                text_color = "#ffffff" if intensity > 0.58 else "#111827"
+                parts.append(
+                    f'<text x="{x+(cell_w-3)/2:.1f}" y="{y+23}" text-anchor="middle" '
+                    f'font-size="9" font-weight="bold" fill="{text_color}" '
+                    f'style="fill:{text_color}">{raw_value:.2f}</text>'
+                )
+    legend_x, legend_y = left, height - 32
+    for step in range(10):
+        parts.append(
+            f'<rect x="{legend_x + step*18}" y="{legend_y}" width="18" height="10" '
+            f'fill="{blue_scale(step/9)}"/>'
+        )
+    parts.append(svg_text(legend_x, height - 8, "low", 9))
+    parts.append(svg_text(legend_x + 158, height - 8, "high", 9))
     write_text(FIGURES / filename, "\n".join(parts + ["</svg>\n"]))
 
 

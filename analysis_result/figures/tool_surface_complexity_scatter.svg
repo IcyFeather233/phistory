@@ -1,53 +1,129 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="980" height="620" viewBox="0 0 980 620">
-<rect width="100%" height="100%" fill="#fff"/>
-<text x="30" y="32" font-family="Inter,Arial,sans-serif" font-size="20" fill="#222" text-anchor="start" font-weight="700">Tool-surface complexity map</text>
-<text x="30" y="52" font-family="Inter,Arial,sans-serif" font-size="12" fill="#555" text-anchor="start" font-weight="400">x = tool count, y = number of tool families, bubble = parsed parameter count.</text>
-<line x1="90" y1="540" x2="940" y2="540" stroke="#333"/>
-<line x1="90" y1="70" x2="90" y2="540" stroke="#333"/>
-<line x1="90.0" y1="70" x2="90.0" y2="540" stroke="#edf0f3"/>
-<text x="90.0" y="558" font-family="Inter,Arial,sans-serif" font-size="10" fill="#777" text-anchor="middle" font-weight="400">0</text>
-<line x1="313.6842105263158" y1="70" x2="313.6842105263158" y2="540" stroke="#edf0f3"/>
-<text x="313.6842105263158" y="558" font-family="Inter,Arial,sans-serif" font-size="10" fill="#777" text-anchor="middle" font-weight="400">10</text>
-<line x1="537.3684210526316" y1="70" x2="537.3684210526316" y2="540" stroke="#edf0f3"/>
-<text x="537.3684210526316" y="558" font-family="Inter,Arial,sans-serif" font-size="10" fill="#777" text-anchor="middle" font-weight="400">20</text>
-<line x1="761.0526315789474" y1="70" x2="761.0526315789474" y2="540" stroke="#edf0f3"/>
-<text x="761.0526315789474" y="558" font-family="Inter,Arial,sans-serif" font-size="10" fill="#777" text-anchor="middle" font-weight="400">30</text>
-<line x1="90" y1="540.0" x2="940" y2="540.0" stroke="#edf0f3"/>
-<text x="80" y="544.0" font-family="Inter,Arial,sans-serif" font-size="10" fill="#777" text-anchor="end" font-weight="400">0</text>
-<line x1="90" y1="461.6666666666667" x2="940" y2="461.6666666666667" stroke="#edf0f3"/>
-<text x="80" y="465.6666666666667" font-family="Inter,Arial,sans-serif" font-size="10" fill="#777" text-anchor="end" font-weight="400">2</text>
-<line x1="90" y1="383.33333333333337" x2="940" y2="383.33333333333337" stroke="#edf0f3"/>
-<text x="80" y="387.33333333333337" font-family="Inter,Arial,sans-serif" font-size="10" fill="#777" text-anchor="end" font-weight="400">4</text>
-<line x1="90" y1="305.0" x2="940" y2="305.0" stroke="#edf0f3"/>
-<text x="80" y="309.0" font-family="Inter,Arial,sans-serif" font-size="10" fill="#777" text-anchor="end" font-weight="400">6</text>
-<line x1="90" y1="226.66666666666669" x2="940" y2="226.66666666666669" stroke="#edf0f3"/>
-<text x="80" y="230.66666666666669" font-family="Inter,Arial,sans-serif" font-size="10" fill="#777" text-anchor="end" font-weight="400">8</text>
-<line x1="90" y1="148.33333333333331" x2="940" y2="148.33333333333331" stroke="#edf0f3"/>
-<text x="80" y="152.33333333333331" font-family="Inter,Arial,sans-serif" font-size="10" fill="#777" text-anchor="end" font-weight="400">10</text>
-<line x1="90" y1="70.0" x2="940" y2="70.0" stroke="#edf0f3"/>
-<text x="80" y="74.0" font-family="Inter,Arial,sans-serif" font-size="10" fill="#777" text-anchor="end" font-weight="400">12</text>
-<text x="515.0" y="595" font-family="Inter,Arial,sans-serif" font-size="12" fill="#333" text-anchor="middle" font-weight="700">Observed tool count</text>
-<text x="22" y="305.0" font-family="Inter,Arial,sans-serif" font-size="12" fill="#333" text-anchor="middle" font-weight="700" transform="rotate(-90 22 305.0)">Tool-family count</text>
-<circle cx="693.9473684210526" cy="187.5" r="6.0" fill="#fd9644" stroke="#fff" opacity="0.72"/>
-<text x="703.9473684210526" y="191.5" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">claude-code</text>
-<circle cx="179.4736842105263" cy="422.5" r="6.0" fill="#fd9644" stroke="#fff" opacity="0.72"/>
-<text x="189.4736842105263" y="426.5" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">codex</text>
-<circle cx="626.8421052631579" cy="226.66666666666669" r="6.0" fill="#3867d6" stroke="#fff" opacity="0.72"/>
-<text x="636.8421052631579" y="230.66666666666669" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">antigravity</text>
-<circle cx="626.8421052631579" cy="148.33333333333331" r="6.0" fill="#fd9644" stroke="#fff" opacity="0.72"/>
-<text x="636.8421052631579" y="152.33333333333331" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">kimi-code</text>
-<circle cx="447.89473684210526" cy="187.5" r="6.0" fill="#fd9644" stroke="#fff" opacity="0.72"/>
-<text x="457.89473684210526" y="191.5" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">mimo</text>
-<circle cx="940.0" cy="70.0" r="28.0" fill="#3867d6" stroke="#fff" opacity="0.72"/>
-<text x="972.0" y="74.0" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">openclaw</text>
-<circle cx="738.6842105263158" cy="70.0" r="6.0" fill="#fd9644" stroke="#fff" opacity="0.72"/>
-<text x="748.6842105263158" y="74.0" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">hermes</text>
-<circle cx="425.5263157894737" cy="226.66666666666669" r="13.231476534813842" fill="#3867d6" stroke="#fff" opacity="0.72"/>
-<text x="442.75779232428755" y="230.66666666666669" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">kimi</text>
-<circle cx="313.6842105263158" cy="226.66666666666669" r="6.0" fill="#fd9644" stroke="#fff" opacity="0.72"/>
-<text x="323.6842105263158" y="230.66666666666669" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">opencode</text>
-<circle cx="179.4736842105263" cy="422.5" r="9.164457789803535" fill="#3867d6" stroke="#fff" opacity="0.72"/>
-<text x="192.63814200032982" y="426.5" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">pi</text>
-<circle cx="537.3684210526316" cy="148.33333333333331" r="6.0" fill="#fd9644" stroke="#fff" opacity="0.72"/>
-<text x="547.3684210526316" y="152.33333333333331" font-family="Inter,Arial,sans-serif" font-size="11" fill="#222" text-anchor="start" font-weight="400">omp</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="720" viewBox="0 0 1180 720">
+<rect x="0.0" y="0.0" width="1180.0" height="720.0" fill="#ffffff" stroke="none" rx="0" opacity="1"/>
+<text x="36.0" y="34.0" font-family="Inter,Arial,sans-serif" font-size="22" fill="#111827" text-anchor="start" font-weight="700">Tool-Surface Complexity Map</text>
+<text x="36.0" y="56.0" font-family="Inter,Arial,sans-serif" font-size="12" fill="#52606d" text-anchor="start" font-weight="400">Latest observed OPS tools. Position shows breadth; bubble size shows parsed schema parameter count.</text>
+<rect x="105.0" y="105.0" width="760.0" height="500.0" fill="#fbfcfe" stroke="#d9e2ec" rx="8" opacity="1"/>
+<rect x="105.0" y="374.2" width="253.3" height="230.8" fill="#f3f7ff" stroke="none" rx="0" opacity="0.65"/>
+<text x="121.0" y="520.4" font-family="Inter,Arial,sans-serif" font-size="11" fill="#6b7280" text-anchor="start" font-weight="700">compact</text>
+<rect x="539.3" y="105.0" width="325.7" height="192.3" fill="#fff7ed" stroke="none" rx="0" opacity="0.65"/>
+<text x="555.3" y="129.0" font-family="Inter,Arial,sans-serif" font-size="11" fill="#9a3412" text-anchor="start" font-weight="700">broad / OS-like</text>
+<line x1="105.0" y1="105.0" x2="105.0" y2="605.0" stroke="#edf2f7" stroke-width="1"/>
+<text x="105.0" y="629.0" font-family="Inter,Arial,sans-serif" font-size="11" fill="#667085" text-anchor="middle" font-weight="400">0</text>
+<line x1="286.0" y1="105.0" x2="286.0" y2="605.0" stroke="#edf2f7" stroke-width="1"/>
+<text x="286.0" y="629.0" font-family="Inter,Arial,sans-serif" font-size="11" fill="#667085" text-anchor="middle" font-weight="400">10</text>
+<line x1="466.9" y1="105.0" x2="466.9" y2="605.0" stroke="#edf2f7" stroke-width="1"/>
+<text x="466.9" y="629.0" font-family="Inter,Arial,sans-serif" font-size="11" fill="#667085" text-anchor="middle" font-weight="400">20</text>
+<line x1="647.9" y1="105.0" x2="647.9" y2="605.0" stroke="#edf2f7" stroke-width="1"/>
+<text x="647.9" y="629.0" font-family="Inter,Arial,sans-serif" font-size="11" fill="#667085" text-anchor="middle" font-weight="400">30</text>
+<line x1="828.8" y1="105.0" x2="828.8" y2="605.0" stroke="#edf2f7" stroke-width="1"/>
+<text x="828.8" y="629.0" font-family="Inter,Arial,sans-serif" font-size="11" fill="#667085" text-anchor="middle" font-weight="400">40</text>
+<line x1="105.0" y1="605.0" x2="865.0" y2="605.0" stroke="#edf2f7" stroke-width="1"/>
+<text x="91.0" y="609.0" font-family="Inter,Arial,sans-serif" font-size="11" fill="#667085" text-anchor="end" font-weight="400">0</text>
+<line x1="105.0" y1="528.1" x2="865.0" y2="528.1" stroke="#edf2f7" stroke-width="1"/>
+<text x="91.0" y="532.1" font-family="Inter,Arial,sans-serif" font-size="11" fill="#667085" text-anchor="end" font-weight="400">2</text>
+<line x1="105.0" y1="451.2" x2="865.0" y2="451.2" stroke="#edf2f7" stroke-width="1"/>
+<text x="91.0" y="455.2" font-family="Inter,Arial,sans-serif" font-size="11" fill="#667085" text-anchor="end" font-weight="400">4</text>
+<line x1="105.0" y1="374.2" x2="865.0" y2="374.2" stroke="#edf2f7" stroke-width="1"/>
+<text x="91.0" y="378.2" font-family="Inter,Arial,sans-serif" font-size="11" fill="#667085" text-anchor="end" font-weight="400">6</text>
+<line x1="105.0" y1="297.3" x2="865.0" y2="297.3" stroke="#edf2f7" stroke-width="1"/>
+<text x="91.0" y="301.3" font-family="Inter,Arial,sans-serif" font-size="11" fill="#667085" text-anchor="end" font-weight="400">8</text>
+<line x1="105.0" y1="220.4" x2="865.0" y2="220.4" stroke="#edf2f7" stroke-width="1"/>
+<text x="91.0" y="224.4" font-family="Inter,Arial,sans-serif" font-size="11" fill="#667085" text-anchor="end" font-weight="400">10</text>
+<line x1="105.0" y1="143.5" x2="865.0" y2="143.5" stroke="#edf2f7" stroke-width="1"/>
+<text x="91.0" y="147.5" font-family="Inter,Arial,sans-serif" font-size="11" fill="#667085" text-anchor="end" font-weight="400">12</text>
+<line x1="105.0" y1="605.0" x2="865.0" y2="605.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="105.0" y1="105.0" x2="105.0" y2="605.0" stroke="#1f2933" stroke-width="1.5"/>
+<text x="485.0" y="663.0" font-family="Inter,Arial,sans-serif" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="700">Observed tool count</text>
+<text x="30.0" y="355.0" font-family="Inter,Arial,sans-serif" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="700" transform="rotate(-90 30.0 355.0)">Tool-family count</text>
+<circle cx="792.6" cy="143.5" r="30.0" fill="#2563eb" stroke="#ffffff" stroke-width="2" opacity="0.78"/>
+<circle cx="792.6" cy="143.5" r="3.2" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="0.95"/>
+<circle cx="376.4" cy="297.3" r="15.2" fill="#2563eb" stroke="#ffffff" stroke-width="2" opacity="0.78"/>
+<circle cx="376.4" cy="297.3" r="3.2" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="0.95"/>
+<circle cx="185.4" cy="495.6" r="11.2" fill="#2563eb" stroke="#ffffff" stroke-width="2" opacity="0.78"/>
+<circle cx="185.4" cy="495.6" r="3.2" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="0.95"/>
+<circle cx="593.6" cy="258.8" r="8.0" fill="#f97316" stroke="#ffffff" stroke-width="2" opacity="0.78"/>
+<circle cx="593.6" cy="258.8" r="3.2" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="0.95"/>
+<circle cx="170.4" cy="484.6" r="8.0" fill="#f97316" stroke="#ffffff" stroke-width="2" opacity="0.78"/>
+<circle cx="170.4" cy="484.6" r="3.2" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="0.95"/>
+<circle cx="539.3" cy="297.3" r="8.0" fill="#7c3aed" stroke="#ffffff" stroke-width="2" opacity="0.78"/>
+<circle cx="539.3" cy="297.3" r="3.2" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="0.95"/>
+<circle cx="539.3" cy="220.4" r="8.0" fill="#f97316" stroke="#ffffff" stroke-width="2" opacity="0.78"/>
+<circle cx="539.3" cy="220.4" r="3.2" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="0.95"/>
+<circle cx="394.5" cy="258.8" r="8.0" fill="#f97316" stroke="#ffffff" stroke-width="2" opacity="0.78"/>
+<circle cx="394.5" cy="258.8" r="3.2" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="0.95"/>
+<circle cx="629.8" cy="143.5" r="8.0" fill="#f97316" stroke="#ffffff" stroke-width="2" opacity="0.78"/>
+<circle cx="629.8" cy="143.5" r="3.2" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="0.95"/>
+<circle cx="286.0" cy="297.3" r="8.0" fill="#f97316" stroke="#ffffff" stroke-width="2" opacity="0.78"/>
+<circle cx="286.0" cy="297.3" r="3.2" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="0.95"/>
+<circle cx="466.9" cy="220.4" r="8.0" fill="#f97316" stroke="#ffffff" stroke-width="2" opacity="0.78"/>
+<circle cx="466.9" cy="220.4" r="3.2" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="0.95"/>
+<line x1="593.6" y1="258.8" x2="657.6" y2="236.8" stroke="#b6c2cf" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="615.6" y="218.8" width="97.2" height="34.0" fill="#ffffff" stroke="#d9e2ec" rx="6" opacity="0.94"/>
+<text x="623.6" y="232.8" font-family="Inter,Arial,sans-serif" font-size="11" fill="#111827" text-anchor="start" font-weight="700">claude-code</text>
+<text x="623.6" y="247.8" font-family="Inter,Arial,sans-serif" font-size="9" fill="#667085" text-anchor="start" font-weight="400">27 tools / 9 families</text>
+<line x1="170.4" y1="484.6" x2="119.0" y2="460.6" stroke="#b6c2cf" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="75.0" y="442.6" width="86.0" height="34.0" fill="#ffffff" stroke="#d9e2ec" rx="6" opacity="0.94"/>
+<text x="153.0" y="456.6" font-family="Inter,Arial,sans-serif" font-size="11" fill="#111827" text-anchor="end" font-weight="700">codex</text>
+<text x="153.0" y="471.6" font-family="Inter,Arial,sans-serif" font-size="9" fill="#667085" text-anchor="end" font-weight="400">4 tools / 3 families</text>
+<line x1="539.3" y1="297.3" x2="473.3" y2="321.3" stroke="#b6c2cf" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="418.1" y="303.3" width="97.2" height="34.0" fill="#ffffff" stroke="#d9e2ec" rx="6" opacity="0.94"/>
+<text x="507.3" y="317.3" font-family="Inter,Arial,sans-serif" font-size="11" fill="#111827" text-anchor="end" font-weight="700">antigravity</text>
+<text x="507.3" y="332.3" font-family="Inter,Arial,sans-serif" font-size="9" fill="#667085" text-anchor="end" font-weight="400">24 tools / 8 families</text>
+<line x1="539.3" y1="220.4" x2="475.3" y2="190.4" stroke="#b6c2cf" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="431.3" y="172.4" width="86.0" height="34.0" fill="#ffffff" stroke="#d9e2ec" rx="6" opacity="0.94"/>
+<text x="509.3" y="186.4" font-family="Inter,Arial,sans-serif" font-size="11" fill="#111827" text-anchor="end" font-weight="700">kimi-code</text>
+<text x="509.3" y="201.4" font-family="Inter,Arial,sans-serif" font-size="9" fill="#667085" text-anchor="end" font-weight="400">24 tools / 10 families</text>
+<line x1="394.5" y1="258.8" x2="458.5" y2="236.8" stroke="#b6c2cf" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="416.5" y="218.8" width="86.0" height="34.0" fill="#ffffff" stroke="#d9e2ec" rx="6" opacity="0.94"/>
+<text x="424.5" y="232.8" font-family="Inter,Arial,sans-serif" font-size="11" fill="#111827" text-anchor="start" font-weight="700">mimo</text>
+<text x="424.5" y="247.8" font-family="Inter,Arial,sans-serif" font-size="9" fill="#667085" text-anchor="start" font-weight="400">16 tools / 9 families</text>
+<line x1="792.6" y1="143.5" x2="628.6" y2="159.5" stroke="#b6c2cf" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="584.6" y="141.5" width="86.0" height="34.0" fill="#ffffff" stroke="#d9e2ec" rx="6" opacity="0.94"/>
+<text x="662.6" y="155.5" font-family="Inter,Arial,sans-serif" font-size="11" fill="#111827" text-anchor="end" font-weight="700">openclaw</text>
+<text x="662.6" y="170.5" font-family="Inter,Arial,sans-serif" font-size="9" fill="#667085" text-anchor="end" font-weight="400">38 tools / 12 families</text>
+<line x1="629.8" y1="143.5" x2="693.8" y2="119.0" stroke="#b6c2cf" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="651.8" y="101.0" width="86.0" height="34.0" fill="#ffffff" stroke="#d9e2ec" rx="6" opacity="0.94"/>
+<text x="659.8" y="115.0" font-family="Inter,Arial,sans-serif" font-size="11" fill="#111827" text-anchor="start" font-weight="700">hermes</text>
+<text x="659.8" y="130.0" font-family="Inter,Arial,sans-serif" font-size="9" fill="#667085" text-anchor="start" font-weight="400">29 tools / 12 families</text>
+<line x1="376.4" y1="297.3" x2="440.4" y2="321.3" stroke="#b6c2cf" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="398.4" y="303.3" width="86.0" height="34.0" fill="#ffffff" stroke="#d9e2ec" rx="6" opacity="0.94"/>
+<text x="406.4" y="317.3" font-family="Inter,Arial,sans-serif" font-size="11" fill="#111827" text-anchor="start" font-weight="700">kimi</text>
+<text x="406.4" y="332.3" font-family="Inter,Arial,sans-serif" font-size="9" fill="#667085" text-anchor="start" font-weight="400">15 tools / 8 families</text>
+<line x1="286.0" y1="297.3" x2="352.0" y2="315.3" stroke="#b6c2cf" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="310.0" y="297.3" width="86.0" height="34.0" fill="#ffffff" stroke="#d9e2ec" rx="6" opacity="0.94"/>
+<text x="318.0" y="311.3" font-family="Inter,Arial,sans-serif" font-size="11" fill="#111827" text-anchor="start" font-weight="700">opencode</text>
+<text x="318.0" y="326.3" font-family="Inter,Arial,sans-serif" font-size="9" fill="#667085" text-anchor="start" font-weight="400">10 tools / 8 families</text>
+<line x1="185.4" y1="495.6" x2="253.4" y2="521.6" stroke="#b6c2cf" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="211.4" y="503.6" width="86.0" height="34.0" fill="#ffffff" stroke="#d9e2ec" rx="6" opacity="0.94"/>
+<text x="219.4" y="517.6" font-family="Inter,Arial,sans-serif" font-size="11" fill="#111827" text-anchor="start" font-weight="700">pi</text>
+<text x="219.4" y="532.6" font-family="Inter,Arial,sans-serif" font-size="9" fill="#667085" text-anchor="start" font-weight="400">4 tools / 3 families</text>
+<line x1="466.9" y1="220.4" x2="532.9" y2="242.4" stroke="#b6c2cf" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="490.9" y="224.4" width="86.0" height="34.0" fill="#ffffff" stroke="#d9e2ec" rx="6" opacity="0.94"/>
+<text x="498.9" y="238.4" font-family="Inter,Arial,sans-serif" font-size="11" fill="#111827" text-anchor="start" font-weight="700">omp</text>
+<text x="498.9" y="253.4" font-family="Inter,Arial,sans-serif" font-size="9" fill="#667085" text-anchor="start" font-weight="400">20 tools / 10 families</text>
+<rect x="900.0" y="100.0" width="245.0" height="430.0" fill="#f8fafc" stroke="#d9e2ec" rx="10" opacity="1"/>
+<text x="918.0" y="128.0" font-family="Inter,Arial,sans-serif" font-size="14" fill="#111827" text-anchor="start" font-weight="700">How to read</text>
+<text x="918.0" y="154.0" font-family="Inter,Arial,sans-serif" font-size="11" fill="#334155" text-anchor="start" font-weight="400">x: observed tool count</text>
+<text x="918.0" y="174.0" font-family="Inter,Arial,sans-serif" font-size="11" fill="#334155" text-anchor="start" font-weight="400">y: number of tool families</text>
+<text x="918.0" y="194.0" font-family="Inter,Arial,sans-serif" font-size="11" fill="#334155" text-anchor="start" font-weight="400">bubble: parsed schema params</text>
+<text x="918.0" y="226.0" font-family="Inter,Arial,sans-serif" font-size="12" fill="#111827" text-anchor="start" font-weight="700">Tool source</text>
+<circle cx="928.0" cy="248.0" r="7.0" fill="#2563eb" stroke="#ffffff" stroke-width="2" opacity="0.85"/>
+<text x="944.0" y="252.0" font-family="Inter,Arial,sans-serif" font-size="11" fill="#334155" text-anchor="start" font-weight="400">trace schema</text>
+<circle cx="928.0" cy="276.0" r="7.0" fill="#f97316" stroke="#ffffff" stroke-width="2" opacity="0.85"/>
+<text x="944.0" y="280.0" font-family="Inter,Arial,sans-serif" font-size="11" fill="#334155" text-anchor="start" font-weight="400">prompt text only</text>
+<circle cx="928.0" cy="304.0" r="7.0" fill="#7c3aed" stroke="#ffffff" stroke-width="2" opacity="0.85"/>
+<text x="944.0" y="308.0" font-family="Inter,Arial,sans-serif" font-size="11" fill="#334155" text-anchor="start" font-weight="400">mixed trace + prompt</text>
+<text x="918.0" y="350.0" font-family="Inter,Arial,sans-serif" font-size="12" fill="#111827" text-anchor="start" font-weight="700">Parameter scale</text>
+<circle cx="932.0" cy="395.0" r="8.0" fill="#2563eb" stroke="#ffffff" stroke-width="2" opacity="0.3"/>
+<text x="932.0" y="438.0" font-family="Inter,Arial,sans-serif" font-size="10" fill="#334155" text-anchor="middle" font-weight="400">0</text>
+<circle cx="984.0" cy="395.0" r="15.5" fill="#2563eb" stroke="#ffffff" stroke-width="2" opacity="0.3"/>
+<text x="984.0" y="438.0" font-family="Inter,Arial,sans-serif" font-size="10" fill="#334155" text-anchor="middle" font-weight="400">50</text>
+<circle cx="1036.0" cy="395.0" r="22.9" fill="#2563eb" stroke="#ffffff" stroke-width="2" opacity="0.3"/>
+<text x="1036.0" y="438.0" font-family="Inter,Arial,sans-serif" font-size="10" fill="#334155" text-anchor="middle" font-weight="400">200</text>
+<circle cx="1088.0" cy="395.0" r="30.0" fill="#2563eb" stroke="#ffffff" stroke-width="2" opacity="0.3"/>
+<text x="1088.0" y="438.0" font-family="Inter,Arial,sans-serif" font-size="10" fill="#334155" text-anchor="middle" font-weight="400">435</text>
+<text x="918.0" y="480.0" font-family="Inter,Arial,sans-serif" font-size="12" fill="#111827" text-anchor="start" font-weight="700">Note</text>
+<text x="918.0" y="502.0" font-family="Inter,Arial,sans-serif" font-size="10" fill="#52606d" text-anchor="start" font-weight="400">Params=0 can mean schema</text>
+<text x="918.0" y="518.0" font-family="Inter,Arial,sans-serif" font-size="10" fill="#52606d" text-anchor="start" font-weight="400">was not captured in trace.</text>
+<text x="36.0" y="690.0" font-family="Inter,Arial,sans-serif" font-size="11" fill="#667085" text-anchor="start" font-weight="400">OPS = observed prompt surface under the archived capture profile. This chart compares exposed tool declarations, not full harness capabilities.</text>
 </svg>

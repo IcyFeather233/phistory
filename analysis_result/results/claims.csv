@@ -1,5 +1,5 @@
 claim_id,statement,evidence,inference_level,confidence,alternative_explanations
-C1,The archive analyzed here contains 737 complete OPS snapshots across 11 agents.,data/derived/archive_manifest.csv,direct textual observation,high,Counts depend on repository checkout date.
+C1,The archive analyzed here contains 743 complete OPS snapshots across 11 agents.,data/derived/archive_manifest.csv,direct textual observation,high,Counts depend on repository checkout date.
 C2,Prompt-surface composition varies substantially across agents in the latest captured snapshots.,results/cross_agent_summary.csv; figures/latest_composition.svg,descriptive statistical inference,medium,Capture profile and trace schema differences can shift instruction/tool/runtime boundaries.
 C3,The latest snapshot with the largest observed tool count is openclaw 2026.7.1 with 38 tools.,data/derived/snapshots.csv,direct textual observation,high,"Some agents expose tools in prompt text but not trace schema, so counts are OPS/profile-specific."
 C4,The largest latest prompt by character count is mimo 0.1.5.,data/derived/snapshots.csv,direct textual observation,high,Character length is not token length and may include runtime/context text.

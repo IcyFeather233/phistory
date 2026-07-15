@@ -365,6 +365,7 @@ claude-code/2.1.206,claude-code,2.1.206,instruction,209,369ce067a86972da
 claude-code/2.1.207,claude-code,2.1.207,instruction,210,07eec9bea8836093
 claude-code/2.1.208,claude-code,2.1.208,instruction,211,38a94f83e417571e
 claude-code/2.1.209,claude-code,2.1.209,instruction,212,0d007584c9e02617
+claude-code/2.1.210,claude-code,2.1.210,instruction,213,3835691306cc9be9
 codex/0.80.0,codex,0.80.0,instruction,1,be25604ce2f1c874
 codex/0.81.0,codex,0.81.0,instruction,2,d8c18a8a47f5a582
 codex/0.84.0,codex,0.84.0,instruction,2,d8c18a8a47f5a582
@@ -690,6 +691,8 @@ opencode/1.17.17,opencode,1.17.17,instruction,2,e8bee8d569bee1c4
 opencode/1.17.18,opencode,1.17.18,instruction,2,e8bee8d569bee1c4
 opencode/1.17.19,opencode,1.17.19,instruction,2,e8bee8d569bee1c4
 opencode/1.17.20,opencode,1.17.20,instruction,2,e8bee8d569bee1c4
+opencode/1.18.0,opencode,1.18.0,instruction,2,e8bee8d569bee1c4
+opencode/1.18.1,opencode,1.18.1,instruction,2,e8bee8d569bee1c4
 pi/0.74.0,pi,0.74.0,instruction,1,1d9406be3f610e6f
 pi/0.74.1,pi,0.74.1,instruction,1,1d9406be3f610e6f
 pi/0.75.0,pi,0.75.0,instruction,1,1d9406be3f610e6f
@@ -719,6 +722,7 @@ pi/0.80.2,pi,0.80.2,instruction,4,8f884a2aa69545e8
 pi/0.80.3,pi,0.80.3,instruction,4,8f884a2aa69545e8
 pi/0.80.5,pi,0.80.5,instruction,4,8f884a2aa69545e8
 pi/0.80.6,pi,0.80.6,instruction,4,8f884a2aa69545e8
+pi/0.80.7,pi,0.80.7,instruction,5,eba103073410c058
 omp/16.3.3,omp,16.3.3,instruction,1,3a951ecf9dd0b348
 omp/16.3.4,omp,16.3.4,instruction,1,3a951ecf9dd0b348
 omp/16.3.5,omp,16.3.5,instruction,1,3a951ecf9dd0b348
@@ -736,6 +740,8 @@ omp/16.4.5,omp,16.4.5,instruction,4,a1262c7571a7bfd0
 omp/16.4.6,omp,16.4.6,instruction,4,a1262c7571a7bfd0
 omp/16.4.8,omp,16.4.8,instruction,4,a1262c7571a7bfd0
 omp/16.5.0,omp,16.5.0,instruction,5,2f84f6205ad90d69
+omp/16.5.1,omp,16.5.1,instruction,5,2f84f6205ad90d69
+omp/16.5.2,omp,16.5.2,instruction,6,48a2f4785e99f074
 claude-code/1.0.0,claude-code,1.0.0,tool,1,89de97b2b22f4e1e
 claude-code/1.0.1,claude-code,1.0.1,tool,1,89de97b2b22f4e1e
 claude-code/1.0.2,claude-code,1.0.2,tool,1,89de97b2b22f4e1e
@@ -1102,6 +1108,7 @@ claude-code/2.1.206,claude-code,2.1.206,tool,137,18c2491936778a32
 claude-code/2.1.207,claude-code,2.1.207,tool,137,18c2491936778a32
 claude-code/2.1.208,claude-code,2.1.208,tool,137,18c2491936778a32
 claude-code/2.1.209,claude-code,2.1.209,tool,137,18c2491936778a32
+claude-code/2.1.210,claude-code,2.1.210,tool,137,18c2491936778a32
 codex/0.80.0,codex,0.80.0,tool,1,98199cbee4da7d10
 codex/0.81.0,codex,0.81.0,tool,2,b198c4547d1c80a8
 codex/0.84.0,codex,0.84.0,tool,2,b198c4547d1c80a8
@@ -1427,6 +1434,8 @@ opencode/1.17.17,opencode,1.17.17,tool,3,df8589eefa13c370
 opencode/1.17.18,opencode,1.17.18,tool,3,df8589eefa13c370
 opencode/1.17.19,opencode,1.17.19,tool,3,df8589eefa13c370
 opencode/1.17.20,opencode,1.17.20,tool,3,df8589eefa13c370
+opencode/1.18.0,opencode,1.18.0,tool,3,df8589eefa13c370
+opencode/1.18.1,opencode,1.18.1,tool,3,df8589eefa13c370
 pi/0.74.0,pi,0.74.0,tool,1,ea0318c876277bf5
 pi/0.74.1,pi,0.74.1,tool,1,ea0318c876277bf5
 pi/0.75.0,pi,0.75.0,tool,1,ea0318c876277bf5
@@ -1456,6 +1465,7 @@ pi/0.80.2,pi,0.80.2,tool,1,ea0318c876277bf5
 pi/0.80.3,pi,0.80.3,tool,2,6db0ddaaba0d279c
 pi/0.80.5,pi,0.80.5,tool,3,624ad9218d6ecab2
 pi/0.80.6,pi,0.80.6,tool,3,624ad9218d6ecab2
+pi/0.80.7,pi,0.80.7,tool,3,624ad9218d6ecab2
 omp/16.3.3,omp,16.3.3,tool,1,88c5062105a4a130
 omp/16.3.4,omp,16.3.4,tool,1,88c5062105a4a130
 omp/16.3.5,omp,16.3.5,tool,1,88c5062105a4a130
@@ -1473,6 +1483,8 @@ omp/16.4.5,omp,16.4.5,tool,1,88c5062105a4a130
 omp/16.4.6,omp,16.4.6,tool,1,88c5062105a4a130
 omp/16.4.8,omp,16.4.8,tool,1,88c5062105a4a130
 omp/16.5.0,omp,16.5.0,tool,2,c011fad72cf608cd
+omp/16.5.1,omp,16.5.1,tool,2,c011fad72cf608cd
+omp/16.5.2,omp,16.5.2,tool,2,c011fad72cf608cd
 claude-code/1.0.0,claude-code,1.0.0,runtime,1,e3d1fe1d070243ab
 claude-code/1.0.1,claude-code,1.0.1,runtime,1,e3d1fe1d070243ab
 claude-code/1.0.2,claude-code,1.0.2,runtime,1,e3d1fe1d070243ab
@@ -1839,6 +1851,7 @@ claude-code/2.1.206,claude-code,2.1.206,runtime,36,56cd6e094fe45c72
 claude-code/2.1.207,claude-code,2.1.207,runtime,36,56cd6e094fe45c72
 claude-code/2.1.208,claude-code,2.1.208,runtime,37,5f96535fcd4896f1
 claude-code/2.1.209,claude-code,2.1.209,runtime,37,5f96535fcd4896f1
+claude-code/2.1.210,claude-code,2.1.210,runtime,37,5f96535fcd4896f1
 codex/0.80.0,codex,0.80.0,runtime,1,3905f5a877ccd8da
 codex/0.81.0,codex,0.81.0,runtime,2,9153b25e964ac07b
 codex/0.84.0,codex,0.84.0,runtime,2,9153b25e964ac07b
@@ -2164,6 +2177,8 @@ opencode/1.17.17,opencode,1.17.17,runtime,19,0639f08792a29023
 opencode/1.17.18,opencode,1.17.18,runtime,19,0639f08792a29023
 opencode/1.17.19,opencode,1.17.19,runtime,20,e0cdfba509a22dda
 opencode/1.17.20,opencode,1.17.20,runtime,20,e0cdfba509a22dda
+opencode/1.18.0,opencode,1.18.0,runtime,21,70c5c64ebe07fe9d
+opencode/1.18.1,opencode,1.18.1,runtime,21,70c5c64ebe07fe9d
 pi/0.74.0,pi,0.74.0,runtime,1,e3b0c44298fc1c14
 pi/0.74.1,pi,0.74.1,runtime,1,e3b0c44298fc1c14
 pi/0.75.0,pi,0.75.0,runtime,1,e3b0c44298fc1c14
@@ -2193,6 +2208,7 @@ pi/0.80.2,pi,0.80.2,runtime,1,e3b0c44298fc1c14
 pi/0.80.3,pi,0.80.3,runtime,1,e3b0c44298fc1c14
 pi/0.80.5,pi,0.80.5,runtime,1,e3b0c44298fc1c14
 pi/0.80.6,pi,0.80.6,runtime,1,e3b0c44298fc1c14
+pi/0.80.7,pi,0.80.7,runtime,1,e3b0c44298fc1c14
 omp/16.3.3,omp,16.3.3,runtime,1,1c620ce672af8104
 omp/16.3.4,omp,16.3.4,runtime,1,1c620ce672af8104
 omp/16.3.5,omp,16.3.5,runtime,1,1c620ce672af8104
@@ -2210,6 +2226,8 @@ omp/16.4.5,omp,16.4.5,runtime,7,80ac0290dfa7e217
 omp/16.4.6,omp,16.4.6,runtime,8,7cf4ce44ceef421d
 omp/16.4.8,omp,16.4.8,runtime,9,80ac0290dfa7e217
 omp/16.5.0,omp,16.5.0,runtime,9,80ac0290dfa7e217
+omp/16.5.1,omp,16.5.1,runtime,9,80ac0290dfa7e217
+omp/16.5.2,omp,16.5.2,runtime,9,80ac0290dfa7e217
 claude-code/1.0.0,claude-code,1.0.0,whole,1,186428e31e319036
 claude-code/1.0.1,claude-code,1.0.1,whole,1,186428e31e319036
 claude-code/1.0.2,claude-code,1.0.2,whole,1,186428e31e319036
@@ -2576,6 +2594,7 @@ claude-code/2.1.206,claude-code,2.1.206,whole,267,9702c44ae2501afc
 claude-code/2.1.207,claude-code,2.1.207,whole,268,ad7e15e110632a04
 claude-code/2.1.208,claude-code,2.1.208,whole,269,773a8af74ced6335
 claude-code/2.1.209,claude-code,2.1.209,whole,270,b6e57de84da8d514
+claude-code/2.1.210,claude-code,2.1.210,whole,271,8354de9f2f74ebda
 codex/0.80.0,codex,0.80.0,whole,1,a10b4a591a542ff0
 codex/0.81.0,codex,0.81.0,whole,2,03dabd24f275abbf
 codex/0.84.0,codex,0.84.0,whole,2,03dabd24f275abbf
@@ -2901,6 +2920,8 @@ opencode/1.17.17,opencode,1.17.17,whole,29,5dd16ba6e4962cdb
 opencode/1.17.18,opencode,1.17.18,whole,29,5dd16ba6e4962cdb
 opencode/1.17.19,opencode,1.17.19,whole,30,6ad411fb63a09e27
 opencode/1.17.20,opencode,1.17.20,whole,30,6ad411fb63a09e27
+opencode/1.18.0,opencode,1.18.0,whole,31,3c58d7c547fa68da
+opencode/1.18.1,opencode,1.18.1,whole,31,3c58d7c547fa68da
 pi/0.74.0,pi,0.74.0,whole,1,16dfbc5ba134113f
 pi/0.74.1,pi,0.74.1,whole,1,16dfbc5ba134113f
 pi/0.75.0,pi,0.75.0,whole,1,16dfbc5ba134113f
@@ -2930,6 +2951,7 @@ pi/0.80.2,pi,0.80.2,whole,4,5649cc67b185097c
 pi/0.80.3,pi,0.80.3,whole,5,67261f6a8646749a
 pi/0.80.5,pi,0.80.5,whole,6,c46e924539c242ac
 pi/0.80.6,pi,0.80.6,whole,6,c46e924539c242ac
+pi/0.80.7,pi,0.80.7,whole,7,d3b9a56cf6f39e15
 omp/16.3.3,omp,16.3.3,whole,1,69c86f328ab58b02
 omp/16.3.4,omp,16.3.4,whole,1,69c86f328ab58b02
 omp/16.3.5,omp,16.3.5,whole,2,ef919bb193917d8a
@@ -2947,3 +2969,5 @@ omp/16.4.5,omp,16.4.5,whole,10,ef698fc4502e2d14
 omp/16.4.6,omp,16.4.6,whole,11,e12bd8de1f8eb14e
 omp/16.4.8,omp,16.4.8,whole,12,ef698fc4502e2d14
 omp/16.5.0,omp,16.5.0,whole,13,298d498e5dad91b8
+omp/16.5.1,omp,16.5.1,whole,13,298d498e5dad91b8
+omp/16.5.2,omp,16.5.2,whole,14,a71575cf855f02d2

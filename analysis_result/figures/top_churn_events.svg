@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="530" viewBox="0 0 1160 530">
+<title>Top clause-level churn events</title>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<style>text{font-family:Inter,Arial,sans-serif;fill:#111827}</style>
+<text x="20" y="28" font-size="17" font-weight="bold">Largest clause-level change events</text>
+<text x="20" y="50" font-size="11" font-weight="normal">Bar length is event count; right-side label reports normalized whole-prompt churn</text>
+<text x="18" y="93" font-size="11" font-weight="bold">claude-code  2.1.69</text>
+<rect x="260.0" y="78" width="10.5" height="19" fill="#16a34a" opacity="0.86"/>
+<rect x="270.5" y="78" width="2.1" height="19" fill="#dc2626" opacity="0.86"/>
+<rect x="272.6" y="78" width="23.1" height="19" fill="#7c3aed" opacity="0.86"/>
+<text x="955" y="93" font-size="10" font-weight="bold">churn 0.807</text>
+<text x="18" y="132" font-size="11" font-weight="bold">claude-code  2.1.70</text>
+<rect x="260.0" y="117" width="2.1" height="19" fill="#16a34a" opacity="0.86"/>
+<rect x="262.1" y="117" width="4.2" height="19" fill="#dc2626" opacity="0.86"/>
+<rect x="266.3" y="117" width="10.5" height="19" fill="#7c3aed" opacity="0.86"/>
+<text x="955" y="132" font-size="10" font-weight="bold">churn 0.799</text>
+<text x="18" y="171" font-size="11" font-weight="bold">codex  0.144.0</text>
+<rect x="260.0" y="156" width="247.8" height="19" fill="#16a34a" opacity="0.86"/>
+<rect x="507.8" y="156" width="340.3" height="19" fill="#dc2626" opacity="0.86"/>
+<rect x="848.1" y="156" width="81.9" height="19" fill="#7c3aed" opacity="0.86"/>
+<text x="955" y="171" font-size="10" font-weight="bold">churn 0.760</text>
+<text x="18" y="210" font-size="11" font-weight="bold">kimi  1.35.0</text>
+<rect x="260.0" y="195" width="109.2" height="19" fill="#16a34a" opacity="0.86"/>
+<rect x="369.2" y="195" width="23.1" height="19" fill="#dc2626" opacity="0.86"/>
+<rect x="392.3" y="195" width="130.2" height="19" fill="#7c3aed" opacity="0.86"/>
+<text x="955" y="210" font-size="10" font-weight="bold">churn 0.311</text>
+<text x="18" y="249" font-size="11" font-weight="bold">codex  0.115.0</text>
+<rect x="260.0" y="234" width="6.3" height="19" fill="#16a34a" opacity="0.86"/>
+<rect x="266.3" y="234" width="2.1" height="19" fill="#dc2626" opacity="0.86"/>
+<rect x="268.4" y="234" width="37.8" height="19" fill="#7c3aed" opacity="0.86"/>
+<text x="955" y="249" font-size="10" font-weight="bold">churn 0.227</text>
+<text x="18" y="288" font-size="11" font-weight="bold">opencode  1.15.2</text>
+<text x="267" y="287" font-size="10" font-weight="normal">text churn; no aligned instruction-clause event</text>
+<text x="955" y="288" font-size="10" font-weight="bold">churn 0.196</text>
+<text x="18" y="327" font-size="11" font-weight="bold">claude-code  2.1.154</text>
+<rect x="260.0" y="312" width="54.6" height="19" fill="#16a34a" opacity="0.86"/>
+<rect x="314.6" y="312" width="355.0" height="19" fill="#dc2626" opacity="0.86"/>
+<rect x="669.6" y="312" width="21.0" height="19" fill="#7c3aed" opacity="0.86"/>
+<text x="955" y="327" font-size="10" font-weight="bold">churn 0.188</text>
+<text x="18" y="366" font-size="11" font-weight="bold">codex  0.133.0</text>
+<rect x="260.0" y="351" width="2.1" height="19" fill="#16a34a" opacity="0.86"/>
+<rect x="262.1" y="351" width="2.1" height="19" fill="#dc2626" opacity="0.86"/>
+<text x="955" y="366" font-size="10" font-weight="bold">churn 0.174</text>
+<text x="18" y="405" font-size="11" font-weight="bold">codex  0.96.0</text>
+<text x="267" y="404" font-size="10" font-weight="normal">text churn; no aligned instruction-clause event</text>
+<text x="955" y="405" font-size="10" font-weight="bold">churn 0.166</text>
+<text x="18" y="444" font-size="11" font-weight="bold">opencode  1.17.8</text>
+<rect x="260.0" y="429" width="2.1" height="19" fill="#16a34a" opacity="0.86"/>
+<rect x="262.1" y="429" width="2.1" height="19" fill="#dc2626" opacity="0.86"/>
+<text x="955" y="444" font-size="10" font-weight="bold">churn 0.143</text>
+<rect x="260" y="503" width="13" height="11" fill="#16a34a"/>
+<text x="279" y="512" font-size="10" font-weight="normal">added</text>
+<rect x="380" y="503" width="13" height="11" fill="#dc2626"/>
+<text x="399" y="512" font-size="10" font-weight="normal">removed</text>
+<rect x="500" y="503" width="13" height="11" fill="#7c3aed"/>
+<text x="519" y="512" font-size="10" font-weight="normal">moved</text>
+</svg>

@@ -1,0 +1,233 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="690" viewBox="0 0 1180 690">
+<title>Macro-averaged category churn share</title>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<style>text{font-family:Inter,Arial,sans-serif;fill:#111827}</style>
+<text x="20" y="28" font-size="17" font-weight="bold">Which instruction categories change most?</text>
+<text x="20" y="50" font-size="11" font-weight="normal">Bars are agent-level macro means; dots show individual agents, so prolific archives do not dominate</text>
+<text x="18" y="93" font-size="11" font-weight="bold">Runtime/Capture</text>
+<rect x="205" y="78" width="770.0" height="19" rx="3" fill="#dbeafe"/>
+<circle cx="544.8" cy="84.1" r="2.8" fill="#2563eb" opacity="0.65"/>
+<circle cx="754.1" cy="85.8" r="2.8" fill="#0f766e" opacity="0.65"/>
+<circle cx="538.7" cy="87.5" r="2.8" fill="#7c3aed" opacity="0.65"/>
+<circle cx="538.6" cy="89.2" r="2.8" fill="#f59e0b" opacity="0.65"/>
+<circle cx="1194.3" cy="90.9" r="2.8" fill="#dc2626" opacity="0.65"/>
+<circle cx="923.9" cy="84.1" r="2.8" fill="#16a34a" opacity="0.65"/>
+<circle cx="372.4" cy="85.8" r="2.8" fill="#4f46e5" opacity="0.65"/>
+<circle cx="1588.8" cy="87.5" r="2.8" fill="#0891b2" opacity="0.65"/>
+<circle cx="2266.0" cy="89.2" r="2.8" fill="#be123c" opacity="0.65"/>
+<circle cx="1029.4" cy="90.9" r="2.8" fill="#65a30d" opacity="0.65"/>
+<circle cx="974.0" cy="84.1" r="2.8" fill="#a16207" opacity="0.65"/>
+<line x1="975.0" y1="76" x2="975.0" y2="100" stroke="#1d4ed8" stroke-width="2"/>
+<text x="995" y="93" font-size="10" font-weight="bold">37.4%</text>
+<text x="18" y="130" font-size="11" font-weight="bold">Extensibility</text>
+<rect x="205" y="115" width="348.6" height="19" rx="3" fill="#dbeafe"/>
+<circle cx="264.5" cy="121.1" r="2.8" fill="#2563eb" opacity="0.65"/>
+<circle cx="309.1" cy="122.8" r="2.8" fill="#0f766e" opacity="0.65"/>
+<circle cx="1049.0" cy="124.5" r="2.8" fill="#7c3aed" opacity="0.65"/>
+<circle cx="622.0" cy="126.2" r="2.8" fill="#f59e0b" opacity="0.65"/>
+<circle cx="452.3" cy="127.9" r="2.8" fill="#dc2626" opacity="0.65"/>
+<circle cx="799.3" cy="121.1" r="2.8" fill="#16a34a" opacity="0.65"/>
+<circle cx="1567.5" cy="122.8" r="2.8" fill="#4f46e5" opacity="0.65"/>
+<circle cx="411.1" cy="124.5" r="2.8" fill="#0891b2" opacity="0.65"/>
+<circle cx="205.0" cy="126.2" r="2.8" fill="#be123c" opacity="0.65"/>
+<circle cx="205.0" cy="127.9" r="2.8" fill="#65a30d" opacity="0.65"/>
+<circle cx="205.0" cy="121.1" r="2.8" fill="#a16207" opacity="0.65"/>
+<line x1="553.6" y1="113" x2="553.6" y2="137" stroke="#1d4ed8" stroke-width="2"/>
+<text x="995" y="130" font-size="10" font-weight="bold">16.9%</text>
+<text x="18" y="167" font-size="11" font-weight="bold">Uncertain</text>
+<rect x="205" y="152" width="253.6" height="19" rx="3" fill="#dbeafe"/>
+<circle cx="898.8" cy="158.1" r="2.8" fill="#2563eb" opacity="0.65"/>
+<circle cx="657.8" cy="159.8" r="2.8" fill="#0f766e" opacity="0.65"/>
+<circle cx="499.4" cy="161.5" r="2.8" fill="#7c3aed" opacity="0.65"/>
+<circle cx="502.8" cy="163.2" r="2.8" fill="#f59e0b" opacity="0.65"/>
+<circle cx="576.0" cy="164.9" r="2.8" fill="#dc2626" opacity="0.65"/>
+<circle cx="371.2" cy="158.1" r="2.8" fill="#16a34a" opacity="0.65"/>
+<circle cx="539.8" cy="159.8" r="2.8" fill="#4f46e5" opacity="0.65"/>
+<circle cx="322.8" cy="161.5" r="2.8" fill="#0891b2" opacity="0.65"/>
+<circle cx="205.0" cy="163.2" r="2.8" fill="#be123c" opacity="0.65"/>
+<circle cx="205.0" cy="164.9" r="2.8" fill="#65a30d" opacity="0.65"/>
+<circle cx="266.5" cy="158.1" r="2.8" fill="#a16207" opacity="0.65"/>
+<line x1="458.6" y1="150" x2="458.6" y2="174" stroke="#1d4ed8" stroke-width="2"/>
+<text x="995" y="167" font-size="10" font-weight="bold">12.3%</text>
+<text x="18" y="204" font-size="11" font-weight="bold">Environment</text>
+<rect x="205" y="189" width="157.0" height="19" rx="3" fill="#dbeafe"/>
+<circle cx="222.2" cy="195.1" r="2.8" fill="#2563eb" opacity="0.65"/>
+<circle cx="231.0" cy="196.8" r="2.8" fill="#0f766e" opacity="0.65"/>
+<circle cx="499.4" cy="198.5" r="2.8" fill="#7c3aed" opacity="0.65"/>
+<circle cx="276.5" cy="200.2" r="2.8" fill="#f59e0b" opacity="0.65"/>
+<circle cx="246.2" cy="201.9" r="2.8" fill="#dc2626" opacity="0.65"/>
+<circle cx="215.1" cy="195.1" r="2.8" fill="#16a34a" opacity="0.65"/>
+<circle cx="205.0" cy="196.8" r="2.8" fill="#4f46e5" opacity="0.65"/>
+<circle cx="234.4" cy="198.5" r="2.8" fill="#0891b2" opacity="0.65"/>
+<circle cx="205.0" cy="200.2" r="2.8" fill="#be123c" opacity="0.65"/>
+<circle cx="1441.6" cy="201.9" r="2.8" fill="#65a30d" opacity="0.65"/>
+<circle cx="205.0" cy="195.1" r="2.8" fill="#a16207" opacity="0.65"/>
+<line x1="362.0" y1="187" x2="362.0" y2="211" stroke="#1d4ed8" stroke-width="2"/>
+<text x="995" y="204" font-size="10" font-weight="bold">7.6%</text>
+<text x="18" y="241" font-size="11" font-weight="bold">Reliability</text>
+<rect x="205" y="226" width="99.2" height="19" rx="3" fill="#dbeafe"/>
+<circle cx="234.8" cy="232.1" r="2.8" fill="#2563eb" opacity="0.65"/>
+<circle cx="293.5" cy="233.8" r="2.8" fill="#0f766e" opacity="0.65"/>
+<circle cx="303.1" cy="235.5" r="2.8" fill="#7c3aed" opacity="0.65"/>
+<circle cx="336.0" cy="237.2" r="2.8" fill="#f59e0b" opacity="0.65"/>
+<circle cx="369.9" cy="238.9" r="2.8" fill="#dc2626" opacity="0.65"/>
+<circle cx="207.5" cy="232.1" r="2.8" fill="#16a34a" opacity="0.65"/>
+<circle cx="228.1" cy="233.8" r="2.8" fill="#4f46e5" opacity="0.65"/>
+<circle cx="205.0" cy="235.5" r="2.8" fill="#0891b2" opacity="0.65"/>
+<circle cx="205.0" cy="237.2" r="2.8" fill="#be123c" opacity="0.65"/>
+<circle cx="205.0" cy="238.9" r="2.8" fill="#65a30d" opacity="0.65"/>
+<circle cx="758.7" cy="232.1" r="2.8" fill="#a16207" opacity="0.65"/>
+<line x1="304.2" y1="224" x2="304.2" y2="248" stroke="#1d4ed8" stroke-width="2"/>
+<text x="995" y="241" font-size="10" font-weight="bold">4.8%</text>
+<text x="18" y="278" font-size="11" font-weight="bold">SE Workflow</text>
+<rect x="205" y="263" width="96.0" height="19" rx="3" fill="#dbeafe"/>
+<circle cx="386.7" cy="269.1" r="2.8" fill="#2563eb" opacity="0.65"/>
+<circle cx="382.0" cy="270.8" r="2.8" fill="#0f766e" opacity="0.65"/>
+<circle cx="303.1" cy="272.5" r="2.8" fill="#7c3aed" opacity="0.65"/>
+<circle cx="431.4" cy="274.2" r="2.8" fill="#f59e0b" opacity="0.65"/>
+<circle cx="411.1" cy="275.9" r="2.8" fill="#dc2626" opacity="0.65"/>
+<circle cx="234.0" cy="269.1" r="2.8" fill="#16a34a" opacity="0.65"/>
+<circle cx="222.3" cy="270.8" r="2.8" fill="#4f46e5" opacity="0.65"/>
+<circle cx="263.9" cy="272.5" r="2.8" fill="#0891b2" opacity="0.65"/>
+<circle cx="205.0" cy="274.2" r="2.8" fill="#be123c" opacity="0.65"/>
+<circle cx="205.0" cy="275.9" r="2.8" fill="#65a30d" opacity="0.65"/>
+<circle cx="266.5" cy="269.1" r="2.8" fill="#a16207" opacity="0.65"/>
+<line x1="301.0" y1="261" x2="301.0" y2="285" stroke="#1d4ed8" stroke-width="2"/>
+<text x="995" y="278" font-size="10" font-weight="bold">4.7%</text>
+<text x="18" y="315" font-size="11" font-weight="bold">Interaction/Output</text>
+<rect x="205" y="300" width="73.0" height="19" rx="3" fill="#dbeafe"/>
+<circle cx="288.0" cy="306.1" r="2.8" fill="#2563eb" opacity="0.65"/>
+<circle cx="603.1" cy="307.8" r="2.8" fill="#0f766e" opacity="0.65"/>
+<circle cx="205.0" cy="309.5" r="2.8" fill="#7c3aed" opacity="0.65"/>
+<circle cx="324.1" cy="311.2" r="2.8" fill="#f59e0b" opacity="0.65"/>
+<circle cx="205.0" cy="312.9" r="2.8" fill="#dc2626" opacity="0.65"/>
+<circle cx="232.7" cy="306.1" r="2.8" fill="#16a34a" opacity="0.65"/>
+<circle cx="262.7" cy="307.8" r="2.8" fill="#4f46e5" opacity="0.65"/>
+<circle cx="322.8" cy="309.5" r="2.8" fill="#0891b2" opacity="0.65"/>
+<circle cx="205.0" cy="311.2" r="2.8" fill="#be123c" opacity="0.65"/>
+<circle cx="205.0" cy="312.9" r="2.8" fill="#65a30d" opacity="0.65"/>
+<circle cx="205.0" cy="306.1" r="2.8" fill="#a16207" opacity="0.65"/>
+<line x1="278.0" y1="298" x2="278.0" y2="322" stroke="#1d4ed8" stroke-width="2"/>
+<text x="995" y="315" font-size="10" font-weight="bold">3.5%</text>
+<text x="18" y="352" font-size="11" font-weight="bold">Tool-use Policy</text>
+<rect x="205" y="337" width="46.8" height="19" rx="3" fill="#dbeafe"/>
+<circle cx="305.2" cy="343.1" r="2.8" fill="#2563eb" opacity="0.65"/>
+<circle cx="238.8" cy="344.8" r="2.8" fill="#0f766e" opacity="0.65"/>
+<circle cx="205.0" cy="346.5" r="2.8" fill="#7c3aed" opacity="0.65"/>
+<circle cx="324.1" cy="348.2" r="2.8" fill="#f59e0b" opacity="0.65"/>
+<circle cx="205.0" cy="349.9" r="2.8" fill="#dc2626" opacity="0.65"/>
+<circle cx="211.3" cy="343.1" r="2.8" fill="#16a34a" opacity="0.65"/>
+<circle cx="216.5" cy="344.8" r="2.8" fill="#4f46e5" opacity="0.65"/>
+<circle cx="263.9" cy="346.5" r="2.8" fill="#0891b2" opacity="0.65"/>
+<circle cx="205.0" cy="348.2" r="2.8" fill="#be123c" opacity="0.65"/>
+<circle cx="205.0" cy="349.9" r="2.8" fill="#65a30d" opacity="0.65"/>
+<circle cx="389.6" cy="343.1" r="2.8" fill="#a16207" opacity="0.65"/>
+<line x1="251.8" y1="335" x2="251.8" y2="359" stroke="#1d4ed8" stroke-width="2"/>
+<text x="995" y="352" font-size="10" font-weight="bold">2.3%</text>
+<text x="18" y="389" font-size="11" font-weight="bold">Planning</text>
+<rect x="205" y="374" width="43.6" height="19" rx="3" fill="#dbeafe"/>
+<circle cx="303.7" cy="380.1" r="2.8" fill="#2563eb" opacity="0.65"/>
+<circle cx="337.7" cy="381.8" r="2.8" fill="#0f766e" opacity="0.65"/>
+<circle cx="205.0" cy="383.5" r="2.8" fill="#7c3aed" opacity="0.65"/>
+<circle cx="312.2" cy="385.2" r="2.8" fill="#f59e0b" opacity="0.65"/>
+<circle cx="205.0" cy="386.9" r="2.8" fill="#dc2626" opacity="0.65"/>
+<circle cx="223.9" cy="380.1" r="2.8" fill="#16a34a" opacity="0.65"/>
+<circle cx="205.0" cy="381.8" r="2.8" fill="#4f46e5" opacity="0.65"/>
+<circle cx="234.4" cy="383.5" r="2.8" fill="#0891b2" opacity="0.65"/>
+<circle cx="205.0" cy="385.2" r="2.8" fill="#be123c" opacity="0.65"/>
+<circle cx="205.0" cy="386.9" r="2.8" fill="#65a30d" opacity="0.65"/>
+<circle cx="297.3" cy="380.1" r="2.8" fill="#a16207" opacity="0.65"/>
+<line x1="248.6" y1="372" x2="248.6" y2="396" stroke="#1d4ed8" stroke-width="2"/>
+<text x="995" y="389" font-size="10" font-weight="bold">2.1%</text>
+<text x="18" y="426" font-size="11" font-weight="bold">Memory</text>
+<rect x="205" y="411" width="41.7" height="19" rx="3" fill="#dbeafe"/>
+<circle cx="486.9" cy="417.1" r="2.8" fill="#2563eb" opacity="0.65"/>
+<circle cx="218.0" cy="418.8" r="2.8" fill="#0f766e" opacity="0.65"/>
+<circle cx="205.0" cy="420.5" r="2.8" fill="#7c3aed" opacity="0.65"/>
+<circle cx="228.8" cy="422.2" r="2.8" fill="#f59e0b" opacity="0.65"/>
+<circle cx="205.0" cy="423.9" r="2.8" fill="#dc2626" opacity="0.65"/>
+<circle cx="242.8" cy="417.1" r="2.8" fill="#16a34a" opacity="0.65"/>
+<circle cx="245.4" cy="418.8" r="2.8" fill="#4f46e5" opacity="0.65"/>
+<circle cx="205.0" cy="420.5" r="2.8" fill="#0891b2" opacity="0.65"/>
+<circle cx="205.0" cy="422.2" r="2.8" fill="#be123c" opacity="0.65"/>
+<circle cx="205.0" cy="423.9" r="2.8" fill="#65a30d" opacity="0.65"/>
+<circle cx="266.5" cy="417.1" r="2.8" fill="#a16207" opacity="0.65"/>
+<line x1="246.7" y1="409" x2="246.7" y2="433" stroke="#1d4ed8" stroke-width="2"/>
+<text x="995" y="426" font-size="10" font-weight="bold">2.0%</text>
+<text x="18" y="463" font-size="11" font-weight="bold">Permissions</text>
+<rect x="205" y="448" width="38.9" height="19" rx="3" fill="#dbeafe"/>
+<circle cx="261.4" cy="454.1" r="2.8" fill="#2563eb" opacity="0.65"/>
+<circle cx="241.4" cy="455.8" r="2.8" fill="#0f766e" opacity="0.65"/>
+<circle cx="205.0" cy="457.5" r="2.8" fill="#7c3aed" opacity="0.65"/>
+<circle cx="312.2" cy="459.2" r="2.8" fill="#f59e0b" opacity="0.65"/>
+<circle cx="205.0" cy="460.9" r="2.8" fill="#dc2626" opacity="0.65"/>
+<circle cx="371.2" cy="454.1" r="2.8" fill="#16a34a" opacity="0.65"/>
+<circle cx="205.0" cy="455.8" r="2.8" fill="#4f46e5" opacity="0.65"/>
+<circle cx="205.0" cy="457.5" r="2.8" fill="#0891b2" opacity="0.65"/>
+<circle cx="205.0" cy="459.2" r="2.8" fill="#be123c" opacity="0.65"/>
+<circle cx="205.0" cy="460.9" r="2.8" fill="#65a30d" opacity="0.65"/>
+<circle cx="266.5" cy="454.1" r="2.8" fill="#a16207" opacity="0.65"/>
+<line x1="243.9" y1="446" x2="243.9" y2="470" stroke="#1d4ed8" stroke-width="2"/>
+<text x="995" y="463" font-size="10" font-weight="bold">1.9%</text>
+<text x="18" y="500" font-size="11" font-weight="bold">Safety</text>
+<rect x="205" y="485" width="26.2" height="19" rx="3" fill="#dbeafe"/>
+<circle cx="267.6" cy="491.1" r="2.8" fill="#2563eb" opacity="0.65"/>
+<circle cx="205.0" cy="492.8" r="2.8" fill="#0f766e" opacity="0.65"/>
+<circle cx="205.0" cy="494.5" r="2.8" fill="#7c3aed" opacity="0.65"/>
+<circle cx="205.0" cy="496.2" r="2.8" fill="#f59e0b" opacity="0.65"/>
+<circle cx="205.0" cy="497.9" r="2.8" fill="#dc2626" opacity="0.65"/>
+<circle cx="419.0" cy="491.1" r="2.8" fill="#16a34a" opacity="0.65"/>
+<circle cx="216.5" cy="492.8" r="2.8" fill="#4f46e5" opacity="0.65"/>
+<circle cx="205.0" cy="494.5" r="2.8" fill="#0891b2" opacity="0.65"/>
+<circle cx="205.0" cy="496.2" r="2.8" fill="#be123c" opacity="0.65"/>
+<circle cx="205.0" cy="497.9" r="2.8" fill="#65a30d" opacity="0.65"/>
+<circle cx="205.0" cy="491.1" r="2.8" fill="#a16207" opacity="0.65"/>
+<line x1="231.2" y1="483" x2="231.2" y2="507" stroke="#1d4ed8" stroke-width="2"/>
+<text x="995" y="500" font-size="10" font-weight="bold">1.3%</text>
+<text x="18" y="537" font-size="11" font-weight="bold">Identity/Mission</text>
+<rect x="205" y="522" width="25.8" height="19" rx="3" fill="#dbeafe"/>
+<circle cx="230.1" cy="528.1" r="2.8" fill="#2563eb" opacity="0.65"/>
+<circle cx="246.6" cy="529.8" r="2.8" fill="#0f766e" opacity="0.65"/>
+<circle cx="303.1" cy="531.5" r="2.8" fill="#7c3aed" opacity="0.65"/>
+<circle cx="228.8" cy="533.2" r="2.8" fill="#f59e0b" opacity="0.65"/>
+<circle cx="205.0" cy="534.9" r="2.8" fill="#dc2626" opacity="0.65"/>
+<circle cx="265.4" cy="528.1" r="2.8" fill="#16a34a" opacity="0.65"/>
+<circle cx="239.6" cy="529.8" r="2.8" fill="#4f46e5" opacity="0.65"/>
+<circle cx="205.0" cy="531.5" r="2.8" fill="#0891b2" opacity="0.65"/>
+<circle cx="205.0" cy="533.2" r="2.8" fill="#be123c" opacity="0.65"/>
+<circle cx="205.0" cy="534.9" r="2.8" fill="#65a30d" opacity="0.65"/>
+<circle cx="205.0" cy="528.1" r="2.8" fill="#a16207" opacity="0.65"/>
+<line x1="230.8" y1="520" x2="230.8" y2="544" stroke="#1d4ed8" stroke-width="2"/>
+<text x="995" y="537" font-size="10" font-weight="bold">1.3%</text>
+<text x="18" y="574" font-size="11" font-weight="bold">Multi-agent</text>
+<rect x="205" y="559" width="24.6" height="19" rx="3" fill="#dbeafe"/>
+<circle cx="212.8" cy="565.1" r="2.8" fill="#2563eb" opacity="0.65"/>
+<circle cx="205.0" cy="566.8" r="2.8" fill="#0f766e" opacity="0.65"/>
+<circle cx="205.0" cy="568.5" r="2.8" fill="#7c3aed" opacity="0.65"/>
+<circle cx="276.5" cy="570.2" r="2.8" fill="#f59e0b" opacity="0.65"/>
+<circle cx="205.0" cy="571.9" r="2.8" fill="#dc2626" opacity="0.65"/>
+<circle cx="211.3" cy="565.1" r="2.8" fill="#16a34a" opacity="0.65"/>
+<circle cx="205.0" cy="566.8" r="2.8" fill="#4f46e5" opacity="0.65"/>
+<circle cx="205.0" cy="568.5" r="2.8" fill="#0891b2" opacity="0.65"/>
+<circle cx="205.0" cy="570.2" r="2.8" fill="#be123c" opacity="0.65"/>
+<circle cx="205.0" cy="571.9" r="2.8" fill="#65a30d" opacity="0.65"/>
+<circle cx="389.6" cy="565.1" r="2.8" fill="#a16207" opacity="0.65"/>
+<line x1="229.6" y1="557" x2="229.6" y2="581" stroke="#1d4ed8" stroke-width="2"/>
+<text x="995" y="574" font-size="10" font-weight="bold">1.2%</text>
+<text x="18" y="611" font-size="11" font-weight="bold">Tool Capability</text>
+<rect x="205" y="596" width="16.1" height="19" rx="3" fill="#dbeafe"/>
+<circle cx="228.5" cy="602.1" r="2.8" fill="#2563eb" opacity="0.65"/>
+<circle cx="212.8" cy="603.8" r="2.8" fill="#0f766e" opacity="0.65"/>
+<circle cx="205.0" cy="605.5" r="2.8" fill="#7c3aed" opacity="0.65"/>
+<circle cx="216.9" cy="607.2" r="2.8" fill="#f59e0b" opacity="0.65"/>
+<circle cx="246.2" cy="608.9" r="2.8" fill="#dc2626" opacity="0.65"/>
+<circle cx="207.5" cy="602.1" r="2.8" fill="#16a34a" opacity="0.65"/>
+<circle cx="205.0" cy="603.8" r="2.8" fill="#4f46e5" opacity="0.65"/>
+<circle cx="263.9" cy="605.5" r="2.8" fill="#0891b2" opacity="0.65"/>
+<circle cx="205.0" cy="607.2" r="2.8" fill="#be123c" opacity="0.65"/>
+<circle cx="205.0" cy="608.9" r="2.8" fill="#65a30d" opacity="0.65"/>
+<circle cx="235.8" cy="602.1" r="2.8" fill="#a16207" opacity="0.65"/>
+<line x1="221.1" y1="594" x2="221.1" y2="618" stroke="#1d4ed8" stroke-width="2"/>
+<text x="995" y="611" font-size="10" font-weight="bold">0.8%</text>
+<text x="20" y="672" font-size="10" font-weight="normal">Churn counts additions and removals; moved clauses are excluded from category activity.</text>
+</svg>
