@@ -1,13 +1,43 @@
 # Phistory Agent CLI Prompt Surface 演化分析
 
+## 目录
+
+- [0. 读法和结论边界](#section-0)
+- [1. 数据集和 capture profile](#section-1)
+  - [1.1 capture profile 是什么](#section-1-1)
+  - [1.2 数据覆盖](#section-1-2)
+- [2. RQ1：不同 Agent CLI 的 OPS 结构有什么异同？](#section-2)
+  - [2.1 字段和类别定义](#section-2-1)
+    - [Tool text% 与 Tool schema% 的区别](#section-2-1-tool-metrics)
+    - [Component 类别及实例](#section-2-1-components)
+  - [2.2 最新快照横向结构对比](#section-2-2)
+- [3. RQ2：同一个 Agent 的 OPS 如何随时间变化？](#section-3)
+  - [3.1 全版本纵向分析](#section-3-1)
+  - [3.2 Prompt-size major jump events](#section-3-2)
+    - [3.2.1 如何解释这些跳变](#section-3-2-1)
+    - [3.2.2 跳变类型概览](#section-3-2-2)
+    - [3.2.3 逐个跳变解释](#section-3-2-3)
+    - [3.2.4 综合解读](#section-3-2-4)
+  - [3.3 Clause-level change event 摘要](#section-3-3)
+- [4. RQ3：哪些类别的 prompt 指令变化更活跃？](#section-4)
+  - [4.1 分析方法](#section-4-1)
+  - [4.2 全历史 clause 类别分布](#section-4-2)
+- [5. RQ4：不同 Agent 是否收敛或分化？](#section-5)
+- [6. 可直接写进技术报告的方法段](#section-6)
+- [7. 仍需加强的地方](#section-7)
+- [8. 复现入口和证据文件](#section-8)
+
+<a id="section-0"></a>
 ## 0. 读法和结论边界
 
 本报告分析当前仓库中的 743 个完整 OPS 快照，覆盖 11 个 Agent CLI。OPS（Observed Prompt Surface）指 Phistory 在特定 capture profile 下捕获到的 prompt-bearing request。它能支持 prompt 文本、工具声明、运行时上下文和版本演化的描述性结论；不能单独证明完整 harness、真实行为、安全性提升或厂商动机。
 
 本次分类状态：model classifier disabled; rule-only labels used。类别分析是规则优先的第一版结果，适合找趋势和候选案例；正式技术报告中应把强结论限定在 `claims.csv` 已记录的证据范围内。
 
+<a id="section-1"></a>
 ## 1. 数据集和 capture profile
 
+<a id="section-1-1"></a>
 ### 1.1 capture profile 是什么
 
 这里的 capture profile 指一次 OPS 观测的采集配置，而不是 agent 产品本身。形式上可以写成 `OPS_{agent,version,profile}`。同一个 agent 版本在不同 profile 下可能暴露不同 prompt surface。
@@ -22,9 +52,10 @@
 
 因此，profile 影响的是“这次被观察到的 prompt surface”。例如 headless `exec`/`run` 模式可能和正常交互式 IDE/CLI 模式暴露不同工具或上下文；所以报告里避免说“某 agent 删除了功能”，只说“该 archived profile 下的 OPS 没有暴露某项内容”。
 
+<a id="section-1-2"></a>
 ### 1.2 数据覆盖
 
-仓库 commit：`e36406eadf0fc371a2d3e0061ef74fad9b831c6f`；分析时间：2026-07-15 07:25 UTC。
+仓库 commit：`9579f1b56aadb10ab7e0c6c1a9296783dbb72b58`；分析时间：2026-07-15 07:48 UTC。
 `trace.jsonl` 解析状态：`ok`=668, `missing_body`=75。`missing_body` 多数意味着该 tap client 的 trace 请求体不在统一 `request.body` 位置，相关快照仍保留在文本分析中。
 
 | Agent | Snapshots | First | Last | Distinct capture commands | Static prompt files |
@@ -48,14 +79,26 @@
 下面这张图就是全版本二维时间轴：横轴为版本发布时间，纵轴为 `prompt.md` 字符数；不同 agent 用不同颜色表示，每个圆点对应一个 captured version，折线连接同一 agent 的相邻版本。
 
 ![Prompt chars over time](figures/prompt_chars_timeline.svg)
-**字符数折线图说明：**这张二维时间轴的 y 轴已改为 `prompt.md` 字符数，因此和 RQ1 的 `Prompt chars` 指标一致。当前全历史字符数最高的是 `mimo` `0.1.5`（126,838 chars）；最新快照中的字符数最大值是 `mimo` `0.1.5`（126,838 chars）。如果需要排查 Markdown/JSON 格式化带来的行数差异，脚本仍会生成补充图 `figures/prompt_lines_timeline.svg`。
+**字符数折线图说明**
+
+**指标口径：**这张二维时间轴的 y 轴使用 `prompt.md` 字符数，因此和 RQ1 的 `Prompt chars` 指标一致。
+
+**最大值：**当前全历史字符数最高的是 `mimo` `0.1.5`（126,838 chars）；最新快照中的字符数最大值是 `mimo` `0.1.5`（126,838 chars）。
+
+**补充检查：**如果需要排查 Markdown/JSON 格式化带来的行数差异，脚本仍会生成 `figures/prompt_lines_timeline.svg`，其纵轴使用 prompt 行数。
+
 **Claude Code `2.1.69` deferred-tool case note：**图中最大相邻负跳变是 `claude-code` `2.1.68` -> `2.1.69`，prompt 字符数从 80,485 降到 19,658（-60,827 chars），观测工具数从 18 降到 1。该快照的 prompt 中出现 `<available-deferred-tools>`，并且 raw trace 只直接暴露 `ToolSearch`。这表示大量工具没有在初始请求里以完整 tool schema 形式 eagerly declared，而是先列出可延迟加载的工具名，再要求模型通过 `ToolSearch` 按需加载具体工具定义。下一版 `2.1.70` 又回到 79,710 chars、18 个观测工具，所以这更像短暂的暴露方式切换，而不是持续收缩。Phistory 对相邻版本使用同一条 capture command 和同一个简单合成任务，因此 `Reply with one short sentence.` 不是充分解释；但这仍然是 *under this archived capture profile* 的观测，不能推出交互模式或真实运行时功能也删除了工具。技术报告中建议写成：`2.1.69` 的初始 OPS 从 eager tool declaration 暂时变成 deferred tool discovery，导致 capability/tool plane 从初始 prompt 中大幅移出。
+
 **opencode `1.15.2` prompt-pruning case note：**`1.15.1` -> `1.15.2` 是图中第二大的非 Claude Code 负跳变之一，prompt 字符数从 48,995 降到 35,358（-13,637 chars）。相邻版本 capture command 相同，instruction/runtime 基本不变，工具集合稳定为 10 个；主要变化是 tool/instruction guidance 文本从 39,507 降到 26,065 chars。最大减少来自这些 section：`Examples of When to Use the Todo List` -4,111 chars; `Committing changes with git` -3,756 chars; `Examples of When NOT to Use the Todo List` -2,178 chars; `Creating pull requests` -1,884 chars；同时新增/合并为更短的 section：`Git and GitHub` +1,824 chars; `Examples` +1,344 chars。下一版 `1.15.3` 保持在 35,358 chars，说明这是持续压缩后的新 plateau。因此它更像是 prompt pruning/compaction：把 Git/GitHub、Task、TodoWrite 等长示例和冗长操作协议压缩成更短规则，而不是 deferred-tool 机制或采集失败。
+
 **为什么 Pi 看起来几乎没变：**在当前 archive 中 Pi 有 30 个快照，发布时间覆盖 2026-05-07 到 2026-07-14。`prompt.md` 字符数只在 5,637–5,784 chars 之间波动，而全图 y 轴最高到 126,838 chars，所以在统一尺度图上接近水平线。首尾字符数从 5,637 到 5,687，净变化 50 chars；工具数一直是 4，参数数一直是 9，schema 字符数只有 1602, 1664 这几个状态。主要可见变化是少量文档路径/读文档规则、`read` 支持格式，以及 `edit` schema 的 `additionalProperties` 字段变化；因此它不是图漏画，而是该 capture profile 下 OPS 本身较小且低 churn。
+
 关键有效性含义：不同 agent 的 command、tap mode、模型/provider 假配置并不一致，所以横向比较要解释为 *under archived capture profiles* 的 OPS 差异。Claude Code 的 `static-prompts.*` 只作为补充材料，不和 runtime OPS 混合。
 
+<a id="section-2"></a>
 ## 2. RQ1：不同 Agent CLI 的 OPS 结构有什么异同？
 
+<a id="section-2-1"></a>
 ### 2.1 字段和类别定义
 
 RQ1 的结构表把 prompt surface 拆成几个 plane/component。需要注意：`Instr%`、`Tool text%`、`Runtime%`、`Capture-artifact%` 来自 `prompt.md` 的 section 文本拆分；`Tool schema%` 来自 `trace.jsonl` 的工具 JSON schema，并用 prompt 字符数归一化方便比较。因此 `Tool schema%` 可能和 `Tool text%` 重叠，不能把所有百分比直接相加成 100%。
@@ -72,6 +115,7 @@ RQ1 的结构表把 prompt surface 拆成几个 plane/component。需要注意�
 | `Parameter count` | 工具参数总数；机器字段为 `tool_parameter_count` | raw tool schema 的 `properties` 数量总和 | 同一个 [`openclaw 2026.7.1`](../captures/openclaw/2026.7.1/trace.jsonl) 的 38 个工具合计有 435 个参数，其中 34 个为 required；这是参数总数，不是单个工具的参数数。 |
 | `Governance notes` | 文本治理显式性提示 | 根据 must/never/confirm/test 等词密度阈值生成，仅表示文本上显式，不表示真实安全性 | [`omp 16.5.2`](../captures/omp/16.5.2/prompt.md) 的 prohibition density 为 18.60/1k words、verification density 为 9.85/1k words，因此标记为 `many prohibitions; verification-heavy`。 |
 
+<a id="section-2-1-tool-metrics"></a>
 #### `Tool text%` 与 `Tool schema%` 的区别
 
 这两个指标都描述 capability/tool plane，但观察的是不同表示层。`Tool text%` 衡量面向模型的可读工具文本，包括工具用途、调用时机、限制、示例和工具使用协议；数据来自 `prompt.md` 的 Tools/Tooling sections。`Tool schema%` 衡量工具输入接口的结构化契约，包括参数名、类型、`required`、`enum` 和嵌套对象；数据来自 `trace.jsonl` 原始请求中的 JSON schema。
@@ -102,6 +146,7 @@ RQ1 的结构表把 prompt surface 拆成几个 plane/component。需要注意�
 
 以 [`openclaw 2026.7.1`](../captures/openclaw/2026.7.1/trace.jsonl) 为例，Tool text 为 85,243 chars（72.0%），raw tool schema 为 45,544 chars（相当于 prompt.md 的 38.5%），同时暴露 38 个工具和 435 个参数。这两个百分比不能相加：`prompt.md` 可能已经把 raw schema 渲染进工具章节，因此 schema 内容可能同时落入 Tool text 的 section 统计范围。更准确地说，`Tool text%` 衡量工具面的文本暴露规模，`Tool schema%` 衡量工具输入接口的结构复杂度；它们是可能重叠的两个观察视角，而不是互斥的 prompt 组成部分。
 
+<a id="section-2-1-components"></a>
 #### Component 类别及实例
 
 | Component | What belongs here | Concrete archive example | Dominant observed? |
@@ -114,6 +159,7 @@ RQ1 的结构表把 prompt surface 拆成几个 plane/component。需要注意�
 
 因此，`Dominant component` 虽然在方法上允许四种 prompt.md component，但当前 archive 里实际只观察到 `instruction` 和 `tool_prompt` 成为 dominant；`runtime` 与 `capture_artifact` 的示例真实存在，只是从未超过同一快照中的其他分量。`tool_schema` 单独报告为 capability-plane 指标，因为它来自 raw trace，而不一定是 `prompt.md` 的非重叠组成部分。
 
+<a id="section-2-2"></a>
 ### 2.2 最新快照横向结构对比
 
 最新快照中，prompt 字符数最大的是 `mimo` `0.1.5` （126,838 chars）；观测工具数量最多的是 `openclaw` `2026.7.1`（38 tools）。
@@ -147,8 +193,10 @@ RQ1 的结构表把 prompt surface 拆成几个 plane/component。需要注意�
 - **小型低 churn 类型**：Pi 最新快照只有 4 个工具、9 个参数，instruction 与 tool text 都能正常抽取；它适合当作‘版本发布较多但 OPS 设计变化很少’的对照样本。
 - **治理指标只表示文本显式性**：must/never/confirm/test 等密度适合比较 prompt-level governance，但不是行为安全分数。
 
+<a id="section-3"></a>
 ## 3. RQ2：同一个 Agent 的 OPS 如何随时间变化？
 
+<a id="section-3-1"></a>
 ### 3.1 不是只比较首尾版本
 
 下面的表是首尾变化摘要，用于快速看每个 agent 的长期净变化；真正的纵向分析并不只用首尾两点。管线对每个 agent 的每个 captured version 都生成一行 `longitudinal_metrics.csv`，并在 `prompt_chars_timeline.svg` 中以“一个版本一个点”的方式画出全量时间序列。
@@ -189,6 +237,7 @@ RQ1 的结构表把 prompt surface 拆成几个 plane/component。需要注意�
 **中间版本没有被省略：**每个点对应一对相邻版本，包括零 churn 版本；菱形是中位数，三角形是 P90，右侧标出最大值。这张图和字符时间线共同回答“变化是否持续发生”：大量点挤在零附近但少数点远离主体，才构成 bursty evolution 的证据。
 **Churn 分布的定量读法：**零 churn transition 比例最高的是 `pi` 79.3% (29 transitions)、`kimi` 78.9% (19 transitions)、`opencode` 65.1% (86 transitions)；单次最大 churn 最高的是 `claude-code` 0.807、`codex` 0.760、`kimi` 0.311。这说明‘大量稳定 release + 少数剧烈 redesign’在部分 Agent 上非常明显，但不是所有 Agent 都共享同一种节奏。
 
+<a id="section-3-2"></a>
 ### 3.2 Prompt-size major jump events
 
 下面这张表系统覆盖字符数折线图里的主要大跳变，按相邻 captured version 的 `abs(prompt_delta_chars)` 排序。完整 Top 30 机器可读表在 `results/major_jump_events.csv`。注意：`days_between` 大的事件可能是 archive 覆盖缺口后的累计变化，不应直接解释成单日改版。
@@ -222,6 +271,7 @@ RQ1 的结构表把 prompt surface 拆成几个 plane/component。需要注意�
 
 这些大跳变大致分成五类：deferred-tool 暴露方式切换、prompt pruning/compaction、工具/能力面扩张或收缩、核心 instruction 大块增删、以及带覆盖缺口的 mixed change。下面的逐点解释把每个跳变拆成现象、主要来源、section 证据、解释和写作边界，便于后续技术报告直接引用或改写。
 
+<a id="section-3-2-1"></a>
 #### 3.2.1 如何解释这些跳变
 
 跳变解释使用四个证据轴，而不是只看折线图高度：
@@ -233,6 +283,7 @@ RQ1 的结构表把 prompt surface 拆成几个 plane/component。需要注意�
 
 因此，下面的解释是 prompt-surface 级别的证据解释，不等同于完整 harness 变化。尤其是 `days_between` 很大、`same_capture_command=false` 或 trace body 解析不完整的事件，只能作为弱一些的候选案例。
 
+<a id="section-3-2-2"></a>
 #### 3.2.2 跳变类型概览
 
 - **工具/能力面扩张、收缩或重塑**：Top 20 中 13 个事件。
@@ -241,6 +292,7 @@ RQ1 的结构表把 prompt surface 拆成几个 plane/component。需要注意�
 - **coverage gap 后的累计 mixed change**：Top 20 中 1 个事件。
 - **prompt pruning / compaction**：Top 20 中 1 个事件。
 
+<a id="section-3-2-3"></a>
 #### 3.2.3 逐个跳变解释
 
 **J01. `claude-code` `2.1.68` -> `2.1.69`：-60,827 chars (-75.6%)**
@@ -403,6 +455,7 @@ RQ1 的结构表把 prompt surface 拆成几个 plane/component。需要注意�
 - **解释**：主要来源是 工具说明文本 / capability guidance 增长，并伴随观测工具数增加 2。这通常表示新工具、新能力模块或更完整的工具说明进入初始 OPS。
 - **写作边界**：相邻 capture profile 基本一致，因此可作为较强的文本变化证据；但仍不能推出真实任务表现或安全性变化。
 
+<a id="section-3-2-4"></a>
 #### 3.2.4 综合解读
 
 Top 20 大跳变中，正向增长有 16 个，负向收缩有 4 个；最大分量为 `tool_text` 的有 17 个，最大分量为 `instruction` 的有 3 个。这说明折线图里的尖峰多数不是单纯核心角色说明变长，而是 capability/tool plane 的暴露、说明、裁剪或重写。
@@ -413,6 +466,7 @@ profile-sensitive 事件包括 `mimo 0.1.4->0.1.5`。这些事件仍然有文本
 整体上，跳变分析支持一种更细的写法：prompt surface 的演化不是简单的‘越来越长’，而是由几种机制叠加产生：工具 schema/工具说明进入或离开初始请求、长示例被压缩、核心工作流/记忆/技能规则成块重写、以及 capture profile 暴露策略变化。后续技术报告应把这些机制分别讨论，而不要把所有尖峰都归因于同一种趋势。
 
 
+<a id="section-3-3"></a>
 ### 3.3 全版本 clause-level change event 摘要
 
 最大相邻 clause churn 事件如下。它们用于挑选 case study，而不是自动等同 prompt-size 最大变化：
@@ -436,8 +490,10 @@ profile-sensitive 事件包括 `mimo 0.1.4->0.1.5`。这些事件仍然有文本
 
 初步解释：Claude Code 早期和 Codex 近期都有较高 churn 事件，但需要逐条查看 `change_events.csv` 区分真实内容变更、段落重排、工具 schema 重排和 capture profile 变化。`moved_clauses` 较高的事件尤其不应被简单解释为删除/新增。
 
+<a id="section-4"></a>
 ## 4. RQ3：哪些类别的 prompt 指令变化更活跃？
 
+<a id="section-4-1"></a>
 ### 4.1 这个结果是怎么分析出来的
 
 RQ3 的输入不是人工印象，而是脚本生成的 clause 表和相邻版本 diff：
@@ -451,6 +507,7 @@ RQ3 的输入不是人工印象，而是脚本生成的 clause 表和相邻版�
 
 因此，RQ3 表里“Top categories”回答的是全历史文本分布；`change_heatmap.svg` 和 `top_change_events.csv` 才更接近“变化更活跃”的问题。由于当前分类是 rule-only，`uncertain` 高的 agent 需要人工或经批准的模型分类复核。
 
+<a id="section-4-2"></a>
 ### 4.2 全历史 clause 类别分布
 
 | Agent | Top categories | Uncertain share | Runtime/capture share |
@@ -488,6 +545,7 @@ RQ3 的输入不是人工印象，而是脚本生成的 clause 表和相邻版�
 | H6: 成熟 agent 可能收缩或模块化 | 有 prompt delta 为负或 epoch 停滞的 agent，可作为反例 | 防止单线性“越来越长”叙事 |
 | H7: 功能删除可能是 headless capture effect | 方法上必须保留；本版不做新增敏感性实验 | 写入 threats to validity |
 
+<a id="section-5"></a>
 ## 5. RQ4：不同 Agent 是否收敛或分化？
 
 本版使用两个粗粒度相似性指标：类别分布 cosine 和工具集合 Jaccard。前者衡量 prompt clause 主题分布，后者衡量观测工具名集合重叠。二者都只能说明 OPS 表层相似性。
@@ -513,6 +571,7 @@ RQ3 的输入不是人工印象，而是脚本生成的 clause 表和相邻版�
 
 解读建议：类别相似但工具 Jaccard 低，通常表示高层 prompt 功能趋同但具体 capability surface 不同；工具 Jaccard 高但类别相似低，则可能是共享底层工具形态但交互/治理文本不同。不要从相似度直接推断代码共享或抄袭。
 
+<a id="section-6"></a>
 ## 6. 可直接写进技术报告的方法段
 
 1. 定义 OPS：agent、version、capture profile 下的一次 prompt-bearing request。
@@ -522,6 +581,7 @@ RQ3 的输入不是人工印象，而是脚本生成的 clause 表和相邻版�
 5. 用 macro-average 和 per-agent summary 做横向比较，避免 release 数多的 agent 主导结论。
 6. 所有 claims 必须引用 `results/claims.csv`、派生表或图，不从一次性主观阅读得出。
 
+<a id="section-7"></a>
 ## 7. 仍需加强的地方
 
 - 对 `uncertain` 和 top churn 事件做人工抽样复核，形成分类准确率或审计说明。
@@ -530,6 +590,7 @@ RQ3 的输入不是人工印象，而是脚本生成的 clause 表和相邻版�
 - 对每个 top case study 增加短 excerpt，注意版权和引用长度。
 - 如果论文要讨论 capture sensitivity，需要另开实验，不应从现有 archive 直接推断。
 
+<a id="section-8"></a>
 ## 8. 复现入口和证据文件
 
 ```bash
